@@ -1,7 +1,6 @@
 package com.nemless.school_wits.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.nemless.school_wits.enums.CourseFileType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,40 +8,33 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "course_file")
-public class CourseFile {
+@Table(name = "quiz")
+public class Quiz implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "course_id")
-    private Course course;
-
-    @Enumerated(EnumType.STRING)
-    private CourseFileType type;
+    @OneToOne
+    @JoinColumn(name = "video_id")
+    private CourseFile video;
 
     @Column(nullable = false)
-    private String title;
+    private int totalMark;
 
     @Column(nullable = false)
-    private String description;
+    private int duration;
 
-    @Column(nullable = false)
-    private String fileName;
-
-    @Column(nullable = false)
-    private String fileLink;
-
-    @OneToOne(mappedBy = "video")
-    @JsonIgnore
-    private Quiz quiz;
+    @OneToMany(mappedBy = "quiz")
+    private List<QuizQuestion> questions = new ArrayList<>();
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
