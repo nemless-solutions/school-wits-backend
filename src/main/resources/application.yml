@@ -1,0 +1,21 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: SchoolWits
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/school-wits
+    username: postgres
+    password: tiger
+    initialization-mode: always
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+  sql:
+    init:
+      mode: always
+  jwt:
+    secret: 743d253555a5aaf68e3adf8faade4f5db388dc2958da14bcdd01ebaba8728ecc
+    expiration: 30000000
