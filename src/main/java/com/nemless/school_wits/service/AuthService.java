@@ -2,8 +2,8 @@ package com.nemless.school_wits.service;
 
 import com.nemless.school_wits.config.ResponseMessage;
 import com.nemless.school_wits.config.UserDetailsImpl;
-import com.nemless.school_wits.dto.request.LoginRequestDto;
-import com.nemless.school_wits.dto.request.UserRegistrationRequestDto;
+import com.nemless.school_wits.dto.request.UserLoginDto;
+import com.nemless.school_wits.dto.request.UserRegistrationDto;
 import com.nemless.school_wits.dto.response.AuthResponse;
 import com.nemless.school_wits.exception.BadRequestException;
 import com.nemless.school_wits.model.Role;
@@ -40,16 +40,16 @@ public class AuthService {
         return UUID.randomUUID().toString().replace("-", "").substring(0, 8);
     }
 
-    public AuthResponse registerUser(UserRegistrationRequestDto userRegistrationRequestDto) {
-        if(userRepository.existsByEmail(userRegistrationRequestDto.getEmail())) {
+    public AuthResponse registerUser(UserRegistrationDto userRegistrationDto) {
+        if(userRepository.existsByEmail(userRegistrationDto.getEmail())) {
             throw new BadRequestException(ResponseMessage.EMAIL_ALREADY_EXISTS);
         }
 
         User user = new User();
-        user.setEmail(userRegistrationRequestDto.getEmail());
-        user.setPassword(passwordEncoder.encode(userRegistrationRequestDto.getPassword()));
-        user.setFullName(userRegistrationRequestDto.getFullName());
-        user.setContact(userRegistrationRequestDto.getContact());
+        user.setEmail(userRegistrationDto.getEmail());
+        user.setPassword(passwordEncoder.encode(userRegistrationDto.getPassword()));
+        user.setFullName(userRegistrationDto.getFullName());
+        user.setContact(userRegistrationDto.getContact());
         user.setUid(generateUid());
         List<Role> roles = roleRepository.findByNameIn(
                 List.of(com.nemless.school_wits.enums.Role.ROLE_STUDENT)
@@ -59,19 +59,19 @@ public class AuthService {
         userRepository.save(user);
         log.info("New user created: {}", user);
 
-        String token = getToken(userRegistrationRequestDto.getEmail(), userRegistrationRequestDto.getPassword());
+        String token = getToken(userRegistrationDto.getEmail(), userRegistrationDto.getPassword());
         return new AuthResponse(user, token);
     }
 
-    public AuthResponse login(LoginRequestDto loginRequestDto) {
-        if(!userRepository.existsByEmail(loginRequestDto.getEmail())) {
+    public AuthResponse login(UserLoginDto userLoginDto) {
+        if(!userRepository.existsByEmail(userLoginDto.getEmail())) {
             throw new BadRequestException(ResponseMessage.INCORRECT_CREDENTIALS);
         }
 
-        User user = userRepository.findByEmail(loginRequestDto.getEmail()).orElse(null);
+        User user = userRepository.findByEmail(userLoginDto.getEmail()).orElse(null);
         if(user == null) return null;
 
-        String token = getToken(user.getEmail(), loginRequestDto.getPassword());
+        String token = getToken(user.getEmail(), userLoginDto.getPassword());
         return new AuthResponse(user, token);
     }
 

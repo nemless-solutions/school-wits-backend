@@ -1,7 +1,6 @@
 package com.nemless.school_wits.service;
 
 import com.nemless.school_wits.config.ResponseMessage;
-import com.nemless.school_wits.dto.request.UploadCourseFileDto;
 import com.nemless.school_wits.exception.ResourceNotFoundException;
 import com.nemless.school_wits.model.Course;
 import com.nemless.school_wits.model.CourseFile;
@@ -14,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.UUID;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -29,24 +29,26 @@ public class CourseFileService {
         return courseFileRepository.findAllByCourse(course);
     }
 
-    public CourseFile saveFile(UploadCourseFileDto uploadCourseFileDto) {
-        Course course = courseRepository.findById(uploadCourseFileDto.getCourseId())
+    public CourseFile saveFile(Long courseId, String title, String description, MultipartFile file) {
+        Course course = courseRepository.findById(courseId)
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_COURSE_ID));
 
-        MultipartFile file = uploadCourseFileDto.getFile();
         FileUtils.validateCourseFile(file);
-
-        // upload and get file link
-        String fileLink = "fileLink";
+        String uid = generateUid();
+        FileUtils.uploadFile(file, course.getUid(), uid);
 
         CourseFile courseFile = new CourseFile();
         courseFile.setCourse(course);
         courseFile.setType(FileUtils.getFileType(file));
-        courseFile.setTitle(uploadCourseFileDto.getTitle());
-        courseFile.setDescription(uploadCourseFileDto.getDescription());
+        courseFile.setTitle(title);
+        courseFile.setDescription(description);
         courseFile.setFileName(file.getOriginalFilename());
-        courseFile.setFileLink(fileLink);
+        courseFile.setFileUid(uid);
 
         return courseFileRepository.save(courseFile);
+    }
+
+    private String generateUid() {
+        return UUID.randomUUID().toString().replace("-", "").substring(0, 8);
     }
 }

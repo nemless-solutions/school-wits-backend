@@ -1,6 +1,6 @@
 package com.nemless.school_wits.controller;
 
-import com.nemless.school_wits.dto.request.CreateCourseRequestDto;
+import com.nemless.school_wits.dto.request.CreateCourseDto;
 import com.nemless.school_wits.model.Course;
 import com.nemless.school_wits.service.CourseService;
 import lombok.RequiredArgsConstructor;
@@ -23,10 +23,10 @@ public class CourseController {
     }
 
     @PostMapping
-    ResponseEntity<Course> createCourse(CreateCourseRequestDto createCourseRequestDto) {
-        log.info("Creating new course: {}", createCourseRequestDto);
+    ResponseEntity<Course> createCourse(CreateCourseDto createCourseDto) {
+        log.info("Creating new course: {}", createCourseDto);
 
-        return ResponseEntity.ok(courseService.createCourse(createCourseRequestDto));
+        return ResponseEntity.ok(courseService.createCourse(createCourseDto));
     }
 
     @GetMapping("/{courseId}")

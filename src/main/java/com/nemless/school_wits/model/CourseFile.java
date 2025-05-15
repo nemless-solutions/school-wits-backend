@@ -38,7 +38,7 @@ public class CourseFile {
     private String fileName;
 
     @Column(nullable = false)
-    private String fileLink;
+    private String fileUid;
 
     @OneToOne(mappedBy = "video")
     @JsonIgnore

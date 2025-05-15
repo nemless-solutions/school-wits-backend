@@ -1,7 +1,7 @@
 package com.nemless.school_wits.controller;
 
-import com.nemless.school_wits.dto.request.LoginRequestDto;
-import com.nemless.school_wits.dto.request.UserRegistrationRequestDto;
+import com.nemless.school_wits.dto.request.UserLoginDto;
+import com.nemless.school_wits.dto.request.UserRegistrationDto;
 import com.nemless.school_wits.dto.response.AuthResponse;
 import com.nemless.school_wits.model.User;
 import com.nemless.school_wits.service.AuthService;
@@ -24,16 +24,16 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    ResponseEntity<AuthResponse> registerUser(@RequestBody @Valid UserRegistrationRequestDto userRegistrationRequestDto) {
-        log.info("Registration request: {}", userRegistrationRequestDto);
+    ResponseEntity<AuthResponse> registerUser(@RequestBody @Valid UserRegistrationDto userRegistrationDto) {
+        log.info("Registration request: {}", userRegistrationDto);
 
-        return ResponseEntity.ok(authService.registerUser(userRegistrationRequestDto));
+        return ResponseEntity.ok(authService.registerUser(userRegistrationDto));
     }
 
     @PostMapping("/login")
-    ResponseEntity<AuthResponse> login(@RequestBody @Valid LoginRequestDto loginRequestDto) {
-        log.info("Login request: {}", loginRequestDto);
+    ResponseEntity<AuthResponse> login(@RequestBody @Valid UserLoginDto userLoginDto) {
+        log.info("Login request: {}", userLoginDto);
 
-        return ResponseEntity.ok(authService.login(loginRequestDto));
+        return ResponseEntity.ok(authService.login(userLoginDto));
     }
 }

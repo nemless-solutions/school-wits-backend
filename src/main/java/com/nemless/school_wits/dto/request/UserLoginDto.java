@@ -10,7 +10,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @AllArgsConstructor
-public class LoginRequestDto {
+public class UserLoginDto {
     @NotBlank(message = "Email is required")
     @Email(message = "Invalid email format")
     private String email;
@@ -18,7 +18,4 @@ public class LoginRequestDto {
     @NotBlank(message = "Password is required")
     @Size(min = 6, message = "Password must be at least 6 characters long")
     private String password;
-
-    @NotBlank(message = "Contact number is required")
-    private String contact;
 }

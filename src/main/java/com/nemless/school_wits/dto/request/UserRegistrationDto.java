@@ -10,7 +10,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @AllArgsConstructor
-public class UserRegistrationRequestDto {
+public class UserRegistrationDto {
     @NotBlank(message = "Email is required")
     @Email(message = "Invalid email format")
     private String email;

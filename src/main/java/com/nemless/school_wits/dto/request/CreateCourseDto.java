@@ -1,24 +1,25 @@
 package com.nemless.school_wits.dto.request;
 
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
-import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @ToString
 @AllArgsConstructor
-public class UploadCourseFileDto {
-    @NotBlank(message = "Course id is required")
-    private Long courseId;
-
+public class CreateCourseDto {
     @NotBlank(message = "Title is required")
     private String title;
 
     @NotBlank(message = "Description is required")
     private String description;
 
-    @NotBlank(message = "File is required")
-    private MultipartFile file;
+    @NotBlank(message = "UID is required")
+    private String uid;
+
+    @NotBlank(message = "Fee is required")
+    @DecimalMin(value = "0.0")
+    private float fee;
 }
