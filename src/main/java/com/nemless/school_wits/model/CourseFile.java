@@ -23,6 +23,7 @@ public class CourseFile {
 
     @ManyToOne
     @JoinColumn(name = "course_id")
+    @JsonIgnore
     private Course course;
 
     @Enumerated(EnumType.STRING)

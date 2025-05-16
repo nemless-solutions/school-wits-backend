@@ -23,7 +23,6 @@ import java.util.Set;
 public class FileUtils {
     private static final Tika tika = new Tika();
     private static final Set<String> ALLOWED_VIDEO_TYPES = Set.of(
-            "application/pdf",
             "video/mp4",
             "video/x-matroska",
             "video/x-msvideo",

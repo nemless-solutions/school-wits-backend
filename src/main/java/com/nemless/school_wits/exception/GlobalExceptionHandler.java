@@ -1,6 +1,8 @@
 package com.nemless.school_wits.exception;
 
+import com.nemless.school_wits.config.ResponseMessage;
 import lombok.extern.slf4j.Slf4j;
+import org.postgresql.util.PSQLException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -26,5 +28,11 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> internalServerException(InternalServerException ex) {
         log.error(ex.getMessage());
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage());
+    }
+
+    @ExceptionHandler(PSQLException.class)
+    public ResponseEntity<String> databaseException(PSQLException ex) {
+        log.error(ex.getMessage());
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ResponseMessage.UNABLE_TO_SAVE);
     }
 }

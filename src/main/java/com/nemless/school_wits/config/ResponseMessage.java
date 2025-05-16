@@ -13,4 +13,5 @@ public class ResponseMessage {
     public static final String QUIZ_NOT_FOUND = "Quiz not found";
     public static final String ENROLLMENT_EXISTS = "Student is already enrolled in this course";
     public static final String UNABLE_TO_UPLOAD = "Can not upload file at this moment";
+    public static final String UNABLE_TO_SAVE = "Error while saving info";
 }
