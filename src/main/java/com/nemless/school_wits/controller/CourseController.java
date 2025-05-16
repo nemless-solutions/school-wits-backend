@@ -3,6 +3,7 @@ package com.nemless.school_wits.controller;
 import com.nemless.school_wits.dto.request.CreateCourseDto;
 import com.nemless.school_wits.model.Course;
 import com.nemless.school_wits.service.CourseService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ public class CourseController {
     }
 
     @PostMapping
-    ResponseEntity<Course> createCourse(CreateCourseDto createCourseDto) {
+    ResponseEntity<Course> createCourse(@Valid @RequestBody CreateCourseDto createCourseDto) {
         log.info("Creating new course: {}", createCourseDto);
 
         return ResponseEntity.ok(courseService.createCourse(createCourseDto));

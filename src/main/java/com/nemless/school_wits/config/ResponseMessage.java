@@ -10,8 +10,10 @@ public class ResponseMessage {
     public static final String INVALID_VIDEO_ID = "Video id is invalid";
     public static final String INVALID_QUIZ_ID = "Quiz id is invalid";
     public static final String INVALID_QUESTION_ID = "Question id is invalid";
+    public static final String INVALID_FILE_ID = "File id is invalid";
     public static final String QUIZ_NOT_FOUND = "Quiz not found";
     public static final String ENROLLMENT_EXISTS = "Student is already enrolled in this course";
     public static final String UNABLE_TO_UPLOAD = "Can not upload file at this moment";
     public static final String UNABLE_TO_SAVE = "Error while saving info";
+    public static final String UNABLE_TO_DOWNLOAD = "Can not download file at this moment";
 }

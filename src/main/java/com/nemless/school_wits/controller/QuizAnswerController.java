@@ -3,6 +3,7 @@ package com.nemless.school_wits.controller;
 import com.nemless.school_wits.dto.request.CreateQuizAnswerDto;
 import com.nemless.school_wits.model.QuizAnswer;
 import com.nemless.school_wits.service.QuizAnswerService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class QuizAnswerController {
     private final QuizAnswerService quizAnswerService;
 
     @PostMapping
-    ResponseEntity<QuizAnswer> createQuizAnswer(CreateQuizAnswerDto createQuizAnswerDto) {
+    ResponseEntity<QuizAnswer> createQuizAnswer(@Valid @RequestBody CreateQuizAnswerDto createQuizAnswerDto) {
         log.info("Creating quiz answer: {}", createQuizAnswerDto);
 
         return ResponseEntity.ok(quizAnswerService.createQuizAnswer(createQuizAnswerDto));

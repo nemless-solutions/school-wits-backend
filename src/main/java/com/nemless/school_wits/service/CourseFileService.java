@@ -9,6 +9,8 @@ import com.nemless.school_wits.repository.CourseRepository;
 import com.nemless.school_wits.util.FileUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.io.Resource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -50,5 +52,14 @@ public class CourseFileService {
 
     private String generateUid() {
         return UUID.randomUUID().toString().replace("-", "").substring(0, 8);
+    }
+
+    public ResponseEntity<Resource> downloadFile(Long fileId) {
+        CourseFile courseFile = courseFileRepository.findById(fileId)
+                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_FILE_ID));
+
+        String filePath = courseFile.getCourse().getUid();
+        String fileName = courseFile.getFileUid();
+        return FileUtils.downloadFile(filePath, fileName);
     }
 }
