@@ -1,7 +1,7 @@
 package com.nemless.school_wits.dto.request;
 
-import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
@@ -19,7 +19,6 @@ public class CreateCourseDto {
     @NotBlank(message = "UID is required")
     private String uid;
 
-    @NotBlank(message = "Fee is required")
-    @DecimalMin(value = "0.0")
+    @NotNull(message = "Fee is required")
     private float fee;
 }

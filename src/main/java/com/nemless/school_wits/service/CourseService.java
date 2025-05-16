@@ -2,6 +2,7 @@ package com.nemless.school_wits.service;
 
 import com.nemless.school_wits.config.ResponseMessage;
 import com.nemless.school_wits.dto.request.CreateCourseDto;
+import com.nemless.school_wits.exception.BadRequestException;
 import com.nemless.school_wits.exception.ResourceNotFoundException;
 import com.nemless.school_wits.model.Course;
 import com.nemless.school_wits.repository.CourseRepository;
@@ -22,6 +23,10 @@ public class CourseService {
     }
 
     public Course createCourse(CreateCourseDto createCourseDto) {
+        if(createCourseDto.getFee() < 0) {
+            throw new BadRequestException(ResponseMessage.INVALID_AMOUNT);
+        }
+
         Course course = new Course();
         course.setTitle(createCourseDto.getTitle());
         course.setDescription(createCourseDto.getDescription());

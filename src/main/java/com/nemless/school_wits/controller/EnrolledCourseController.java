@@ -1,6 +1,7 @@
 package com.nemless.school_wits.controller;
 
-import com.nemless.school_wits.model.EnrolledCourse;
+import com.nemless.school_wits.config.ResponseMessage;
+import com.nemless.school_wits.dto.response.EnrolledCourseDto;
 import com.nemless.school_wits.service.EnrolledCourseService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,12 +18,13 @@ public class EnrolledCourseController {
     private final EnrolledCourseService enrolledCourseService;
 
     @GetMapping
-    ResponseEntity<List<EnrolledCourse>> getEnrollments() {
+    ResponseEntity<List<EnrolledCourseDto>> getEnrollments() {
         return ResponseEntity.ok(enrolledCourseService.getEnrollments());
     }
 
     @PostMapping
-    ResponseEntity<EnrolledCourse> enrollInCourse(@RequestBody Long courseId) {
-        return ResponseEntity.ok(enrolledCourseService.enrollInCourse(courseId));
+    ResponseEntity<String> enrollInCourse(@RequestParam Long courseId) {
+        enrolledCourseService.enrollInCourse(courseId);
+        return ResponseEntity.ok(ResponseMessage.ENROLLMENT_SUCCESSFUL);
     }
 }

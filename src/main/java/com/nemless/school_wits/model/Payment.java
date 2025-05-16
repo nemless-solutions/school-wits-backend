@@ -22,14 +22,20 @@ public class Payment implements Serializable {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "enrolled_course_id ")
+    @JoinColumn(name = "enrolled_course_id")
+    @JsonIgnore
     private EnrolledCourse enrolledCourse;
 
     @Column(nullable = false)
     private float paidAmount;
 
+    private boolean isPaid = false;
+
     @Column(nullable = false)
-    private boolean isPaid;
+    private String paidFrom;
+
+    @Column(nullable = false)
+    private String transactionId;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)

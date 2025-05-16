@@ -22,11 +22,16 @@ public class EnrolledCourse {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
 
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
+
+    @OneToOne(mappedBy = "enrolledCourse")
+    @JsonIgnore
+    private Payment payment;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)

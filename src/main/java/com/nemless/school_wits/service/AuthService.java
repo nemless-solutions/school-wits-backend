@@ -68,8 +68,8 @@ public class AuthService {
             throw new BadRequestException(ResponseMessage.INCORRECT_CREDENTIALS);
         }
 
-        User user = userRepository.findByEmail(userLoginDto.getEmail()).orElse(null);
-        if(user == null) return null;
+        User user = userRepository.findByEmail(userLoginDto.getEmail())
+                .orElseThrow(() -> new BadRequestException(ResponseMessage.INCORRECT_CREDENTIALS));
 
         String token = getToken(user.getEmail(), userLoginDto.getPassword());
         return new AuthResponse(user, token);
