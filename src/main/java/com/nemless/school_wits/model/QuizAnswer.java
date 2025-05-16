@@ -25,5 +25,6 @@ public class QuizAnswer {
     private String title;
 
     @Column(nullable = false)
+    @JsonIgnore
     private boolean isCorrect;
 }
