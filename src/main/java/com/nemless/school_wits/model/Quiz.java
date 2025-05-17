@@ -25,6 +25,7 @@ public class Quiz implements Serializable {
 
     @OneToOne
     @JoinColumn(name = "video_id")
+    @JsonIgnore
     private CourseFile video;
 
     @Column(nullable = false)

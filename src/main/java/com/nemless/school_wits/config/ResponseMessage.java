@@ -24,4 +24,5 @@ public class ResponseMessage {
     public static final String PAYMENT_STATUS_UPDATED = "Payment status updated";
     public static final String INVALID_AMOUNT = "Amount is invalid";
     public static final String UNAUTHORIZED_REQUEST = "Request is unauthorized";
+    public static final String INVALID_QUESTION_ANSWER = "One or more question or answer id is invalid";
 }
