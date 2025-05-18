@@ -51,6 +51,14 @@ public class AuthService {
         user.setFullName(userRegistrationDto.getFullName());
         user.setContact(userRegistrationDto.getContact());
         user.setUid(generateUid());
+        user.setFatherName(userRegistrationDto.getFatherName());
+        user.setMotherName(userRegistrationDto.getMotherName());
+        user.setGuardianEmail(userRegistrationDto.getGuardianEmail());
+        user.setGuardianContact(userRegistrationDto.getGuardianContact());
+        user.setCurriculum(userRegistrationDto.getCurriculum());
+        user.setGrade(userRegistrationDto.getGrade());
+        user.setDateOfBirth(userRegistrationDto.getDateOfBirth());
+
         List<Role> roles = roleRepository.findByNameIn(
                 List.of(com.nemless.school_wits.enums.Role.ROLE_STUDENT)
         );

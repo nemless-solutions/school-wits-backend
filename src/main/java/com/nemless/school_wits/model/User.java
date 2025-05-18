@@ -1,12 +1,14 @@
 package com.nemless.school_wits.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.nemless.school_wits.enums.Curriculum;
+import com.nemless.school_wits.enums.Grade;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -37,10 +39,36 @@ public class User implements Serializable {
     private String password;
 
     @Column(nullable = false)
+    @Size(min = 6)
     private String fullName;
 
     @Column(nullable = false)
     private String contact;
+
+    @Column(nullable = false)
+    @Size(min = 6)
+    private String fatherName;
+
+    @Column(nullable = false)
+    @Size(min = 6)
+    private String motherName;
+
+    @Email
+    @Column(nullable = false)
+    private String guardianEmail;
+
+    @Column(nullable = false)
+    private String guardianContact;
+
+    @Enumerated(EnumType.STRING)
+    private Curriculum curriculum;
+
+    @Enumerated(EnumType.STRING)
+    private Grade grade;
+
+    @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
+    private Date dateOfBirth;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinTable(
@@ -48,7 +76,6 @@ public class User implements Serializable {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    @ToString.Exclude
     @JsonIgnore
     private List<Role> roles = new ArrayList<>();
 
