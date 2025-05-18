@@ -9,6 +9,7 @@ public class ResponseMessage {
     public static final String INVALID_FILE = "File is invalid";
     public static final String INVALID_FILE_TYPE = "Please upload video or pdf";
     public static final String INVALID_COURSE_ID = "Course id is invalid";
+    public static final String INVALID_COURSE_TOPIC_ID = "Topic id is invalid";
     public static final String INVALID_ENROLLED_COURSE_ID = "Enrolled course id is invalid";
     public static final String INVALID_PAYMENT_ID = "Payment id is invalid";
     public static final String INVALID_VIDEO_ID = "Video id is invalid";

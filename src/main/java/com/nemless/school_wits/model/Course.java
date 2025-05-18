@@ -1,6 +1,7 @@
 package com.nemless.school_wits.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.nemless.school_wits.enums.Grade;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,6 +27,10 @@ public class Course implements Serializable {
     @Column(nullable = false)
     private String uid;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Grade grade;
+
     @Column(nullable = false)
     private String title;
 
@@ -34,6 +39,10 @@ public class Course implements Serializable {
 
     @Column(nullable = false)
     private float fee;
+
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<CourseTopic> topics = new ArrayList<>();
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore

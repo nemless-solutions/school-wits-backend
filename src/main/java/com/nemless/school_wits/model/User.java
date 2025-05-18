@@ -61,9 +61,11 @@ public class User implements Serializable {
     private String guardianContact;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Curriculum curriculum;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Grade grade;
 
     @Temporal(TemporalType.DATE)
