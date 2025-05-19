@@ -27,12 +27,13 @@ public class CourseService {
             throw new BadRequestException(ResponseMessage.INVALID_AMOUNT);
         }
 
-        Course course = new Course();
-        course.setGrade(createCourseDto.getGrade());
-        course.setTitle(createCourseDto.getTitle());
-        course.setDescription(createCourseDto.getDescription());
-        course.setUid(createCourseDto.getUid());
-        course.setFee(createCourseDto.getFee());
+        Course course = Course.builder()
+                .grade(createCourseDto.getGrade())
+                .title(createCourseDto.getTitle())
+                .description(createCourseDto.getDescription())
+                .uid(createCourseDto.getUid())
+                .fee(createCourseDto.getFee())
+                .build();
 
         return courseRepository.save(course);
     }

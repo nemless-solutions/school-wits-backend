@@ -39,15 +39,16 @@ public class CourseFileService {
         String uid = generateUid();
         FileUtils.saveFile(file, courseTopic.getId().toString(), uid);
 
-        CourseFile courseFile = new CourseFile();
-        courseFile.setCourseTopic(courseTopic);
-        courseFile.setType(FileUtils.getFileType(file));
-        courseFile.setTitle(title);
-        courseFile.setDescription(description);
-        courseFile.setFileName(file.getOriginalFilename());
-        courseFile.setFileUid(uid);
-        courseFile = courseFileRepository.save(courseFile);
+        CourseFile courseFile = CourseFile.builder()
+                .courseTopic(courseTopic)
+                .type(FileUtils.getFileType(file))
+                .title(title)
+                .description(description)
+                .fileName(file.getOriginalFilename())
+                .fileUid(uid)
+                .build();
 
+        courseFile = courseFileRepository.save(courseFile);
         courseTopic.getCourseFiles().add(courseFile);
         courseTopicRepository.save(courseTopic);
         return courseFile;

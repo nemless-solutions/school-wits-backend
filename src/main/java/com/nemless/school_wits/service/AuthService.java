@@ -45,19 +45,20 @@ public class AuthService {
             throw new BadRequestException(ResponseMessage.EMAIL_ALREADY_EXISTS);
         }
 
-        User user = new User();
-        user.setEmail(userRegistrationDto.getEmail());
-        user.setPassword(passwordEncoder.encode(userRegistrationDto.getPassword()));
-        user.setFullName(userRegistrationDto.getFullName());
-        user.setContact(userRegistrationDto.getContact());
-        user.setUid(generateUid());
-        user.setFatherName(userRegistrationDto.getFatherName());
-        user.setMotherName(userRegistrationDto.getMotherName());
-        user.setGuardianEmail(userRegistrationDto.getGuardianEmail());
-        user.setGuardianContact(userRegistrationDto.getGuardianContact());
-        user.setCurriculum(userRegistrationDto.getCurriculum());
-        user.setGrade(userRegistrationDto.getGrade());
-        user.setDateOfBirth(userRegistrationDto.getDateOfBirth());
+        User user = User.builder()
+                .email(userRegistrationDto.getEmail())
+                .password(passwordEncoder.encode(userRegistrationDto.getPassword()))
+                .fullName(userRegistrationDto.getFullName())
+                .contact(userRegistrationDto.getContact())
+                .uid(generateUid())
+                .fatherName(userRegistrationDto.getFatherName())
+                .motherName(userRegistrationDto.getMotherName())
+                .guardianEmail(userRegistrationDto.getGuardianEmail())
+                .guardianContact(userRegistrationDto.getGuardianContact())
+                .curriculum(userRegistrationDto.getCurriculum())
+                .grade(userRegistrationDto.getGrade())
+                .dateOfBirth(userRegistrationDto.getDateOfBirth())
+                .build();
 
         List<Role> roles = roleRepository.findByNameIn(
                 List.of(com.nemless.school_wits.enums.Role.ROLE_STUDENT)
