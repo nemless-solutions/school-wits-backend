@@ -80,7 +80,7 @@ public class FileUtils {
         }
     }
 
-    public static void uploadFile(MultipartFile file, String path, String fileUid) {
+    public static void saveFile(MultipartFile file, String path, String fileUid) {
         File uploadDir = new File(directory + path);
         if (!uploadDir.exists()) {
             try {

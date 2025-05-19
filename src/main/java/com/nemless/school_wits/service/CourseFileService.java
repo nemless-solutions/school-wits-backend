@@ -2,10 +2,10 @@ package com.nemless.school_wits.service;
 
 import com.nemless.school_wits.config.ResponseMessage;
 import com.nemless.school_wits.exception.ResourceNotFoundException;
-import com.nemless.school_wits.model.Course;
 import com.nemless.school_wits.model.CourseFile;
+import com.nemless.school_wits.model.CourseTopic;
 import com.nemless.school_wits.repository.CourseFileRepository;
-import com.nemless.school_wits.repository.CourseRepository;
+import com.nemless.school_wits.repository.CourseTopicRepository;
 import com.nemless.school_wits.util.FileUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,32 +22,35 @@ import java.util.UUID;
 @Service
 public class CourseFileService {
     private final CourseFileRepository courseFileRepository;
-    private final CourseRepository courseRepository;
+    private final CourseTopicRepository courseTopicRepository;
 
-    public List<CourseFile> getCourseFileList(Long courseId) {
-        Course course = courseRepository.findById(courseId)
-                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_COURSE_ID));
+    public List<CourseFile> getCourseFileList(Long courseTopicId) {
+        CourseTopic courseTopic = courseTopicRepository.findById(courseTopicId)
+                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_COURSE_TOPIC_ID));
 
-        return courseFileRepository.findAllByCourse(course);
+        return courseFileRepository.findAllByCourseTopic(courseTopic);
     }
 
-    public CourseFile saveFile(Long courseId, String title, String description, MultipartFile file) {
-        Course course = courseRepository.findById(courseId)
-                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_COURSE_ID));
+    public CourseFile saveFile(Long courseTopicId, String title, String description, MultipartFile file) {
+        CourseTopic courseTopic = courseTopicRepository.findById(courseTopicId)
+                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_COURSE_TOPIC_ID));
 
         FileUtils.validateCourseFile(file);
         String uid = generateUid();
-        FileUtils.uploadFile(file, course.getUid(), uid);
+        FileUtils.saveFile(file, courseTopic.getId().toString(), uid);
 
         CourseFile courseFile = new CourseFile();
-        courseFile.setCourse(course);
+        courseFile.setCourseTopic(courseTopic);
         courseFile.setType(FileUtils.getFileType(file));
         courseFile.setTitle(title);
         courseFile.setDescription(description);
         courseFile.setFileName(file.getOriginalFilename());
         courseFile.setFileUid(uid);
+        courseFile = courseFileRepository.save(courseFile);
 
-        return courseFileRepository.save(courseFile);
+        courseTopic.getCourseFiles().add(courseFile);
+        courseTopicRepository.save(courseTopic);
+        return courseFile;
     }
 
     private String generateUid() {
@@ -58,7 +61,7 @@ public class CourseFileService {
         CourseFile courseFile = courseFileRepository.findById(fileId)
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_FILE_ID));
 
-        String filePath = courseFile.getCourse().getUid();
+        String filePath = courseFile.getCourseTopic().getId().toString();
         String fileName = courseFile.getFileUid();
         return FileUtils.downloadFile(filePath, fileName);
     }

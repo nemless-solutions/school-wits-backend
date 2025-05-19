@@ -19,9 +19,9 @@ import java.util.List;
 public class CourseFileController {
     private final CourseFileService courseFileService;
 
-    @GetMapping("/{courseId}")
-    ResponseEntity<List<CourseFile>> getCourseFileList(@PathVariable Long courseId) {
-        return ResponseEntity.ok(courseFileService.getCourseFileList(courseId));
+    @GetMapping("/{courseTopicId}")
+    ResponseEntity<List<CourseFile>> getCourseFileList(@PathVariable Long courseTopicId) {
+        return ResponseEntity.ok(courseFileService.getCourseFileList(courseTopicId));
     }
 
     @GetMapping("/download/{fileId}")
@@ -31,13 +31,13 @@ public class CourseFileController {
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     ResponseEntity<CourseFile> saveCourseFile(
-            @RequestParam("courseId") Long courseId,
+            @RequestParam("courseTopicId") Long courseTopicId,
             @RequestParam("title") String title,
             @RequestParam("description") String description,
             @RequestPart("file") MultipartFile file
     ) {
-        log.info("Uploading new file in course: {}", courseId);
+        log.info("Uploading new file in course topic: {}", courseTopicId);
 
-        return ResponseEntity.ok(courseFileService.saveFile(courseId, title, description, file));
+        return ResponseEntity.ok(courseFileService.saveFile(courseTopicId, title, description, file));
     }
 }

@@ -22,9 +22,9 @@ public class CourseFile {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "course_id")
+    @JoinColumn(name = "course_topic_id")
     @JsonIgnore
-    private Course course;
+    private CourseTopic courseTopic;
 
     @Enumerated(EnumType.STRING)
     private CourseFileType type;

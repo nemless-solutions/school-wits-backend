@@ -8,7 +8,9 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -30,6 +32,10 @@ public class CourseTopic implements Serializable {
     @JoinColumn(name = "course_id")
     @JsonIgnore
     private Course course;
+
+    @OneToMany(mappedBy = "courseTopic", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<CourseFile> courseFiles = new ArrayList<>();
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)

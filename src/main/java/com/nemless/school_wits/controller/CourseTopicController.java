@@ -31,7 +31,7 @@ public class CourseTopicController {
     }
 
     @GetMapping("/{courseTopicId}")
-    ResponseEntity<CourseTopic> getCourseById(@PathVariable Long courseTopicId) {
+    ResponseEntity<CourseTopic> getCourseTopicById(@PathVariable Long courseTopicId) {
         return ResponseEntity.ok(courseTopicService.getCourseTopicById(courseTopicId));
     }
 }

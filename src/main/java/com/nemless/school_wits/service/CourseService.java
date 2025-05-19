@@ -28,6 +28,7 @@ public class CourseService {
         }
 
         Course course = new Course();
+        course.setGrade(createCourseDto.getGrade());
         course.setTitle(createCourseDto.getTitle());
         course.setDescription(createCourseDto.getDescription());
         course.setUid(createCourseDto.getUid());

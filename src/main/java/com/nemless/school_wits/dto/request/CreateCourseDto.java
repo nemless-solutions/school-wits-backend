@@ -1,5 +1,6 @@
 package com.nemless.school_wits.dto.request;
 
+import com.nemless.school_wits.enums.Grade;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -10,6 +11,9 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 public class CreateCourseDto {
+    @NotNull
+    private Grade grade;
+
     @NotBlank(message = "Title is required")
     private String title;
 
