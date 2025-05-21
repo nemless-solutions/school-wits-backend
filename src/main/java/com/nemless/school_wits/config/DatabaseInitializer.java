@@ -2,8 +2,10 @@ package com.nemless.school_wits.config;
 
 import com.nemless.school_wits.enums.Curriculum;
 import com.nemless.school_wits.enums.Grade;
+import com.nemless.school_wits.model.Course;
 import com.nemless.school_wits.model.Role;
 import com.nemless.school_wits.model.User;
+import com.nemless.school_wits.repository.CourseRepository;
 import com.nemless.school_wits.repository.RoleRepository;
 import com.nemless.school_wits.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,6 +25,7 @@ import java.util.List;
 public class DatabaseInitializer implements CommandLineRunner {
     private final RoleRepository roleRepository;
     private final UserRepository userRepository;
+    private final CourseRepository courseRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
@@ -78,6 +82,32 @@ public class DatabaseInitializer implements CommandLineRunner {
             user.setRoles(roles1);
 
             userRepository.saveAll(List.of(admin, user));
+
+            List<String> titles = new ArrayList<>(
+                    List.of(
+                            "Physics",
+                            "Chemistry",
+                            "Biology",
+                            "Mathematics",
+                            "Advanced Mathematics",
+                            "Programming with Python"
+                    )
+            );
+            List<Course> courses = new ArrayList<>();
+
+            for(Grade grade : Grade.values()) {
+                for(String title : titles) {
+                    Course course = Course.builder()
+                            .uid(title + "-" + grade)
+                            .title(title)
+                            .grade(grade)
+                            .description("Dummy description")
+                            .fee(100)
+                            .build();
+                    courses.add(course);
+                }
+            }
+            courseRepository.saveAll(courses);
         }
     }
 }

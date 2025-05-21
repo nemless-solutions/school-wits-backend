@@ -39,7 +39,7 @@ public class CourseController {
     }
 
     @GetMapping("/grade/{name}")
-    ResponseEntity<List<Course>> getCoursesByGrade(@PathVariable Grade grade) {
-        return ResponseEntity.ok(courseService.getCoursesByGrade(grade));
+    ResponseEntity<List<Course>> getCoursesByGrade(@PathVariable String name) {
+        return ResponseEntity.ok(courseService.getCoursesByGrade(Grade.valueOf(name.toUpperCase())));
     }
 }
