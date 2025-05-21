@@ -8,6 +8,7 @@ public class ResponseMessage {
     public static final String INVALID_TOKEN = "Token invalid or expired";
     public static final String INVALID_FILE = "File is invalid";
     public static final String INVALID_FILE_TYPE = "Please upload video or pdf";
+    public static final String INVALID_USER_ID = "User id is invalid";
     public static final String INVALID_COURSE_ID = "Course id is invalid";
     public static final String INVALID_COURSE_TOPIC_ID = "Topic id is invalid";
     public static final String INVALID_ENROLLED_COURSE_ID = "Enrolled course id is invalid";
@@ -26,4 +27,6 @@ public class ResponseMessage {
     public static final String INVALID_AMOUNT = "Amount is invalid";
     public static final String UNAUTHORIZED_REQUEST = "Request is unauthorized";
     public static final String INVALID_QUESTION_ANSWER = "One or more question or answer id is invalid";
+    public static final String NOTICE_POSTED = "Notice posted";
+    public static final String INVALID_NOTICE_RECIPIENT = "There is no recipient for this notice";
 }

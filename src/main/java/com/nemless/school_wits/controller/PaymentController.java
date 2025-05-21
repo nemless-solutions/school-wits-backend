@@ -9,6 +9,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +21,7 @@ import java.util.List;
 public class PaymentController {
     private final PaymentService paymentService;
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
     ResponseEntity<List<Payment>> getAllPayment() {
         return ResponseEntity.ok(paymentService.getAllPayment());
@@ -32,6 +34,7 @@ public class PaymentController {
         return ResponseEntity.ok(ResponseMessage.INITIATE_PAYMENT_SUCCESS);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/confirm")
     ResponseEntity<String> confirmPayment(@Valid @RequestBody ConfirmPaymentDto confirmPaymentDto) {
         log.info("Confirming payment: {}", confirmPaymentDto);

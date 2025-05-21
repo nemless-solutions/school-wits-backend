@@ -2,6 +2,7 @@ package com.nemless.school_wits.service;
 
 import com.nemless.school_wits.config.ResponseMessage;
 import com.nemless.school_wits.dto.request.CreateCourseDto;
+import com.nemless.school_wits.enums.Grade;
 import com.nemless.school_wits.exception.BadRequestException;
 import com.nemless.school_wits.exception.ResourceNotFoundException;
 import com.nemless.school_wits.model.Course;
@@ -20,6 +21,10 @@ public class CourseService {
 
     public List<Course> getAllCourses() {
         return courseRepository.findAll();
+    }
+
+    public List<Course> getCoursesByGrade(Grade grade) {
+        return courseRepository.findAllByGrade(grade);
     }
 
     public Course createCourse(CreateCourseDto createCourseDto) {

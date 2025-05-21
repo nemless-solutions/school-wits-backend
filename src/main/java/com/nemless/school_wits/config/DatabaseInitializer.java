@@ -30,7 +30,31 @@ public class DatabaseInitializer implements CommandLineRunner {
         if (roleRepository.findAll().isEmpty()) {
             Role roleUser = new Role();
             roleUser.setName(com.nemless.school_wits.enums.Role.ROLE_STUDENT);
-            roleRepository.save(roleUser);
+            Role roleAdmin = new Role();
+            roleAdmin.setName(com.nemless.school_wits.enums.Role.ROLE_ADMIN);
+            Role roleTeacher = new Role();
+            roleTeacher.setName(com.nemless.school_wits.enums.Role.ROLE_TEACHER);
+            roleRepository.saveAll(List.of(roleUser, roleAdmin, roleTeacher));
+
+            User admin = new User();
+            admin.setEmail("admin@schoolwits.com");
+            admin.setPassword(passwordEncoder.encode("admin"));
+            admin.setFullName("Admin Ahmed");
+            admin.setContact("01722797614");
+            admin.setUid("10234567");
+            admin.setFatherName("Mr Father");
+            admin.setMotherName("Mrs Mother");
+            admin.setGuardianEmail("guardian@mail.com");
+            admin.setGuardianContact("01867369765");
+            admin.setCurriculum(Curriculum.CAMBRIDGE);
+            admin.setGrade(Grade.X);
+            LocalDate date = LocalDate.of(1998, 1, 12);
+            Date dob = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
+            admin.setDateOfBirth(dob);
+            List<Role> roles = roleRepository.findByNameIn(
+                    List.of(com.nemless.school_wits.enums.Role.ROLE_ADMIN, com.nemless.school_wits.enums.Role.ROLE_STUDENT)
+            );
+            admin.setRoles(roles);
 
             User user = new User();
             user.setEmail("fayeazahmed@schoolwits.com");
@@ -44,16 +68,16 @@ public class DatabaseInitializer implements CommandLineRunner {
             user.setGuardianContact("01867369765");
             user.setCurriculum(Curriculum.CAMBRIDGE);
             user.setGrade(Grade.X);
-            LocalDate date = LocalDate.of(1998, 1, 12);
-            Date dob = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
-            user.setDateOfBirth(dob);
+            LocalDate date1 = LocalDate.of(1998, 1, 12);
+            Date dob1 = Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant());
+            user.setDateOfBirth(dob1);
 
-            List<Role> roles = roleRepository.findByNameIn(
+            List<Role> roles1 = roleRepository.findByNameIn(
                     List.of(com.nemless.school_wits.enums.Role.ROLE_STUDENT)
             );
-            user.setRoles(roles);
+            user.setRoles(roles1);
 
-            userRepository.save(user);
+            userRepository.saveAll(List.of(admin, user));
         }
     }
 }

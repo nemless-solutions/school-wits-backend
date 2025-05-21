@@ -1,12 +1,14 @@
 package com.nemless.school_wits.controller;
 
 import com.nemless.school_wits.dto.request.CreateCourseDto;
+import com.nemless.school_wits.enums.Grade;
 import com.nemless.school_wits.model.Course;
 import com.nemless.school_wits.service.CourseService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +25,7 @@ public class CourseController {
         return ResponseEntity.ok(courseService.getAllCourses());
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     ResponseEntity<Course> createCourse(@Valid @RequestBody CreateCourseDto createCourseDto) {
         log.info("Creating new course: {}", createCourseDto);
@@ -33,5 +36,10 @@ public class CourseController {
     @GetMapping("/{courseId}")
     ResponseEntity<Course> getCourseById(@PathVariable Long courseId) {
         return ResponseEntity.ok(courseService.getCourseById(courseId));
+    }
+
+    @GetMapping("/grade/{name}")
+    ResponseEntity<List<Course>> getCoursesByGrade(@PathVariable Grade grade) {
+        return ResponseEntity.ok(courseService.getCoursesByGrade(grade));
     }
 }
