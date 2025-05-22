@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -30,18 +31,23 @@ public class QuizResultService {
     public QuizResult generateQuizResult(GenerateQuizResultDto generateQuizResultDto) {
         Quiz quiz = quizRepository.findById(generateQuizResultDto.getQuizId())
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_QUIZ_ID));
-
-        int mark = calculateMark(quiz.getQuestions(), generateQuizResultDto.getQuestionAnswers());
         User user = authUtils.getAuthenticatedUser();
+        if(quizResultRepository.existsByUserAndQuiz(user, quiz)) {
+            log.info("Quiz {} result re-attempt by {}", quiz.getId(), user.getId());
+            throw new BadRequestException(ResponseMessage.QUIZ_RESULT_EXISTS);
+        }
+
         QuizResult quizResult = new QuizResult();
         quizResult.setQuiz(quiz);
         quizResult.setUser(user);
-        quizResult.setMark(mark);
+        quizResult.setAnswers(
+                calculateMark(quiz.getQuestions(), generateQuizResultDto.getQuestionAnswers())
+        );
         return quizResultRepository.save(quizResult);
     }
 
-    private int calculateMark(List<QuizQuestion> questions, Map<Long, Long> questionAnswers) {
-        int mark = 0;
+    private Map<Long, Boolean> calculateMark(List<QuizQuestion> questions, Map<Long, Long> questionAnswers) {
+        Map<Long, Boolean> answers = new HashMap<>();
 
         for (Map.Entry<Long, Long> entry : questionAnswers.entrySet()) {
             Long questionId = entry.getKey();
@@ -57,11 +63,9 @@ public class QuizResultService {
                     .findFirst()
                     .orElseThrow(() -> new BadRequestException(ResponseMessage.INVALID_QUESTION_ANSWER));
 
-            if (answer.isCorrect()) {
-                mark++;
-            }
+            answers.put(questionId, answer.isCorrect());
         }
 
-        return mark;
+        return answers;
     }
 }

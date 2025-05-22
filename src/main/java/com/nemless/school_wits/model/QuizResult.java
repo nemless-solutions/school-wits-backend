@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 @Data
 @NoArgsConstructor
@@ -27,6 +29,9 @@ public class QuizResult implements Serializable {
     @JoinColumn(name = "quiz_id")
     private Quiz quiz;
 
-    @Column(nullable = false)
-    private int mark;
+    @ElementCollection
+    @CollectionTable(name = "result_answers", joinColumns = @JoinColumn(name = "quiz_result_id"))
+    @MapKeyColumn(name = "question_id")
+    @Column(name = "is_correct")
+    private Map<Long, Boolean> answers = new HashMap<>();
 }

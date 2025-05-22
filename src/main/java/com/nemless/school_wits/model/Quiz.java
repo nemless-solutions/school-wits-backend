@@ -29,9 +29,8 @@ public class Quiz implements Serializable {
     private CourseFile video;
 
     @Column(nullable = false)
-    private int totalMark;
+    private int questionMark;
 
-    @Column(nullable = false)
     private int duration;
 
     @OneToMany(mappedBy = "quiz")

@@ -2,8 +2,9 @@ package com.nemless.school_wits.config;
 
 public class ResponseMessage {
     public static final String ENROLLMENT_SUCCESSFUL = "Course enrollment successful";
-    public static final String EMAIL_ALREADY_EXISTS = "Another account with this email already exists";
-    public static final String PAYMENT_ALREADY_EXISTS = "Payment is already initiated";
+    public static final String EMAIL_EXISTS = "Another account with this email already exists";
+    public static final String PAYMENT_EXISTS = "Payment is already initiated";
+    public static final String QUIZ_RESULT_EXISTS = "The student has already given this quiz";
     public static final String INCORRECT_CREDENTIALS = "Incorrect credentials";
     public static final String INVALID_TOKEN = "Token invalid or expired";
     public static final String INVALID_FILE = "File is invalid";

@@ -29,6 +29,5 @@ public class QuizQuestion implements Serializable {
     private String title;
 
     @OneToMany(mappedBy = "question")
-    @JsonIgnore
     private List<QuizAnswer> answers = new ArrayList<>();
 }

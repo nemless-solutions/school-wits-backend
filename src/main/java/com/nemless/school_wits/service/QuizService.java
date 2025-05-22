@@ -32,7 +32,7 @@ public class QuizService {
 
         Quiz quiz = new Quiz();
         quiz.setVideo(courseFile);
-        quiz.setTotalMark(createQuizDto.getTotalMark());
+        quiz.setQuestionMark(createQuizDto.getQuestionMark());
         quiz.setDuration(createQuizDto.getDuration());
         quiz = quizRepository.save(quiz);
         courseFile.setQuiz(quiz);

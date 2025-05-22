@@ -35,7 +35,7 @@ public class PaymentService {
         EnrolledCourse enrolledCourse = enrolledCourseRepository.findById(initiatePaymentDto.getEnrolledCourseId())
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_ENROLLED_COURSE_ID));
         if(enrolledCourse.getPayment() != null) {
-            throw new BadRequestException(ResponseMessage.PAYMENT_ALREADY_EXISTS);
+            throw new BadRequestException(ResponseMessage.PAYMENT_EXISTS);
         } else if (!enrolledCourse.getUser().equals(authUtils.getAuthenticatedUser())) {
             throw new UnauthorizedException(ResponseMessage.UNAUTHORIZED_REQUEST);
         }

@@ -16,9 +16,8 @@ public class CreateQuizDto {
     @NotNull(message = "Video id is required")
     private Long videoId;
 
-    @NotNull(message = "Total mark is required")
-    private int totalMark;
+    @NotNull(message = "Mark of each question is required")
+    private int questionMark;
 
-    @NotNull(message = "Quiz duration is required")
     private int duration;
 }
