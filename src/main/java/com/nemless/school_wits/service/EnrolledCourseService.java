@@ -2,6 +2,7 @@ package com.nemless.school_wits.service;
 
 import com.nemless.school_wits.config.ResponseMessage;
 import com.nemless.school_wits.dto.response.EnrolledCourseDto;
+import com.nemless.school_wits.enums.Role;
 import com.nemless.school_wits.exception.BadRequestException;
 import com.nemless.school_wits.exception.ResourceNotFoundException;
 import com.nemless.school_wits.exception.UnauthorizedException;
@@ -60,6 +61,10 @@ public class EnrolledCourseService {
     }
 
     public void validateCourseMaterialAccess(Course course) {
+        User user = authUtils.getAuthenticatedUser();
+        if(user.getRoles().stream()
+                .anyMatch(role -> role.getName().equals(Role.ROLE_ADMIN))) return;
+
         EnrolledCourse enrolledCourse = enrolledCourseRepository
                 .findByUserAndCourse(authUtils.getAuthenticatedUser(), course)
                 .orElseThrow(() -> new UnauthorizedException(ResponseMessage.UNAUTHORIZED_RESOURCE_REQUEST));
