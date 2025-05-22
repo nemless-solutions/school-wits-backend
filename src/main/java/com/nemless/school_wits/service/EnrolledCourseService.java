@@ -4,10 +4,8 @@ import com.nemless.school_wits.config.ResponseMessage;
 import com.nemless.school_wits.dto.response.EnrolledCourseDto;
 import com.nemless.school_wits.exception.BadRequestException;
 import com.nemless.school_wits.exception.ResourceNotFoundException;
-import com.nemless.school_wits.model.Course;
-import com.nemless.school_wits.model.EnrolledCourse;
-import com.nemless.school_wits.model.Payment;
-import com.nemless.school_wits.model.User;
+import com.nemless.school_wits.exception.UnauthorizedException;
+import com.nemless.school_wits.model.*;
 import com.nemless.school_wits.repository.CourseRepository;
 import com.nemless.school_wits.repository.EnrolledCourseRepository;
 import com.nemless.school_wits.util.AuthUtils;
@@ -29,10 +27,8 @@ public class EnrolledCourseService {
 
     @Transactional
     public void enrollInCourse(Long courseId) {
-        Course course = courseRepository.findById(courseId).orElse(null);
-        if(course == null) {
-            throw new ResourceNotFoundException(ResponseMessage.INVALID_COURSE_ID);
-        }
+        Course course = courseRepository.findById(courseId)
+                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_COURSE_ID));
         User user = authUtils.getAuthenticatedUser();
         if(enrolledCourseRepository.existsByUserAndCourse(user, course)) {
             throw new BadRequestException(ResponseMessage.ENROLLMENT_EXISTS);
@@ -61,5 +57,16 @@ public class EnrolledCourseService {
         Long paymentId = payment == null ? null : payment.getId();
         boolean isPaid = payment != null && payment.isPaid();
         return new EnrolledCourseDto(enrolledCourse, paymentId, isPaid);
+    }
+
+    public void validateCourseMaterialAccess(Course course) {
+        EnrolledCourse enrolledCourse = enrolledCourseRepository
+                .findByUserAndCourse(authUtils.getAuthenticatedUser(), course)
+                .orElseThrow(() -> new UnauthorizedException(ResponseMessage.UNAUTHORIZED_RESOURCE_REQUEST));
+
+        if(enrolledCourse.getPayment() == null
+                || !enrolledCourse.getPayment().isPaid()) {
+            throw new UnauthorizedException(ResponseMessage.UNAUTHORIZED_RESOURCE_REQUEST);
+        }
     }
 }

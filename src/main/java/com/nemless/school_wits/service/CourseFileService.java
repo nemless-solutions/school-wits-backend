@@ -23,10 +23,13 @@ import java.util.UUID;
 public class CourseFileService {
     private final CourseFileRepository courseFileRepository;
     private final CourseTopicRepository courseTopicRepository;
+    private final EnrolledCourseService enrolledCourseService;
 
     public List<CourseFile> getCourseFileList(Long courseTopicId) {
         CourseTopic courseTopic = courseTopicRepository.findById(courseTopicId)
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_COURSE_TOPIC_ID));
+
+        enrolledCourseService.validateCourseMaterialAccess(courseTopic.getCourse());
 
         return courseFileRepository.findAllByCourseTopic(courseTopic);
     }
@@ -61,6 +64,8 @@ public class CourseFileService {
     public ResponseEntity<Resource> downloadFile(Long fileId) {
         CourseFile courseFile = courseFileRepository.findById(fileId)
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_FILE_ID));
+
+        enrolledCourseService.validateCourseMaterialAccess(courseFile.getCourseTopic().getCourse());
 
         String filePath = courseFile.getCourseTopic().getId().toString();
         String fileName = courseFile.getFileUid();

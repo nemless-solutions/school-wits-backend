@@ -20,6 +20,7 @@ import java.util.List;
 public class QuizQuestionService {
     private final QuizQuestionRepository quizQuestionRepository;
     private final QuizRepository quizRepository;
+    private final EnrolledCourseService enrolledCourseService;
 
     @Transactional
     public QuizQuestion createQuizQuestion(CreateQuizQuestionDto createQuizQuestionDto) {
@@ -39,6 +40,8 @@ public class QuizQuestionService {
     public List<QuizQuestion> getQuestionsByQuizId(Long quizId) {
         Quiz quiz = quizRepository.findById(quizId)
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_QUIZ_ID));
+
+        enrolledCourseService.validateCourseMaterialAccess(quiz.getVideo().getCourseTopic().getCourse());
 
         return quiz.getQuestions();
     }

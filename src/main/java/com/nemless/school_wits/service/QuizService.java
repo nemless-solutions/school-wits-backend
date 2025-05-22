@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class QuizService {
     private final QuizRepository quizRepository;
     private final CourseFileRepository courseFileRepository;
+    private final EnrolledCourseService enrolledCourseService;
 
     @Transactional
     public Quiz createQuiz(CreateQuizDto createQuizDto) {
@@ -44,6 +45,8 @@ public class QuizService {
     public Quiz getQuizByVideoId(Long videoId) {
         CourseFile courseFile = courseFileRepository.findById(videoId)
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_VIDEO_ID));
+
+        enrolledCourseService.validateCourseMaterialAccess(courseFile.getCourseTopic().getCourse());
 
         return quizRepository.findByVideo(courseFile)
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.QUIZ_NOT_FOUND));
