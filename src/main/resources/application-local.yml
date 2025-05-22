@@ -9,7 +9,7 @@ spring:
     name: SchoolWits
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://postgresql:5432/school-wits
+    url: jdbc:postgresql://localhost:5432/school-wits
     username: postgres
     password: tiger
     initialization-mode: always
@@ -25,4 +25,4 @@ spring:
     secret: 743d253555a5aaf68e3adf8faade4f5db388dc2958da14bcdd01ebaba8728ecc
     expiration: 30000000
 
-upload-directory: /app/data/
+upload-directory: E:\DEV\nemless\school-wits-storage\
