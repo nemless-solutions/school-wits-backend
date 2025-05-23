@@ -66,7 +66,7 @@ public class EnrolledCourseService {
                 .anyMatch(role -> role.getName().equals(Role.ROLE_ADMIN))) return;
 
         EnrolledCourse enrolledCourse = enrolledCourseRepository
-                .findByUserAndCourse(authUtils.getAuthenticatedUser(), course)
+                .findByUserAndCourse(user, course)
                 .orElseThrow(() -> new UnauthorizedException(ResponseMessage.UNAUTHORIZED_RESOURCE_REQUEST));
 
         if(enrolledCourse.getPayment() == null
