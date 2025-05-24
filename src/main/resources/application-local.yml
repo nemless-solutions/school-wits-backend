@@ -26,3 +26,6 @@ spring:
     expiration: 30000000
 
 upload-directory: E:\DEV\nemless\school-wits-storage\
+api:
+  server:
+    url: http://localhost:8080

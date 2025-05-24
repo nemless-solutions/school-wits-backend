@@ -26,3 +26,6 @@ spring:
     expiration: 30000000
 
 upload-directory: /app/data/
+api:
+  server:
+    url: http://localhost:8080
