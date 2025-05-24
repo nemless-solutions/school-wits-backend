@@ -26,7 +26,7 @@ services:
       - postgres
     volumes:
       - /var/www/schoolwits/media/data:/app/data
-      - /var/www/schoolwits/logs:/app/logs
+      - /var/www/schoolwits/backend/logs:/app/logs
     networks:
       - backend
 
