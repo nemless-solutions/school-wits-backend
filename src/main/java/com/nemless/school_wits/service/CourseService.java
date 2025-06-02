@@ -34,6 +34,8 @@ public class CourseService {
 
         Course course = Course.builder()
                 .grade(createCourseDto.getGrade())
+                .mode(createCourseDto.getMode())
+                .type(createCourseDto.getType())
                 .title(createCourseDto.getTitle())
                 .description(createCourseDto.getDescription())
                 .uid(createCourseDto.getUid())

@@ -1,5 +1,7 @@
 package com.nemless.school_wits.config;
 
+import com.nemless.school_wits.enums.CourseMode;
+import com.nemless.school_wits.enums.CourseType;
 import com.nemless.school_wits.enums.Curriculum;
 import com.nemless.school_wits.enums.Grade;
 import com.nemless.school_wits.model.Course;
@@ -85,12 +87,11 @@ public class DatabaseInitializer implements CommandLineRunner {
 
             List<String> titles = new ArrayList<>(
                     List.of(
+                            "Mathematics",
                             "Physics",
                             "Chemistry",
                             "Biology",
-                            "Mathematics",
-                            "Advanced Mathematics",
-                            "Programming with Python"
+                            "Advanced Mathematics"
                     )
             );
             List<Course> courses = new ArrayList<>();
@@ -101,6 +102,8 @@ public class DatabaseInitializer implements CommandLineRunner {
                             .uid(title + "-" + grade)
                             .title(title)
                             .grade(grade)
+                            .mode(CourseMode.ONLINE)
+                            .type(CourseType.LONG)
                             .description("Dummy description")
                             .fee(100)
                             .build();

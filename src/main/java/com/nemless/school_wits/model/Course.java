@@ -1,6 +1,8 @@
 package com.nemless.school_wits.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.nemless.school_wits.enums.CourseMode;
+import com.nemless.school_wits.enums.CourseType;
 import com.nemless.school_wits.enums.Grade;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -38,6 +40,14 @@ public class Course implements Serializable {
 
     @Column(nullable = false)
     private String description;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private CourseMode mode;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private CourseType type;
 
     @Column(nullable = false)
     private float fee;

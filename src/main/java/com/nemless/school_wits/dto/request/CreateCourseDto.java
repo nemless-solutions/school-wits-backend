@@ -1,5 +1,7 @@
 package com.nemless.school_wits.dto.request;
 
+import com.nemless.school_wits.enums.CourseMode;
+import com.nemless.school_wits.enums.CourseType;
 import com.nemless.school_wits.enums.Grade;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -13,6 +15,12 @@ import lombok.ToString;
 public class CreateCourseDto {
     @NotNull
     private Grade grade;
+
+    @NotNull
+    private CourseMode mode;
+
+    @NotNull
+    private CourseType type;
 
     @NotBlank(message = "Title is required")
     private String title;
