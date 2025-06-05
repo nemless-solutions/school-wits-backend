@@ -46,7 +46,7 @@ public class DatabaseInitializer implements CommandLineRunner {
             admin.setEmail("admin@schoolwits.com");
             admin.setPassword(passwordEncoder.encode("admin"));
             admin.setFullName("Admin Ahmed");
-            admin.setContact("01722797614");
+            admin.setCurrentSchool("Some School");
             admin.setUid("10234567");
             admin.setFatherName("Mr Father");
             admin.setMotherName("Mrs Mother");
@@ -66,7 +66,7 @@ public class DatabaseInitializer implements CommandLineRunner {
             user.setEmail("fayeazahmed@schoolwits.com");
             user.setPassword(passwordEncoder.encode("adminadmin"));
             user.setFullName("Fayeaz Ahmed");
-            user.setContact("01722797614");
+            user.setCurrentSchool("Some School");
             user.setUid("01234567");
             user.setFatherName("Mr Father");
             user.setMotherName("Mrs Mother");

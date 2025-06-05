@@ -25,9 +25,8 @@ public class UserRegistrationDto {
     @Size(min = 6)
     private String fullName;
 
-    @NotBlank(message = "Contact number is required")
-    @Size(min = 7, max = 15, message = "Invalid contact number")
-    private String contact;
+    @Size(min = 6)
+    private String currentSchool;
 
     @NotBlank(message = "Father's name is required")
     @Size(min = 6)

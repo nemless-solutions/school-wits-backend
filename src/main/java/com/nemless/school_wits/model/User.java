@@ -44,8 +44,8 @@ public class User implements Serializable {
     @Size(min = 6)
     private String fullName;
 
-    @Column(nullable = false)
-    private String contact;
+    @Size(min = 6)
+    private String currentSchool;
 
     @Column(nullable = false)
     @Size(min = 6)
@@ -81,7 +81,6 @@ public class User implements Serializable {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    @JsonIgnore
     private List<Role> roles = new ArrayList<>();
 
     @Builder.Default

@@ -49,7 +49,7 @@ public class AuthService {
                 .email(userRegistrationDto.getEmail())
                 .password(passwordEncoder.encode(userRegistrationDto.getPassword()))
                 .fullName(userRegistrationDto.getFullName())
-                .contact(userRegistrationDto.getContact())
+                .currentSchool(userRegistrationDto.getCurrentSchool())
                 .uid(generateUid())
                 .fatherName(userRegistrationDto.getFatherName())
                 .motherName(userRegistrationDto.getMotherName())
