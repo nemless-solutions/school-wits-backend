@@ -23,8 +23,12 @@ public class CourseService {
         return courseRepository.findAll();
     }
 
-    public List<Course> getCoursesByGrade(Grade grade) {
-        return courseRepository.findAllByGrade(grade);
+    public List<Course> getCoursesByGrade(String gradeName) {
+        try {
+            return courseRepository.findAllByGrade(Grade.valueOf(gradeName.toUpperCase()));
+        } catch (IllegalArgumentException e) {
+            throw new BadRequestException("Invalid grade: " + gradeName);
+        }
     }
 
     public Course createCourse(CreateCourseDto createCourseDto) {
