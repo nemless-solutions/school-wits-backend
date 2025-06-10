@@ -22,7 +22,7 @@ public class Payment implements Serializable {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "enrolled_course_id")
+    @JoinColumn(name = "enrolled_course_id", nullable = false)
     @JsonIgnore
     private EnrolledCourse enrolledCourse;
 

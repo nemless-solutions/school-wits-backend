@@ -21,7 +21,7 @@ public class QuizQuestion implements Serializable {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "quiz_id")
+    @JoinColumn(name = "quiz_id", nullable = false)
     @JsonIgnore
     private Quiz quiz;
 

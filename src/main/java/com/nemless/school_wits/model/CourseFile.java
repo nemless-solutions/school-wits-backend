@@ -24,7 +24,7 @@ public class CourseFile {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "course_topic_id")
+    @JoinColumn(name = "course_topic_id", nullable = false)
     @JsonIgnore
     private CourseTopic courseTopic;
 

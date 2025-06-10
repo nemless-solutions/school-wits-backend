@@ -29,7 +29,7 @@ public class CourseTopic implements Serializable {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "course_id")
+    @JoinColumn(name = "course_id", nullable = false)
     @JsonIgnore
     private Course course;
 

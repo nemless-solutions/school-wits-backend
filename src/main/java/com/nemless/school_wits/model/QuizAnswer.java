@@ -17,7 +17,7 @@ public class QuizAnswer {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "quiz_question_id")
+    @JoinColumn(name = "quiz_question_id", nullable = false)
     @JsonIgnore
     private QuizQuestion question;
 
