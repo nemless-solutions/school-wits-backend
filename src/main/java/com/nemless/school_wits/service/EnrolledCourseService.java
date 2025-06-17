@@ -1,7 +1,6 @@
 package com.nemless.school_wits.service;
 
 import com.nemless.school_wits.config.ResponseMessage;
-import com.nemless.school_wits.dto.response.EnrolledCourseDto;
 import com.nemless.school_wits.enums.Role;
 import com.nemless.school_wits.exception.BadRequestException;
 import com.nemless.school_wits.exception.ResourceNotFoundException;
@@ -15,7 +14,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -45,19 +43,8 @@ public class EnrolledCourseService {
         log.info("{} enrolled in {}", user.getFullName(), course.getTitle());
     }
 
-    public List<EnrolledCourseDto> getEnrollments() {
-        List<EnrolledCourseDto> list = new ArrayList<>();
-        for(EnrolledCourse enrolledCourse : authUtils.getAuthenticatedUser().getEnrollments()) {
-            list.add(getDtoFromEnrolledCourse(enrolledCourse));
-        }
-        return list;
-    }
-
-    private EnrolledCourseDto getDtoFromEnrolledCourse(EnrolledCourse enrolledCourse) {
-        Payment payment = enrolledCourse.getPayment();
-        Long paymentId = payment == null ? null : payment.getId();
-        boolean isPaid = payment != null && payment.isPaid();
-        return new EnrolledCourseDto(enrolledCourse, paymentId, isPaid);
+    public List<EnrolledCourse> getEnrollments() {
+        return authUtils.getAuthenticatedUser().getEnrollments();
     }
 
     public void validateCourseMaterialAccess(Course course) {
@@ -69,9 +56,15 @@ public class EnrolledCourseService {
                 .findByUserAndCourse(user, course)
                 .orElseThrow(() -> new UnauthorizedException(ResponseMessage.UNAUTHORIZED_RESOURCE_REQUEST));
 
-        if(enrolledCourse.getPayment() == null
-                || !enrolledCourse.getPayment().isPaid()) {
+        if(!enrolledCourse.isPaid()) {
             throw new UnauthorizedException(ResponseMessage.UNAUTHORIZED_RESOURCE_REQUEST);
         }
+    }
+
+    public void approvePayment(Long enrolledCourseId, boolean isApproved) {
+        EnrolledCourse enrolledCourse = enrolledCourseRepository.findById(enrolledCourseId)
+                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_ENROLLED_COURSE_ID));
+        enrolledCourse.setPaid(isApproved);
+        enrolledCourseRepository.save(enrolledCourse);
     }
 }

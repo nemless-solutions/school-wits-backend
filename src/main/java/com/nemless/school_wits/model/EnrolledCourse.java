@@ -29,9 +29,8 @@ public class EnrolledCourse {
     @JoinColumn(name = "course_id", nullable = false)
     private Course course;
 
-    @OneToOne(mappedBy = "enrolledCourse")
-    @JsonIgnore
-    private Payment payment;
+    @Column(nullable = false)
+    private boolean isPaid = false;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)

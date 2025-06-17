@@ -18,4 +18,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByRoles_Name(Role role);
 
     List<User> findByGrade(Grade grade);
+
+    long countByRoles_Name(Role role);
 }
