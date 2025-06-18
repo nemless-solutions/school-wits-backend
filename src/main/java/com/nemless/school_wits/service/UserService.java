@@ -30,6 +30,11 @@ public class UserService {
         }
     }
 
+    public User getUserById(Long userId) {
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_USER_ID));
+    }
+
     public User updateUser(Long userId, UserUpdateDto userUpdateDto) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_USER_ID));
