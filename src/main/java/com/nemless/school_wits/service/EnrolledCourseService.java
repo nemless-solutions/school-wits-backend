@@ -8,6 +8,7 @@ import com.nemless.school_wits.exception.UnauthorizedException;
 import com.nemless.school_wits.model.*;
 import com.nemless.school_wits.repository.CourseRepository;
 import com.nemless.school_wits.repository.EnrolledCourseRepository;
+import com.nemless.school_wits.repository.UserRepository;
 import com.nemless.school_wits.util.AuthUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +23,7 @@ import java.util.List;
 public class EnrolledCourseService {
     private final EnrolledCourseRepository enrolledCourseRepository;
     private final CourseRepository courseRepository;
+    private final UserRepository userRepository;
     private final AuthUtils authUtils;
 
     @Transactional
@@ -45,6 +47,12 @@ public class EnrolledCourseService {
 
     public List<EnrolledCourse> getEnrollments() {
         return authUtils.getAuthenticatedUser().getEnrollments();
+    }
+
+    public List<EnrolledCourse> getUserEnrollments(Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_USER_ID));
+        return user.getEnrollments();
     }
 
     public void validateCourseMaterialAccess(Course course) {

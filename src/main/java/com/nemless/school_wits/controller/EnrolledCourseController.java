@@ -23,6 +23,12 @@ public class EnrolledCourseController {
         return ResponseEntity.ok(enrolledCourseService.getEnrollments());
     }
 
+    @GetMapping("/{userId}")
+    @PreAuthorize("hasRole('ADMIN')")
+    ResponseEntity<List<EnrolledCourse>> getUserEnrollments(@PathVariable Long userId) {
+        return ResponseEntity.ok(enrolledCourseService.getUserEnrollments(userId));
+    }
+
     @PostMapping
     ResponseEntity<String> enrollInCourse(@RequestParam Long courseId) {
         enrolledCourseService.enrollInCourse(courseId);
@@ -31,7 +37,7 @@ public class EnrolledCourseController {
 
     @PutMapping("/{enrolledCourseId}")
     @PreAuthorize("hasRole('ADMIN')")
-    ResponseEntity<String> approvePayment(@RequestParam Long enrolledCourseId, @RequestParam boolean isApproved) {
+    ResponseEntity<String> approvePayment(@PathVariable Long enrolledCourseId, @RequestParam boolean isApproved) {
         enrolledCourseService.approvePayment(enrolledCourseId, isApproved);
         return ResponseEntity.ok(ResponseMessage.PAYMENT_APPROVAL_UPDATED);
     }
