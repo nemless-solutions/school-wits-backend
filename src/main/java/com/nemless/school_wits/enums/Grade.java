@@ -4,6 +4,5 @@ public enum Grade {
     VI,
     VII,
     VIII,
-    IX,
-    X
+    IX_X
 }

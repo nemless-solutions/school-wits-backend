@@ -1,0 +1,238 @@
+#Mathematics#
+
+Week 1: Types of numbers, Estimation, Limits of accuracy, Powers and roots
+
+Week 2: Fractions, decimals and percentages; Ordering numbers; Four operations; Indices and standard form; Set notation and Venn diagrams
+
+Week 3: Ratio and proportion, Rates, Percentages, Calculator use, Time, Money, Exponential growth and decay, Surds
+
+Week 4: Test on Number + Mixed Practice & Comprehensive Exam 1 - Weeks 1 to 3
+
+Week 5: Introduction to algebra, Algebraic manipulation, Algebraic fractions
+
+Week 6: Indices (advanced), Solving equations (linear, quadratic, fractional), Changing the subject of formulae
+
+Week 7: Inequalities (including graphical), Sequences and nth terms
+
+Week 8: Test on Algebra and Graphs + Mixed Practice & Comprehensive Exam 2 - Weeks 1 to 7
+
+Week 9: Direct and inverse proportion, Graphs in practical situations, Graphs of functions, Exponential graphs
+
+Week 10: Sketching curves, Functions, Inverse and composite functions
+
+Week 11: Cartesian coordinates, Linear graphs, Gradient, Length and midpoint
+
+Week 12: Test on Coordinate Geometry + Mixed Practice & Comprehensive Exam 3 - Weeks 5 to 11
+
+Week 13: Equations of lines, Parallel and perpendicular lines
+
+Week 14: Basic geometrical terms and properties, Vocabulary of shapes and solids
+
+Week 15: Geometrical constructions, Scale drawings, Bearings
+
+Week 16: Mixed Practice & Comprehensive Exam 4 - Weeks 9 to 15
+
+Week 17: Units of measurement, Perimeter and area, Circles, arcs and sectors
+
+Week 18: Surface area and volume of 3D shapes, Compound shapes and frustums
+
+Week 19: Test on Mensuration
+
+Week 20: Mixed Practice & Comprehensive Exam 5 - Weeks 13 to 19
+
+Week 21: Pythagoras’ theorem, Trigonometric ratios, Angles of elevation/depression
+
+Week 22: Sine and cosine rules, Area of triangle using sine, 3D Trigonometry
+
+Week 23: Test on Trigonometry
+
+Week 24: Revision & Practice
+End of Week 24: Midterm Exam — covers all contents from Weeks 1 to 23
+
+Week 25: Reflection, Rotation, Enlargement, Translation
+
+Week 26: Vector notation, Magnitude, Vector geometry and problem solving
+
+Week 27: Test on Transformations and Vectors
+
+Week 28: Mixed Practice & Comprehensive Exam 6 - Weeks 25 to 27
+
+Week 29: Probability scale, Notation, Single event and combined events
+
+Week 30: Relative and expected frequencies, Tree diagrams, Venn diagrams, Sample spaces
+
+Week 31: Test on Probability
+
+Week 32: Mixed Practice & Comprehensive Exam 7 - Weeks 25 to 31
+
+Week 33: Classifying and interpreting data, Drawing inferences
+
+Week 34: Mean, median, mode, range; grouped data and modal class
+
+Week 35: Statistical charts and diagrams, scatter diagrams, cumulative frequency, histograms
+
+Week 36: Test on Statistics + Mixed Practice & Comprehensive Exam 8 - Weeks 29 to 35
+
+Week 37: Review: Numbers & Algebra (mixed practice)
+
+Week 38: Review: Geometry (mixed practice)
+
+Week 39: Review: Mensuration (mixed practice)
+
+Week 40: Mixed Practice & Comprehensive Exam 9 - Weeks 33 to 39
+
+Week 41: Review: Trigonometry
+
+Week 42: Review: Coordinate Geometry
+
+Week 43: Review: Probability
+
+Week 44: Review: Statistics
+
+Week 45: Mixed Practice & Comprehensive Exam 10 - Weeks 25 to 44
+
+Weeks 46–47: Full syllabus practice, timed papers, corrections and final brush-ups
+
+Week 48: Comprehensive Mock Tests with Exam-style Questions
+
+#Additional Mathematics#
+
+Weeks 1–10: Functions and Quadratics
+Week 1: Introduction to functions — definitions, domain, range
+Week 2: One–one and many–one functions, inverse and composition
+Week 3: Function notation and interpreting composite functions
+Week 4: Graphs of f(x) and |f(x)|; symmetry and modulus transformations
+Week 5: Identifying if a function has an inverse; sketching inverse and original
+Week 6: Quadratics — completing the square, vertex form
+Week 7: Sketching quadratic graphs using turning points
+Week 8: Using discriminant to determine nature of roots
+Week 9: Solving quadratic equations by formula, factorisation
+Week 10: Solving quadratic inequalities, both graphically and algebraically
+
+Weeks 11–12: Problem-solving & Review
+Week 11: Mixed problems on functions and quadratic graphs
+Week 12: Reinforcement & catch-up if needed
+Week 13: Comprehensive Exam 1 (Covers Weeks 1–12)
+
+Weeks 14–21: Polynomials and Advanced Equations
+Week 14: Introduction to polynomials; remainder and factor theorems
+Week 15: Factoring polynomials and solving simple cubics
+Week 16: Long division and writing cubic as (linear)(quadratic)
+Week 17: Solving modulus equations (|ax + b| = c, etc.)
+Week 18: Graphing modulus functions
+Week 19: Solving modulus inequalities
+Week 20: Substitution to form quadratic equations from complex expressions
+Week 21: Sketching and solving cubic inequalities
+
+Weeks 22–23: Problem-solving & Review
+Week 22: Mixed problems involving polynomials and modulus functions
+Week 23: Graphical interpretation and application problems
+
+Week 24: Revision & Practice
+End of Week 24: Midterm Exam — covers all contents from Weeks 1 to 23
+
+Weeks 25–33: Simultaneous Equations, Logarithmic & Graph Applications
+Week 25: Nonlinear simultaneous equations — solving by substitution
+Week 26: Solving simultaneous equations graphically
+Week 27: Exponential and logarithmic equations — base forms
+Week 28: Graphs of exponential and log functions — asymptotes
+Week 29: Logarithm properties and laws (product, quotient, power)
+Week 30: Transforming equations into straight-line forms
+Week 31: Revisiting gradient and intercept from transformed graphs
+Week 32: Word problems and models using exponential/logarithmic graphs
+Week 33: Sketching cubic and modulus graphs from factored forms
+
+Weeks 34–35: Problem-solving & Review
+Week 34: Mixed algebraic and graphical equation-solving
+Week 35: Reinforcement and stretch problems
+Week 36: Comprehensive Exam 2 (Covers Weeks 25–35)
+
+Weeks 37–44: Circle Geometry and Trigonometry
+Week 37: Equation of a circle and identifying centre and radius
+Week 38: Finding intersection points of lines and circles
+Week 39: Tangents to circles and their equations
+Week 40: Chord and point geometry within circles
+Week 41: Arc length and sector area using radians
+Week 42: All six trigonometric functions and their values
+Week 43: Graphs of sine, cosine, and tangent — amplitude and period
+Week 44: Solving trig equations and identities
+
+Weeks 45–46: Final Revision
+Week 45: Full syllabus problem-solving
+Week 46: Practice papers under timed conditions
+
+Week 47: Feedback and concept reinforcement
+
+Week 48: Comprehensive Mock Tests with Exam-style Questions
+
+#Physics#
+
+Weeks 1–15: Motion, Forces and Energy
+Week 1: Physical quantities; scalar vs vector; using rulers, tapes, micrometers, clocks
+Week 2: Calculating speed, velocity, acceleration; average speed and velocity
+Week 3: Uniform and non-uniform acceleration; free fall and g ≈ 9.8 m/s²
+Week 4: Motion graphs: distance-time and speed-time; interpreting gradient and area
+End of Week 4: Comprehensive Exam 1 (Covers Weeks 1–4)
+Week 5: Mass and weight; inertia; gravitational field strength
+Week 6: Density: definition, units, calculation; measurement via displacement
+Week 7: Types of forces; balanced and unbalanced forces; free-body diagrams
+Week 8: Newton’s 1st and 3rd laws; force diagrams; examples in motion
+End of Week 8: Comprehensive Exam 2 (Covers Weeks 1–8)
+Week 9: Friction and air resistance; drag and terminal velocity
+Week 10: Hooke’s law; load-extension graphs; limit of proportionality
+Week 11: Circular motion; qualitative understanding of centripetal force
+Week 12: Turning effects; moments = force × perpendicular distance
+End of Week 12: Comprehensive Exam 3 (Covers Weeks 5–12)
+Week 13: Principle of moments; centre of gravity; stability
+Week 14: Momentum and impulse; p = mv; conservation of momentum in 1D
+Week 15: Energy and power; KE and GPE; energy transfers and conversions
+End of Week 15: Comprehensive Exam 4 (Covers Weeks 9–15)
+
+Weeks 16–22: Thermal Physics
+Week 16: States of matter; structure and particle model for solids, liquids, gases
+Week 17: Particle motion and temperature; Brownian motion; absolute zero concept
+Week 18: Pressure–temperature and volume–temperature relationships
+Week 19: Boyle’s Law; pressure–volume relationship for fixed mass of gas
+End of Week 19: Comprehensive Exam 5 (Covers Weeks 16–29)
+Week 20: Thermal expansion: solids, liquids, gases; thermometer functioning
+Week 21: Specific heat capacity: concept, equation, experiments
+Week 22: Melting, boiling, evaporation; latent heat and cooling effects
+End of Week 22: Comprehensive Exam 6 (Covers Weeks 16–22)
+
+Weeks 23–24: Mid-Year Consolidation
+Week 23: Review and reinforcement: Motion, Energy, and Thermal Physics
+Week 24: Revision & Practice
+End of Week 24: Midterm Exam — covers all contents from Weeks 1 to 23
+
+Weeks 25–36: Waves – General and Light
+Week 25: Types of waves: transverse and longitudinal; key terms
+Week 26: Wave properties: wavelength, frequency, amplitude, period, speed
+Week 27: Wave equation and calculations: v = fλ
+Week 28: Reflection: wavefront and ray diagrams; laws of reflection
+End of Week 28: Comprehensive Exam 7 (Covers Weeks 25–28)
+Week 29: Refraction: wavefront bending and speed change across media
+Week 30: Applications of refraction; experimental demonstrations
+Week 31: Thin lenses: converging and diverging; ray diagrams
+Week 32: Lens focal length, image characteristics, and magnification
+End of Week 32: Comprehensive Exam 8 (Covers Weeks 25–32)
+Week 33: Dispersion of light through a prism; visible spectrum (ROYGBIV)
+Week 34: Nature of each colour in spectrum; relation to wavelength and frequency
+Week 35: Reflection, refraction, dispersion
+Week 36: Review of wave behaviours
+End of Week 36: Comprehensive Exam 9 (Covers Weeks 33–36)
+
+Weeks 37–47: Revision & Stretch
+Week 37: Problem-solving: Motion and forces
+Week 38: Problem-solving: Energy and momentum
+Week 39: Problem-solving: Thermal calculations
+Week 40: Problem-solving: Graphs and equations of motion
+Week 41: Concept review: forces in everyday life
+Week 42: Concept review: particle theory in context
+Week 43: Concept review: refraction and optical applications
+Week 44: Practice Paper 1 (MCQ)
+Week 45: Practice Paper 2 (structured)
+Week 46: Review of Practice Papers and common errors
+Week 47: Final brushing and summary sheets
+
+Week 48: Full syllabus practice, timed papers, corrections and final brush-ups
+End of Week 48: Comprehensive Mock Tests with Exam-style Questions — full covered syllabus

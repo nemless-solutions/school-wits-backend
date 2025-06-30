@@ -1,0 +1,390 @@
+#Mathematics#
+
+Weeks 1–4: Number – Types and Powers
+Week 1: Types of numbers — natural, integers, primes, squares, cubes, HCF, LCM, reciprocals
+Week 2: Converting numbers and words; prime factorisation and HCF/LCM problems
+Week 3: Powers and roots — squares, square roots, cubes, cube roots; recall up to 15
+Week 4: Consolidation tasks
+End of Week 4: Test on Number Types and Powers
+
+Weeks 5–8: Fractions, Decimals and Operations
+Week 5: Fractions, decimals, percentages — conversion and equivalence
+Week 6: Four operations — integers, fractions, decimals; order of operations, brackets
+Week 7: Negative numbers and mixed number operations
+Week 8: Consolidation tasks; estimation strategies, rounding to decimal places and significant figures
+End of Week 8: Test on Operations and Estimation
+
+Weeks 9–11: Ratio and Percentage Reasoning
+Week 9: Ratio basics — simplest form, dividing quantities, direct use
+Week 10: Proportional reasoning and real-life problems (recipes, scale, maps)
+Week 11: Percentages — increase/decrease, simple/compound interest, reverse percentage
+End of Week 11: Test on Ratio and Percentage
+
+Week 12: Consolidation 1
+Review of number, ratio, percentage, estimation and conversions
+
+Weeks 13–16: Algebra – Expressions and Equations
+Week 13: Algebraic notation, substitution, simplifying expressions
+Week 14: Expansion of two/three brackets; factorising by common factors
+Week 15: Algebraic fractions and rational expressions
+Week 16: Constructing and solving linear and fractional equations
+End of Week 16: Test on Algebraic Manipulation
+
+Weeks 17–19: Formulas and Sequences
+Week 17: Changing the subject of a formula (including repeated terms, powers)
+Week 18: Constructing and interpreting formulas from word problems
+Week 19: Sequences — linear, quadratic, exponential, nth term and subscript notation
+End of Week 19: Test on Sequences and Formulas
+
+Week 20–21: Consolidation 2
+Week 20: Mixed problems: Algebra, Formulas, Sequences
+Week 21: Cumulative problem-solving set
+
+Week 22: Review tasks and mini tests for Weeks 1–10
+
+Week 23: Review tasks and mini tests for Weeks 11–20
+
+Week 24: Revision & Practice
+End of Week 24: Midterm Exam — covers all contents from Weeks 1 to 23
+
+Weeks 25–27: Geometry – Terms and Angle Properties
+Week 25: Geometrical terms, shapes, and vocabulary (triangles, quadrilaterals, polygons)
+Week 26: Angle properties — at a point, straight line, triangles and quadrilaterals
+Week 27: Parallel line angle rules — alternate, corresponding, co-interior
+End of Week 27: Test on Geometry and Angles
+
+Weeks 28–30: Polygons and Angle Sums
+Week 28: Regular and irregular polygons — interior and exterior angles
+Week 29: Combined polygon problems, construction-based reasoning
+Week 30: Consolidation tasks
+End of Week 30: Test on Polygons and Geometry
+
+Weeks 31–33: Mensuration
+Week 31: Area and perimeter — rectangles, triangles, trapeziums
+Week 32: Compound shapes and mixed problem solving
+Week 33: Real-life mensuration applications; estimation and accuracy
+End of Week 33: Test on Area and Perimeter
+
+Weeks 34–37: Integrated Review – Algebra and Geometry
+Week 34: Worded problems on area, perimeter and expressions
+Week 35: Algebra and geometry synthesis tasks
+Week 36: Number and algebra recap through puzzles and logic grids
+Week 37: Consolidation project: Mixed-topic problem bank
+End of Week 37: Cumulative Test
+
+Weeks 38–45: Spiral Revision and Applied Practice
+Week 38: Powers, estimation, ratio
+Week 39: Percentages, conversions, reverse problems
+Week 40: Algebra revision — solving, substitution, sequences
+Week 41: Angles and polygon revision
+Week 42: Time-based revision challenges
+Week 43: Error analysis and common misconceptions
+Week 44: Structured revision worksheets across strands
+
+Weeks 45–47: Mock Exam Practice
+Week 45: Mock Exam Phase-1
+Week 46: Mock Exam Phase-2
+Week 47: Corrections and targeted review
+
+Week 48: Comprehensive Mock Tests with Exam-style Questions
+
+#Physics#
+Weeks 1–3: Motion and Measurement
+Week 1: Scalars and vectors; physical quantities; types of motion
+Week 2: Speed and velocity; distance-time calculations and average speed
+Week 3: Acceleration and deceleration; formula use with a = Δv/Δt
+End of Week 3: Test on Motion
+
+Weeks 4–5: Mass, Weight, and Density
+Week 4: Mass vs. weight; gravitational field strength; g = W/m
+Week 5: Density = mass/volume; practical methods for solids and liquids
+End of Week 5: Test on Mass, Weight, and Density
+
+Weeks 6–8: Forces and Newton’s Laws
+Week 6: Types of forces and their effects; force diagrams
+Week 7: Balanced and unbalanced forces; Newton’s First and Third Laws
+Week 8: Resultant force and F = ma applications
+End of Week 8: Test on Forces
+
+Week 9: Consolidation 1
+Apply knowledge from Weeks 1–8 through diagrams and word problems
+Comprehensive Mini-Exam 1
+
+Weeks 10–12: Energy, Work and Power
+Week 10: Forms of energy and energy stores
+Week 11: Work done = force × distance; W = Fd
+Week 12: Power = work/time; introduction to energy conservation
+End of Week 12: Test on Energy and Work
+
+Weeks 13–15: States of Matter and Thermal Processes
+Week 13: Particle model of solids, liquids, gases
+Week 14: Melting, boiling and condensation — particle explanations
+Week 15: Evaporation, cooling, and factors that affect rate
+End of Week 15: Test on States and Thermal Change
+
+Week 16: Consolidation 2
+Problem sets on energy, states of matter, and pressure concepts
+
+Weeks 17–19: Light and Waves
+Week 17: Reflection, angle of incidence/reflection, and plane mirror image properties
+Week 18: Refraction and dispersion using prisms; colours of the spectrum
+Week 19: Lenses — converging and diverging; parallel ray diagrams
+End of Week 19: Test on Light
+
+Weeks 20–21: Electromagnetic Spectrum
+Week 20: EM spectrum regions, uses and risks, wavelength-frequency trends
+Week 21: Speed of EM waves in vacuum and air
+End of Week 21: Test on Electromagnetic Waves
+
+Week 22: Consolidation 3
+Mixed problems from Waves and EM spectrum
+
+Week 23: Revision
+Review from Motion to Electromagnetic Spectrum
+Week 24: Revision & Practice
+Reinforce learning from Weeks 1–23 with problem-solving sessions and mini reviews
+
+Weeks 25–27: Magnetism
+Week 25: Magnetic poles, attraction and repulsion
+Week 26: Magnetic field lines, compass plotting, strength and direction
+Week 27: Temporary vs permanent magnets; applications of magnets
+End of Week 27: Test on Magnetism
+
+Weeks 28–30: Electrostatics and Electric Charge
+Week 28: Charging by friction; electron transfer; conductors and insulators
+Week 29: Electric fields and patterns; direction of force
+Week 30: Applications and diagrams of electrostatic effects
+End of Week 30: Test on Electrostatics
+
+Week 31: Consolidation 4
+Apply electricity and magnetism through circuit-based puzzles
+Weeks 32–34: Current Electricity and Resistance
+Week 32: Current = charge/time; conventional vs electron flow
+Week 33: Voltage and EMF definitions; V = W/Q and E = W/Q
+Week 34: Resistance = V/I; Ohm’s Law; R ∝ length, 1/area
+End of Week 34: Test on Current and Resistance
+
+Weeks 35–36: Electric Circuits
+Week 35: Circuit diagrams and component behaviours
+Week 36: Series and parallel rules for current and voltage
+End of Week 36: Test on Circuits
+
+Week 37: Consolidation 5
+Practical application of formulas in electricity
+
+Weeks 38–44: Spiral Revision and Exam Preparation
+Week 38: Motion and Forces
+Week 39: Energy, Work and Power
+Week 40: Waves and Light
+Week 41: Magnetism and Electrostatics
+Week 42: Current Electricity and Circuits
+Week 43: Timed drills and MCQ review
+Week 44: Extended response practice and test strategies
+
+Week 45–47: Mock Exam Practice
+Week 45: Mock Phase 1 – Multiple Choice and Short Answer
+Week 46: Mock Phase 2 – Structured Questions
+Week 47: Feedback, corrections, and target-focused revision
+
+Week 48: Comprehensive Mock Tests with Exam-style Questions
+
+#Chemistry#
+
+Weeks 1–3: States and Properties of Matter
+Week 1: Particle structure of solids, liquids and gases
+Week 2: Changes of state — melting, boiling, evaporating, freezing, condensing
+Week 3: Energy transfer during state changes using kinetic theory
+End of Week 3: Test on States of Matter
+
+Weeks 4–6: Atoms and the Periodic Table
+Week 4: Differences between elements, compounds, and mixtures
+Week 5: Atomic structure — protons, neutrons, electrons, charges and masses
+Week 6: Electronic configuration (up to Z=20); group and period patterns
+End of Week 6: Test on Atomic Structure and Elements
+
+Weeks 7–8: Isotopes
+Week 7: Isotopes — definitions, similarities in chemical properties
+Week 8: Proton vs nucleon numbers; isotope symbols and interpretations
+End of Week 8: Test on Isotopes and Atomic Concepts
+
+Week 9: Consolidation 1
+Review from Weeks 1–8 using diagrams and particle models
+Weeks 10–13: Bonding and Structure
+Week 10: Formation of ions and ionic bonding; dot-and-cross diagrams
+Week 11: Giant ionic lattices and their physical properties
+Week 12: Covalent bonding — molecule formation with shared electrons
+Week 13: Properties of simple molecular substances vs ionic compounds
+End of Week 13: Test on Chemical Bonding
+
+Weeks 14–16: Giant Structures and Metallic Bonding
+Week 14: Diamond, graphite and SiO₂ — structures and uses
+Week 15: Metallic bonding; sea of electrons, malleability and conductivity
+Week 16: Compare metallic, covalent, and ionic structures
+End of Week 16: Test on Giant and Metallic Structures
+
+Week 17: Consolidation 2
+Apply bonding and structure knowledge across problem sets
+
+Weeks 18–19: Physical and Chemical Changes
+Week 18: Recognise and describe physical vs chemical changes
+Week 19: Reactions as new substances with different properties
+End of Week 19: Test on Change and Reactivity
+
+Weeks 20–22: Acids, Bases, and Indicators
+Week 20: Acid and alkali definitions; H⁺ and OH⁻ ions; proton donors/acceptors
+Week 21: Effects on indicators (litmus, methyl orange, thymolphthalein)
+Week 22: Strong vs weak acids; neutralisation reaction
+End of Week 22: Test on Acids and Alkalis
+
+Week 23: Structured Revision
+Review theory and formulae from Weeks 1–22
+
+Week 24: Revision & Practice
+End of Week 24: Midterm Exam — covers all contents from Weeks 1 to 23
+
+Weeks 25–27: Periodic Table and Trends
+Week 25: Periodic Table arrangement; periods, groups and electron patterns
+Week 26: Group I — alkali metals: trends in softness, reactivity, melting point
+Week 27: Group VII — halogens: reactivity, colour, and state trends
+End of Week 27: Test on Group Trends
+
+Weeks 28–29: Noble Gases and Group Properties
+Week 28: Noble gases — unreactivity and electron shell explanation
+Week 29: Predicting properties based on group and period patterns
+End of Week 29: Test on Groups I, VII, VIII
+
+Week 30: Consolidation 3
+Periodic table applications and patterns in bonding/reactivity
+Weeks 31–33: Metals and Reactivity
+Week 31: Physical properties — conductivity, malleability, melting point
+Week 32: Chemical properties — reactions with acids, water, oxygen
+Week 33: Differences between metals and non-metals
+End of Week 33: Test on Metals and Non-Metals
+
+Weeks 34–36: Reactivity Series and Displacement
+Week 34: Reactivity series; observation and displacement patterns
+Week 35: Metal reactions with water, steam and acids
+Week 36: Rank metals using results; application questions
+End of Week 36: Test on Reactivity and Series
+
+Week 37: Consolidation 4
+Cross-topic worksheets on atoms, bonding, periodicity, reactivity
+
+Weeks 38–44: Spiral Revision and Mastery
+Week 38: States, particles, atomic structure
+Week 39: Bonding, molecular properties, structure comparisons
+Week 40: Acids, bases, indicators, and neutralisation
+Week 41: Periodic Table and metal reactivity
+Week 42: Cross-topic MCQs and reasoning-based tasks
+Week 43: Extended response and calculations
+Week 44: Past-paper extracts and review
+
+Week 45–47: Mock Exam Practice
+Week 45: Mock Phase 1 – Multiple Choice and Short Answer
+Week 46: Mock Phase 2 – Structured Questions
+Week 47: Feedback, corrections, and target-focused revision
+
+Week 48: Comprehensive Mock Tests with Exam-style Questions
+
+#Biology#
+
+Weeks 1–3: Cells – Structure and Function
+Week 1: Identify parts of animal and plant cells — nucleus, cytoplasm, membrane, ribosomes, mitochondria, vacuole, chloroplast, cell wall
+Week 2: Specialised cells, tissues, organs and organ systems
+Week 3: Diffusion and osmosis — definitions, factors, effects on plant/animal cells
+End of Week 3: Test on Cell Biology
+
+Weeks 4–5: Active Transport and Water Potential
+Week 4: Active transport in root hair cells; differences from diffusion/osmosis
+Week 5: Water potential, turgor, plasmolysis and plant tissue experiments
+End of Week 5: Test on Cell Transport
+
+Weeks 6–7: Enzymes and Biological Catalysts
+Week 6: Enzymes as proteins and biological catalysts
+Week 7: Lock-and-key model, enzyme–substrate interaction
+End of Week 7: Test on Enzymes
+
+Week 8: Consolidation 1
+Diagrams and data practice on cells, osmosis and enzyme systems
+
+Weeks 9–11: Photosynthesis and Plant Nutrition
+Week 9: Photosynthesis — word equation, light energy use, glucose formation
+Week 10: Leaf structure — adaptations, chloroplast distribution, stomata
+Week 11: Importance of nitrates and magnesium ions for growth and chlorophyll
+End of Week 11: Test on Photosynthesis and Nutrition
+
+Weeks 12–14: Transport in Flowering Plants
+Week 12: Root hair cell adaptation, water and ion uptake
+Week 13: Pathway of water — root to leaf, xylem, mesophyll
+Week 14: Recap: transpiration, stomata, vascular tissue roles
+End of Week 14: Test on Transport in Plants
+
+Week 15: Consolidation 2
+Revision through diagrams, comparisons, and cause-effect analysis
+
+Weeks 16–18: Human Nutrition and Digestion
+Week 16: Food groups and deficiencies — vitamin C, D, calcium, iron
+Week 17: Digestive system and digestion types — physical vs chemical
+Week 18: Human teeth structure and functions
+End of Week 18: Test on Nutrition and Digestion
+
+Week 19: Digestive Enzymes and Absorption
+Enzymes in mouth, stomach, small intestine; absorption in ileum and colon
+
+Weeks 20–21: Human Gas Exchange
+Week 20: Alveoli structure, gas exchange surface features
+Week 21: Breathing mechanism — ribs, diaphragm, volume/pressure changes
+End of Week 21: Test on Gas Exchange
+
+Weeks 22–23: Respiration
+Week 22: Aerobic respiration — word and symbol equations
+Week 23: Anaerobic respiration, oxygen debt, comparison with aerobic
+End of Week 23: Test on Respiration
+
+Week 24: Revision & Practice
+End of Week 24: Midterm Exam — covers all contents from Weeks 1 to 23
+
+Weeks 25–26: Circulatory System and Heart
+Week 25: Heart structure, double circulation, function of vessels
+Week 26: Blood — red/white cells, plasma, platelets and their functions
+End of Week 26: Test on Circulation and Blood
+
+Weeks 27–28: Transport and Exchange
+Week 27: Capillaries and tissue fluid
+Week 28: Blood substance exchange with cells
+End of Week 28: Test on Substance Transport
+
+Week 29: Consolidation 3
+Multi-system questions: respiration, circulation, gas exchange
+
+Weeks 30–32: Classification and Inheritance
+Week 30: Kingdoms, vertebrates and arthropods
+Week 31: Ferns, flowering plants, naming using binomial system
+Week 32: Inheritance — features, genes, variation, offspring
+End of Week 32: Test on Classification and Inheritance
+
+Weeks 33–35: Variation and Genetics
+Week 33: Discontinuous and continuous variation
+Week 34: Causes of variation — genetic and environmental
+Week 35: Basics of inheritance and passing on traits
+End of Week 35: Test on Variation and Traits
+
+Week 36: Consolidation 4
+Mixed data and pattern interpretation from inheritance and classification
+
+Weeks 37–44: Spiral Revision and Practice
+Week 37: Cells, transport, enzymes
+Week 38: Photosynthesis and mineral nutrition
+Week 39: Digestion, absorption, gas exchange
+Week 40: Circulation, respiration, blood and systems
+Week 41: Classification and variation
+Week 42: Timed MCQs and mixed question tasks
+Week 43: Structured responses and experimental diagrams
+Week 44: Past-paper tasks with guided answers
+
+Weeks 45–47: Mock Exam Phase
+Week 45: Mock Phase 1 – Multiple Choice and Short Answer
+Week 46: Mock Phase 2 – Structured Questions
+Week 47: Feedback, corrections, and target-focused revision
+
+Week 48: Comprehensive Mock Tests with Exam-style Questions

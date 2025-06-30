@@ -1,0 +1,5 @@
+Mathematics: VI, VII, VIII, IX_X
+Physics: VI, VII, VIII, IX_X
+Chemistry: VI, VII
+Biology: VI, VII
+Additional Mathematics: VIII, IX_X

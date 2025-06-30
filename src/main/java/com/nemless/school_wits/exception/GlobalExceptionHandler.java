@@ -44,7 +44,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(PSQLException.class)
     public ResponseEntity<String> databaseException(PSQLException ex) {
         log.error(ex.getMessage());
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ResponseMessage.UNABLE_TO_SAVE);
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ResponseMessage.UNABLE_TO_PERFORM_DATABASE_OPERATION);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

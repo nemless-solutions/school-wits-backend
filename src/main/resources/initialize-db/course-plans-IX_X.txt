@@ -1,0 +1,238 @@
+#Mathematics#
+
+Weeks 1–3: Number
+Week 1: Types of numbers, Set notation and Venn diagrams, Powers and roots
+Week 2: Fractions, decimals and percentages; Ordering numbers; Four operations; Indices and standard form
+Week 3: Estimation, Limits of accuracy, Ratio and proportion, Rates, Percentages, Calculator use, Time, Money, Exponential growth and decay, Surds
+End of Week 3: Test on Number
+
+Weeks 4–8: Algebra and Graphs
+Week 4: Introduction to algebra, Algebraic manipulation, Algebraic fractions
+Week 5: Indices (advanced), Solving equations (linear, quadratic, fractional), Changing the subject of formulae
+Week 6: Inequalities (including graphical), Sequences and nth terms
+Week 7: Direct and inverse proportion, Graphs in practical situations,z Graphs of functions, Exponential graphs
+Week 8: Sketching curves, Functions, Inverse and composite functions
+End of Week 8: Test on Algebra and Graphs
+
+Weeks 9–10: Coordinate Geometry
+Week 9: Cartesian coordinates, Linear graphs, Gradient, Length and midpoint
+Week 10: Equations of lines, Parallel and perpendicular lines
+End of Week 10: Test on Coordinate Geometry
+
+Weeks 11–15: Geometry
+Week 11: Basic geometrical terms and properties, Vocabulary of shapes and solids
+Week 12: Geometrical constructions, Scale drawings, Bearings
+Week 13: Similar shapes and solids, Scale factors, Surface area and volume comparisons
+Week 14: Line and rotational symmetry, Symmetry in solids, Angle properties in polygons and parallel lines
+Week 15: Circle theorems (angles and symmetry)
+End of Week 15: Test on Geometry
+
+Weeks 16–17: Mensuration
+Week 16: Units of measurement, Perimeter and area, Circles, arcs and sectors
+Week 17: Surface area and volume of 3D shapes, Compound shapes and frustums
+End of Week 17: Test on Mensuration
+
+Weeks 18–19: Trigonometry
+Week 18: Pythagoras’ theorem, Trigonometric ratios, Angles of elevation/depression
+Week 19: Sine and cosine rules, Area of triangle using sine, 3D Trigonometry
+End of Week 19: Test on Trigonometry
+
+Weeks 20–21: Transformations and Vectors
+Week 20: Reflection, Rotation, Enlargement, Translation
+Week 21: Vector notation, Magnitude, Vector geometry and problem solving
+End of Week 21: Test on Transformations and Vectors
+
+Weeks 22–23: Probability
+Week 22: Probability scale, Notation, Single event and combined events
+Week 23: Relative and expected frequencies, Tree diagrams, Venn diagrams, Sample spaces
+End of Week 23: Test on Probability
+
+Week 24:
+Revision & Practice
+End of Week 24: Midterm Exam — covers all contents from Weeks 1 to 23
+
+Weeks 25–27: Statistics
+Week 25: Classifying and interpreting data, Drawing inferences
+Week 26: Mean, median, mode, range; grouped data and modal class
+Week 27: Bar charts, pie charts, pictograms, frequency distributions, scatter diagrams, line of best fit, cumulative frequency, box plots, histograms
+End of Week 27: Test on Statistics
+
+Weeks 28–47: Revision & Practice
+
+Weeks 28–33: Revise Numbers and Algebra with mixed exercises and past paper practice
+
+Weeks 34–37: Revise Geometry, Mensuration and Coordinate Geometry
+
+Weeks 38–41: Revise Trigonometry and Vectors
+
+Weeks 42–45: Revise Probability and Statistics
+
+Weeks 46–47: Full syllabus practice, timed papers, corrections and final brush-ups
+
+Week 48: Comprehensive Mock Tests with Exam-style Questions — full syllabus
+
+#Additional Mathematics#
+
+Weeks 1–5: Functions and Quadratics
+Week 1: Understanding domain, range, one–one and many–one functions, inverse and composite functions
+Week 2: Function notation, sketching function/inverse graphs, modulus transformations
+Week 3: Completing the square, maximum/minimum of quadratics, range and graph interpretation
+Week 4: Conditions for roots using discriminant, solving quadratic equations, inequalities
+Week 5: Test on Functions and Quadratics
+
+Weeks 6–8: Polynomials and Advanced Equations
+Week 6: Remainder theorem, factor theorem, factoring cubic polynomials
+Week 7: Solving cubic equations, modulus equations and inequalities (linear and quadratic)
+Week 8: Substitution to form quadratics, sketching/modulus graphs, solving cubic inequalities
+Week 9: Comprehensive Exam 1 — Weeks 1 to 8
+
+Weeks 10–11: Simultaneous Equations and Logarithms
+Week 10: Solving nonlinear simultaneous equations algebraically
+Week 11: Properties of logarithmic and exponential functions, graphs, asymptotes, solving exponential equations
+
+Weeks 12–13: Graphs and Coordinate Geometry
+Week 12: Equation of a line, parallel/perpendicular conditions, midpoints, bisectors
+Week 13: Graph transformation and straight-line graph applications, including exponential/log models
+
+Weeks 14–15: Revision and Tests
+Week 14: Test on Simultaneous Equations, Logarithms, and Graphs
+Week 15: Comprehensive Exam 2 — Weeks 10 to 13
+
+Weeks 16–18: Circle Geometry and Circular Measure
+Week 16: Equation of a circle, identifying radius/centre, circle-line intersections
+Week 17: Tangents to circles, intersection of two circles, common chords
+Week 18: Arc length, sector area, radian measure
+Week 19: Test on Circles and Circular Measure
+
+Weeks 20–23: Trigonometry
+Week 20: All six trig functions and identities
+Week 21: Amplitude, period, transformation of trig graphs
+Week 22: Solving trig equations in given domains, proving identities
+Week 23: Applications and mixed problems in trigonometry
+
+Week 24: Revision & Practice
+End of Week 24: Midterm Exam — covers all contents from Weeks 1 to 23
+
+Weeks 25–26: Permutations, Combinations and Series
+Week 25: Factorial notation, solving problems with permutations and combinations
+Week 26: Binomial theorem, arithmetic and geometric series, sum to n terms and infinity
+
+Week 27: Test on Counting and Series
+
+Weeks 28–32: Vectors and Basic Calculus
+Week 28: Vector notation, position vectors, magnitude, scalar multiplication
+Week 29: Resultant vectors, velocity vectors, applications
+Week 30: Concept of derivatives, standard derivative formulas
+Week 31: Chain, product and quotient rule
+Week 32: Tangents, normals, gradients, and stationary points
+
+Week 33: Test on Vectors and Derivatives
+
+Week 34: Comprehensive Exam 3 — Weeks 25 to 33
+
+Weeks 35–38: Calculus Applications
+Week 35: First and second derivative tests, maxima and minima
+Week 36: Rates of change, small changes, approximations
+Week 37: Integration basics, standard functions, and rules
+Week 38: Integrals involving (ax + b)^n, sin(ax + b), exponential, etc.
+
+Week 39: Test on Calculus Applications
+
+Weeks 40–41: Integration Applications
+Week 40: Definite integrals, area between curves
+Week 41: Kinematics using calculus (displacement, velocity, acceleration)
+
+Week 42: Comprehensive Exam 4 — Weeks 34 to 41
+
+Weeks 43–45: Final Revision
+Week 43: Focused revision — algebra, graphs, trigonometry
+Week 44: Focused revision — calculus and applications
+Week 45: Focused revision — functions, vectors, geometry
+
+Weeks 46–47: Mock Exams
+Week 46: Mock Exam Paper 1
+Week 47: Mock Exam Paper 2
+
+Week 48: Final Comprehensive Exam — Full Syllabus
+
+#Physics#
+
+Weeks 1–17: Motion, Forces, and Energy
+Week 1: Measurement of length, time, volume, and the concept of scalar and vector quantities
+Week 2: Resultant vectors and graphical methods
+Week 3: Speed, velocity, average speed, acceleration
+Week 4: Uniform and non-uniform acceleration; gradient and area under graphs
+End of Week 4: Comprehensive Exam 1 (Covers Weeks 1–4)
+Week 5: Distance-time and speed-time graph analysis
+Week 6: Free fall and acceleration due to gravity
+Week 7: Mass vs. weight; inertia and gravitational field strength
+Week 8: Determining density (solid, liquid, irregular) and related calculations
+End of Week 8: Comprehensive Exam 2 (Covers Weeks 1–8)
+Week 9: Types of forces; Newton’s laws; resultant force calculations
+Week 10: Friction, drag, air resistance, terminal velocity, stopping distances
+Week 11: Elastic deformation, Hooke’s law, spring constant, load-extension graphs
+Week 12: Circular motion and its qualitative factors
+End of Week 12: Comprehensive Exam 3 (Covers Weeks 5–12)
+Week 13: Moments, principle of moments, verifying experiments
+Week 14: Centre of gravity and stability
+Week 15: Momentum, impulse, conservation of momentum
+Week 16: Energy stores and transfers, conservation, KE and GPE equations
+Week 17: Work, power, efficiency, renewable and non-renewable energy sources
+End of Week 17: Comprehensive Exam 4 (Covers Weeks 9–17)
+
+Weeks 18–23: Thermal Physics
+Week 18: States of matter and kinetic particle theory
+Week 19: Pressure-temperature and volume-temperature relationships, p₁V₁ = p₂V₂
+Week 20: Thermal expansion, thermometer structure, Kelvin-Celsius conversion
+Week 21: Specific heat capacity; energy and temperature relation; experimental methods
+End of Week 21: Comprehensive Exam 5 (Covers Weeks 18–21)
+Week 22: Latent heat, melting/boiling, evaporation vs boiling, cooling via evaporation
+Week 23: Conduction, convection, radiation, and practical applications
+End of Week 23: Comprehensive Exam 6 (Covers Weeks 18–23)
+
+Week 24: Revision & Practice
+End of Week 24: Midterm Exam — covers all contents from Weeks 1 to 23
+
+Weeks 25–32: Waves
+Week 25: Wave basics: transverse vs longitudinal, wavefronts, frequency, wavelength
+Week 26: Wave behavior: reflection, refraction, diffraction, ripple tank demonstrations
+Week 27: Reflection of light, laws, mirror images, experimental setup
+Week 28: Refraction, refractive index, critical angle, total internal reflection
+End of Week 28: Comprehensive Exam 7 (Covers Weeks 25–28)
+Week 29: Lenses: converging/diverging, ray diagrams, image formation, magnification
+Week 30: Eye defects, correction with lenses, ray diagram analysis
+Week 31: Dispersion of light and visible spectrum
+Week 32: EM spectrum, wave types, uses, dangers, speed of EM waves
+End of Week 32: Comprehensive Exam 8 (Covers Weeks 25–32)
+
+Weeks 33–36: Sound and Electromagnetic Spectrum
+Week 33: Nature of sound, oscilloscopes, frequency range, echoes
+Week 34: Speed of sound in different media, ultrasound, applications
+Week 35: Magnetic poles and fields, permanent vs temporary magnets, plotting fields
+Week 36: Magnetic field interactions, magnetic force lines, uses of electromagnets
+End of Week 36: Comprehensive Exam 9 (Covers Weeks 33–36)
+
+Weeks 37–44: Electricity and Magnetism
+Week 37: Electric charge, field lines, conductors vs insulators, electrostatics
+Week 38: Current, charge, I = Q/t, electron flow, measuring current
+Week 39: EMF and potential difference, voltmeters, series sources
+Week 40: Resistance, Ohm’s Law, current-voltage graphs, temperature effects
+End of Week 40: Comprehensive Exam 10 (Covers Weeks 37–40)
+Week 41: Circuit components and diagrams, series and parallel laws
+Week 42: Calculating resistance in series and parallel, potential dividers
+Week 43: Thermistors, LDRs, variable resistors, input sensors
+Week 44: Electrical energy, power, cost calculation, safety and fuse logic
+End of Week 44: Comprehensive Exam 11 (Covers Weeks 37–44)
+
+Weeks 45–46: Nuclear Physics
+Week 45: Atomic model, isotopes, alpha scattering, radiation types and detection
+Week 46: Radioactive decay, equations, fission/fusion, half-life, safety procedures
+End of Week 46: Comprehensive Exam 12 (Covers Weeks 45–46)
+
+Week 47: Space Physics
+Earth, Moon, and Sun motion; orbits, gravitational strength, orbital speed
+Solar system structure, galaxy, life cycle of stars, redshift, Big Bang theory
+End of Week 47: Comprehensive Exam 13 (Covers Weeks 45–47)
+
+Week 48: Full syllabus practice, timed papers, corrections and final brush-ups
+End of Week 48: Comprehensive Mock Tests with Exam-style Questions — full syllabus

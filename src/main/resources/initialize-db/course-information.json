@@ -1,0 +1,268 @@
+[
+    {
+      "course": "Mathematics-VI",
+      "title": "Unlock the world of numbers, patterns, and equations.",
+      "description": "This course builds foundational fluency in number operations, introduces algebraic thinking, and enhances spatial reasoning through geometry and mensuration. Students progress from basic classifications and conversions to manipulating algebraic expressions and solving equations. Real-life applications and problem-solving are embedded throughout, ensuring students grow in confidence and competence.",
+      "learningContentTitle": "The Grade VI Mathematics syllabus is designed to cover essential mathematical concepts across various domains, building a solid foundation for future studies. The chart highlights the key areas of focus:",
+      "learningContentList": [
+        "Identify and classify number types: integers, primes, squares, cubes, rational and irrational numbers",
+        "Convert and calculate fluently between fractions, decimals, and percentages",
+        "Apply the four operations accurately with integers, fractions, and decimals",
+        "Use estimation strategies including rounding and significant figures",
+        "Solve percentage problems including profit/loss, compound interest, and reverse percentages",
+        "Develop ratio and proportion skills in practical contexts",
+        "Understand and manipulate algebraic expressions and formulas",
+        "Solve equations and change the subject of formulas, including fractional and simultaneous types",
+        "Explore linear, quadratic, and exponential sequences using nth term notation",
+        "Apply geometrical terms and solve problems involving angles and polygons",
+        "Calculate area and perimeter of 2D shapes using formulas and compound structures"
+      ],
+      "assessment": "Each major topic includes an end-of-topic test to consolidate understanding. Periodic consolidation weeks connect ideas across units for deeper mastery. A midyear exam assesses core concepts, and the final term builds exam confidence through spiral revision, timed problem-solving, and mock tests.",
+      "academicPlan": "This detailed plan guides students through fundamental mathematical concepts, ensuring a steady progression of skills and regular reinforcement through tests and consolidation weeks."
+    },
+    {
+      "course": "Physics-VI",
+      "title": "Explore the principles that govern motion, matter, energy, and electricity.",
+      "description": "This course introduces students to foundational physical concepts, guiding them through measurable quantities, motion, forces, energy, and the structure of matter. It builds early scientific thinking through conceptual clarity, quantitative problem-solving, and real-world applications. Learners engage with practical setups, formula use, and visual interpretations to develop a strong base in physics that will support future IGCSE-level studies.",
+      "learningContentTitle": "The Grade VI Physics syllabus introduces fundamental concepts across various branches of physics. The chart below illustrates the relative emphasis on key learning outcomes:",
+      "learningContentList": [
+        "Distinguish between scalar and vector quantities and apply them in context",
+        "Measure and calculate speed, velocity, and acceleration in various motion scenarios",
+        "Understand how forces affect motion, and apply Newton’s laws using diagrams and formulas",
+        "Explore mass, weight, and density, and calculate each using standard equations",
+        "Apply the principles of energy conservation and calculate work done and power",
+        "Identify solids, liquids, and gases based on their particle structures and behaviour",
+        "Understand melting, boiling, and evaporation through kinetic particle theory",
+        "Investigate light reflection, refraction, dispersion, and lens behaviour",
+        "Know the electromagnetic spectrum and the characteristics of its regions",
+        "Learn about magnetic fields, permanent magnets, and simple magnetic interactions",
+        "Understand electric charge, current, potential difference, and circuit behaviour",
+        "Construct and analyse series and parallel circuits using circuit diagrams"
+      ],
+      "assessment": "Each unit concludes with a targeted test or consolidation session, followed by structured revision and timed practice. Mid-year and end-of-year mock exams reinforce skills in formula application, practical reasoning, and conceptual linkage. Emphasis is placed on strengthening confidence in calculations, graphical interpretation, and multiple representations of physical phenomena.",
+      "academicPlan": "This structured plan covers core physics topics from motion and forces to electricity and magnetism, incorporating regular tests and consolidation weeks for strong conceptual understanding."
+    },
+    {
+      "course": "Chemistry-VI",
+      "title": "Understand what matter is made of—and how it changes.",
+      "description": "This course introduces students to the fundamentals of matter, atomic structure, chemical bonding, and reactivity. Using particle models, symbolic notation, and structured reasoning, students explore how atoms combine, how reactions occur, and why substances behave as they do. With a strong foundation in classification, patterns in the Periodic Table, and properties of metals, students develop scientific fluency for higher-level chemistry.",
+      "learningContentTitle": "The Grade VI Chemistry syllabus provides a fundamental understanding of matter and its transformations. The chart below highlights the key areas of study in this foundational course:",
+      "learningContentList": [
+        "Describe solids, liquids, and gases using particle theory and state changes",
+        "Understand the atomic model, subatomic particles, and electron configurations",
+        "Differentiate between elements, compounds, and mixtures with real-life examples",
+        "Calculate proton and nucleon numbers; explain isotopes and chemical properties",
+        "Describe the formation and structure of ionic and covalent compounds",
+        "Understand the properties of substances based on bonding and molecular structure",
+        "Distinguish between physical and chemical changes using observable features",
+        "Investigate acids, alkalis, indicators, and reactions forming salts",
+        "Explore periodic trends and group properties (I, VII, VIII) using electron configuration",
+        "Compare metals and non-metals in terms of both physical and chemical behaviour",
+        "Understand metallic bonding and explain the conductivity and malleability of metals",
+        "Predict properties and reactivity based on group patterns in the Periodic Table"
+      ],
+      "assessment": "Regular tests assess conceptual mastery and calculation fluency. Consolidation weeks offer application across units, with mid-year and final mock exams providing exam-style practice and reinforcement. Students build both theoretical knowledge and practical confidence through real-world problem solving, scientific language development, and symbolic representation.",
+      "academicPlan": "This comprehensive plan guides students through the fundamentals of chemistry, from atomic structure and bonding to chemical reactions and the Periodic Table, with consistent assessment and review."
+    },
+    {
+      "course": "Biology-VI",
+      "title": "Discover how living things function—from microscopic cells to human systems.",
+      "description": "This course lays the foundation for biological understanding by exploring cell structure, body systems, plant biology, and classification. Students investigate key life processes such as respiration, photosynthesis, transport, digestion, and inheritance using visual models, scientific experiments, and structured thinking. Emphasis is placed on accurate scientific vocabulary, system interactions, and real-world relevance to human health and the environment.",
+      "learningContentTitle": "The Grade VI Biology syllabus provides a foundational understanding of living organisms, from cellular processes to human body systems and ecological concepts. The chart below illustrates the key learning areas:",
+      "learningContentList": [
+        "Identify cell structures in plants and animals and explain their functions",
+        "Understand diffusion, osmosis, and active transport in cells",
+        "Explore enzyme action and the lock-and-key model of specificity",
+        "Describe photosynthesis and how leaf adaptations support this process",
+        "Trace the transport of water and ions in flowering plants",
+        "Understand nutrition, digestion, teeth, and enzyme function in humans",
+        "Explore human gas exchange, respiration, and how breathing occurs",
+        "Investigate the circulatory system, structure of the heart, and functions of blood",
+        "Classify living organisms using a binomial system and key physical features",
+        "Understand how variation and inheritance pass traits through generations",
+        "Interpret biological diagrams, experiments, and data with accuracy",
+        "Build a systems view of how organisms grow, adapt, and maintain life"
+      ],
+      "assessment": "Each topic is assessed through structured tests, and every few weeks are set aside for consolidation and applied problem-solving. The mid-year and final mock exams provide full syllabus review and question-based mastery. Students apply biological reasoning in varied contexts—from cells to ecosystems—building deep conceptual understanding and scientific communication.",
+      "academicPlan": "This structured plan guides students through the fundamentals of biology, from cell structure and function to human body systems, classification, and inheritance, supported by regular assessment and spiral revision."
+    },
+    {
+      "course": "Mathematics-VII",
+      "title": "A solid bridge between foundational skills and abstract thinking.",
+      "description": "This course empowers learners with essential number fluency, algebraic thinking, and geometric understanding, while progressively building their problem-solving confidence. Through applied reasoning, practical challenges, and structured revision, students gain the tools to transition smoothly into upper secondary mathematics and O-Level preparation.",
+      "learningContentTitle": "The Grade VII Mathematics syllabus builds upon foundational skills, introducing more complex algebraic techniques and geometric applications. The chart below highlights the core areas students will master:",
+      "learningContentList": [
+        "Classify and work with various types of numbers, powers, and roots",
+        "Convert and calculate fluently between fractions, decimals, and percentages",
+        "Use estimation and proportional reasoning in real-life problem contexts",
+        "Develop strong algebraic techniques including expansion, factorisation, and algebraic fractions",
+        "Solve equations — linear, fractional, simultaneous — and manipulate formulas",
+        "Identify and describe number sequences including linear, quadratic, and exponential patterns",
+        "Understand geometrical vocabulary, angle properties, and polygon relationships",
+        "Calculate area and perimeter of 2D shapes, and apply Pythagoras’ Theorem",
+        "Build examination strategies through spiral revision, mixed-topic practice, and timed mock tests"
+      ],
+      "assessment": "Regular topic-end tests ensure mastery throughout the year, while integrated consolidation weeks reinforce connections across strands. A mid-year exam (Week 24) and a final full-syllabus mock exam (Week 48) build confidence and readiness for future academic demands. The structure ensures learners not only understand concepts but can apply them flexibly in problem-solving settings.",
+      "academicPlan": "This structured plan ensures a seamless progression from foundational to more abstract mathematical concepts, incorporating regular assessments and comprehensive reviews."
+    },
+    {
+      "course": "Physics-VII",
+      "title": "Where conceptual clarity meets real-world relevance.",
+      "description": "This course introduces learners to foundational concepts in classical physics, gradually building up from basic motion and forces to energy, thermal physics, light, electricity, and magnetism. With hands-on calculations, graph interpretation, and frequent applied problem-solving, students not only gain scientific literacy but also develop the thinking skills essential for deeper science learning ahead.",
+      "learningContentTitle": "The Grade VII Physics syllabus focuses on key principles of classical physics, emphasizing practical applications and problem-solving skills. The chart below illustrates the distribution of concepts across major topics:",
+      "learningContentList": [
+        "Understand scalar and vector quantities and interpret motion using graphs and formulas",
+        "Calculate speed, acceleration, force, mass, weight, and density in practical contexts",
+        "Explore Newton’s Laws of Motion, moments, stability, and turning effects",
+        "Master key formulas for kinetic energy, gravitational potential energy, work, power, and efficiency",
+        "Learn about pressure in solids and fluids and how it changes with depth and density",
+        "Distinguish the properties of solids, liquids, and gases; explain state changes and energy transfer",
+        "Investigate conduction, convection, and radiation with real-life thermal applications",
+        "Analyze light behaviour including reflection, refraction, and lenses; understand the electromagnetic spectrum",
+        "Understand magnetism, magnetic fields, and use of compasses and plotting lines",
+        "Explore electrostatics, current, resistance, and the behaviour of electric circuits",
+        "Learn to apply equations for EMF, voltage, resistance, and current in both series and parallel circuits",
+        "Develop experimental thinking and diagram interpretation through practical circuit and magnetism tasks"
+      ],
+      "assessment": "Each topic is followed by a test or consolidation week to strengthen understanding. Comprehensive Exams are held twice: mid-year and at the end. Mock exams and intensive practice in the final term prepare students for high-stakes exams, while regular real-world examples and guided applications deepen understanding and retention.",
+      "academicPlan": "This comprehensive plan guides students through foundational classical physics, covering motion, forces, energy, thermal physics, light, and electricity, with consistent assessment and exam practice."
+    },
+    {
+      "course": "Chemistry-VII",
+      "title": "Discover how everything is made. Learn the rules of reactions and the science behind structure.",
+      "description": "This course introduces students to the building blocks of matter—from the particle model of solids, liquids, and gases to the formation of compounds and how atoms bond together. With a mix of theory, experimentation, and applied problem-solving, students explore the nature of chemical change, master key atomic concepts, and discover trends in the Periodic Table. Emphasis is placed on developing scientific thinking, logical reasoning, and a strong foundation for further chemistry study.",
+      "learningContentTitle": "The Grade VII Chemistry syllabus delves into the fundamental nature of matter, atomic interactions, and chemical changes. The chart below visualizes the key areas of focus:",
+      "learningContentList": [
+        "Understand the particle nature of matter and interpret changes of state",
+        "Classify substances as elements, compounds or mixtures and explore atomic structure",
+        "Learn how atomic number and electron configuration determine an element’s place in the Periodic Table",
+        "Calculate relative atomic and molecular masses; understand isotopes and atomic notation",
+        "Explore the nature of chemical bonds: ionic, covalent, metallic, and giant structures",
+        "Compare properties of substances based on their type of bonding and structure",
+        "Differentiate physical and chemical change; define oxidation and reduction in multiple ways",
+        "Investigate the reactions of acids and bases, neutralisation, indicators and salt formation",
+        "Identify trends and patterns across Groups I, VII and VIII; understand the logic of the Periodic Table",
+        "Compare the physical and chemical behaviour of metals and non-metals",
+        "Memorise and apply the reactivity series through displacement and acid-metal reactions",
+        "Learn how structure and bonding influence reactivity and observable properties"
+      ],
+      "assessment": "Topic-specific tests are included regularly, with consolidation weeks that allow for cross-topic applications and real-world contextual problem-solving. A comprehensive midyear exam follows the first half of the syllabus, and a full mock exam is conducted in the final weeks. Continuous spiral revision ensures knowledge is retained and deepened over time.",
+      "academicPlan": "This comprehensive plan provides a structured journey through Grade VII Chemistry, covering particle theory, atomic structure, bonding, reactions, and periodic trends, with continuous assessment and spiral revision."
+    },
+    {
+      "course": "Biology-VII",
+      "title": "Explore what makes life possible—from cells and enzymes to organs and ecosystems.",
+      "description": "This course introduces students to the structure, function, and diversity of living organisms. From the microscopic level of cells and molecules to full biological systems in plants and humans, students build a deep understanding of life processes through model-based thinking, structured investigations, and real-life biological applications. Emphasis is placed on scientific literacy, comparative analysis, and developing a systems view of biology.",
+      "learningContentTitle": "The Grade VII Biology syllabus provides a comprehensive understanding of life processes, organismal structure, and diversity. The chart below highlights the key learning areas:",
+      "learningContentList": [
+        "Identify key structures in plant and animal cells and relate them to specific functions",
+        "Understand how diffusion, osmosis, and active transport move substances into and out of cells",
+        "Explore the roles of carbohydrates, proteins, lipids, and DNA in biological systems",
+        "Describe how enzymes catalyse metabolic reactions with specificity and efficiency",
+        "Investigate the process and importance of photosynthesis in plants and the role of minerals",
+        "Trace the transport of water and nutrients through plant structures like xylem and phloem",
+        "Understand human nutrition, including food groups, digestion, enzymes, and nutrient absorption",
+        "Compare aerobic and anaerobic respiration and understand their role in energy release",
+        "Describe the structure and function of the circulatory, respiratory, and excretory systems",
+        "Learn how the nervous and hormonal systems coordinate internal responses and maintain balance",
+        "Understand classification systems and how traits are passed through genetic inheritance",
+        "Explore how variation arises within species and how organisms are grouped by features"
+      ],
+      "assessment": "Regular topic tests provide students with timely feedback, while dedicated consolidation weeks encourage application of concepts across topics. A structured midterm exam assesses core understanding, and extensive spiral revision ensures long-term retention. The course concludes with mock exams that prepare students for formal assessments, focusing on critical thinking, analysis, and accurate biological communication.",
+      "academicPlan": "This comprehensive plan guides students through the complexities of biological systems, from cellular processes to human physiology and genetics, incorporating regular assessments and spiral revision."
+    },
+    {
+      "course": "Mathematics-VIII",
+      "title": "Master the building blocks of mathematical thinking with clarity, depth, and confidence.",
+      "description": "This course introduces and develops core mathematical skills that form the foundation for IGCSE and O-Level success. From numbers to algebra, geometry to data analysis, learners are guided through a well-paced and structured progression that balances theory, application, and problem-solving.",
+      "learningContentTitle": "The Grade VIII Mathematics Syllabus D focuses on developing core mathematical skills across diverse areas, forming a strong foundation for advanced studies. The chart below illustrates the relative emphasis on each key learning domain:",
+      "learningContentList": [
+        "Confidently manipulate numbers, indices, and surds",
+        "Solve algebraic equations, inequalities, and apply graphs in practical contexts",
+        "Understand functions, coordinates, and transformations in geometry",
+        "Master mensuration, trigonometry, vectors, and statistical interpretation",
+        "Develop strong reasoning and visual thinking through diagrams, charts, and geometric models"
+      ],
+      "assessment": "The course is divided into weekly modules, with topic-end tests and ten comprehensive review exams spaced throughout the year. Midterm and final mock exams simulate real assessment conditions to build confidence, accuracy, and speed. Emphasis is placed on mixed-topic integration and calculator strategies.",
+      "academicPlan": "This detailed academic plan guides students through the complete Syllabus D curriculum, emphasizing a structured progression with integrated tests and comprehensive review exams for optimal learning outcomes."
+    },
+    {
+      "course": "Additional Mathematics-VIII",
+      "title": "The leap from basic algebra to mathematical mastery begins here.",
+      "description": "This course equips learners with higher-order algebraic skills and deep problem-solving strategies in preparation for O-Level Additional Mathematics. Covering functions, quadratics, polynomials, logarithms, coordinate systems, and trigonometry, students gain both the abstract insight and applied fluency essential for excelling in advanced math.",
+      "learningContentTitle": "The Grade VIII Additional Mathematics syllabus builds advanced algebraic and problem-solving skills, crucial for O-Level success. The chart below illustrates the emphasis on key learning outcomes:",
+      "learningContentList": [
+        "Work confidently with functions, inverse/composite functions, and modulus transformations",
+        "Solve complex equations involving quadratics, cubics, and modulus expressions",
+        "Apply algebraic techniques to logarithmic and exponential equations",
+        "Explore the geometry of circles and solve trigonometric equations using identities and graphs",
+        "Use graphical interpretations for advanced equations and apply mathematical reasoning to real-world models"
+      ],
+      "assessment": "The course includes regular concept-focused reviews, weekly mixed practice sessions, and structured problem-solving modules. Two comprehensive exams mark the mid-year and end-of-year benchmarks, while mock papers and graph-based modelling tasks sharpen students' analytical edge.",
+      "academicPlan": "This comprehensive plan guides students through advanced mathematical concepts, from functions and quadratics to calculus, with regular problem-solving and strategic exam preparation."
+    },
+    {
+      "course": "Physics-VIII",
+      "title": "Explore the world through motion, energy, and light.",
+      "description": "This course introduces students to the foundational principles of physics through hands-on concepts and real-world connections. From understanding how objects move and interact with forces, to discovering how energy transfers and light behaves, learners will build a strong conceptual base.",
+      "learningContentTitle": "The Grade VIII Physics syllabus introduces foundational concepts across key areas of physics, building a strong conceptual base. The chart below highlights the distribution of learning outcomes:",
+      "learningContentList": [
+        "Describe and interpret motion using graphs and measurements",
+        "Apply Newton’s laws to everyday scenarios",
+        "Understand energy transformations and efficiency",
+        "Explain how heat transfers through conduction, convection, and radiation",
+        "Explore wave behavior and the nature of light, including dispersion through prisms"
+      ],
+      "assessment": "Students engage with concept checks, practical challenges, and review tests after each topic. The year is divided by a mid-year and final exam to reinforce learning and prepare for the next academic level.",
+      "academicPlan": "This comprehensive plan covers essential physics principles, from motion and forces to thermal physics and waves, with consistent comprehensive exams and dedicated review periods."
+    },
+    {
+      "course": "Mathematics-IX_X",
+      "title": "A full-scale O-Level preparation course that transforms confidence into competence.",
+      "description": "This course guides learners through the complete O Level Mathematics Syllabus D, ensuring mastery across number operations, algebra, geometry, trigonometry, statistics, and more. With a firm focus on conceptual clarity and practical problem-solving, students tackle progressively challenging topics while strengthening core skills for their final exams.",
+      "learningContentTitle": "The Grade IX/X Mathematics Syllabus D is a comprehensive O-Level preparation course. The chart below illustrates the emphasis on each key learning domain, designed to build mastery across all necessary topics:",
+      "learningContentList": [
+        "Work fluently with number systems, ratio, percentages, surds, and standard form",
+        "Master algebraic manipulation, equations, functions, graphs, and sequences",
+        "Apply geometric reasoning, constructions, coordinate geometry, and mensuration techniques",
+        "Solve real-world problems using trigonometry and vectors",
+        "Analyze data through charts, averages, and probability tools",
+        "Build speed and accuracy through structured revision and timed practice papers"
+      ],
+      "assessment": "The course is structured around targeted weekly instruction, topic-wise tests, and a midterm exam. The second half of the year focuses on deep revision with past paper integration, followed by final full-syllabus mock exams to simulate exam conditions and ensure readiness.",
+      "academicPlan": "This detailed academic plan guides students through the complete O-Level Mathematics Syllabus D, with a strong focus on conceptual clarity, practical problem-solving, and extensive exam practice."
+    },
+    {
+      "course": "Additional Mathematics-IX_X",
+      "title": "Advanced skills, analytical depth, and mathematical fluency for O-Level distinction.",
+      "description": "This one-year course takes students deep into algebra, trigonometry, coordinate geometry, vectors, and introductory calculus — building strong conceptual understanding and structured thinking. Learners refine their ability to model, prove, and solve complex mathematical problems with confidence and precision, setting the stage for success in O-Level Additional Mathematics and beyond.",
+      "learningContentTitle": "The Grade IX/X Additional Mathematics syllabus is an intensive course designed to build advanced mathematical proficiency for O-Level distinction. The chart below highlights the key learning outcomes and their emphasis:",
+      "learningContentList": [
+        "Apply advanced algebraic tools including functions, inequalities, and polynomials",
+        "Solve exponential and logarithmic equations and model them graphically",
+        "Master geometry of circles, coordinate systems, and transformations",
+        "Explore all six trigonometric functions, equations, and real-world applications",
+        "Develop fluency with vectors, permutations, series, and their problem-solving uses",
+        "Build a strong foundation in calculus including derivatives, integrals, and kinematics"
+      ],
+      "assessment": "Students are supported through topic-end tests, structured review blocks, and four comprehensive exams throughout the course. Timed mock papers simulate exam pressure and help learners gain speed, accuracy, and confidence with full-syllabus exam-style questions.",
+      "academicPlan": "This intensive plan guides students through advanced algebra, trigonometry, coordinate geometry, vectors, and introductory calculus, with continuous assessment and strategic exam preparation."
+    },
+    {
+      "course": "Physics-IX_X",
+      "title": "A complete foundation in physical science, built for exam success and real-world application.",
+      "description": "This one-year course guides students through the full Cambridge O Level Physics syllabus, helping them understand and apply key concepts in motion, energy, heat, waves, electricity, and nuclear science. With weekly topic coverage, ongoing assessments, and regular exam practice, learners build both deep understanding and confidence for their final O-Level exams.",
+      "learningContentTitle": "The Grade IX/X Physics syllabus provides a comprehensive foundation in physical science, crucial for O-Level exam success. The chart below illustrates the distribution of concepts across major topics:",
+      "learningContentList": [
+        "Analyse motion using graphs, equations, and vector breakdowns",
+        "Understand forces, momentum, pressure, and energy conservation",
+        "Explore thermal physics including particle theory, heat transfer, and latent heat",
+        "Investigate wave behaviour, light, sound, lenses, and the electromagnetic spectrum",
+        "Master electricity and magnetism, from basic circuits to power calculations",
+        "Discover the basics of nuclear physics and explore space science"
+      ],
+      "assessment": "The course includes frequent topic-end assessments and 13 comprehensive exams spread throughout the academic year. Students also complete midterm and final mock exams based on the full O Level format to ensure readiness and retention.",
+      "academicPlan": "This comprehensive plan covers the entire O Level Physics syllabus, from motion and forces to nuclear and space physics, with consistent assessments and extensive exam practice to ensure readiness."
+    }
+]
+

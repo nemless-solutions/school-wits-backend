@@ -20,7 +20,7 @@ public class ResponseMessage {
     public static final String QUIZ_NOT_FOUND = "Quiz not found";
     public static final String ENROLLMENT_EXISTS = "Student is already enrolled in this course";
     public static final String UNABLE_TO_UPLOAD = "Can not upload file at this moment";
-    public static final String UNABLE_TO_SAVE = "Error while saving info";
+    public static final String UNABLE_TO_PERFORM_DATABASE_OPERATION = "Error while performing database operation";
     public static final String UNABLE_TO_DOWNLOAD = "Can not download file at this moment";
     public static final String INVALID_AMOUNT = "Amount is invalid";
     public static final String UNAUTHORIZED_RESOURCE_REQUEST = "Resource request is unauthorized";
