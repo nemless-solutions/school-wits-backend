@@ -12,6 +12,7 @@ import com.nemless.school_wits.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,6 +39,7 @@ public class DatabaseInitializer implements CommandLineRunner {
     private final CoursePlanInformationRepository coursePlanInformationRepository;
     private final CoursePlanWeekInformationRepository coursePlanWeekInformationRepository;
     private final CoursePlanWeekDetailsInformationRepository coursePlanWeekDetailsInformationRepository;
+    private final CourseBundleRepository courseBundleRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
@@ -47,6 +49,7 @@ public class DatabaseInitializer implements CommandLineRunner {
             createRoles();
             createUsers();
             createCourses();
+            bundleCourses();
             createCoursePlans();
         }
     }
@@ -122,13 +125,36 @@ public class DatabaseInitializer implements CommandLineRunner {
                         .mode(CourseMode.ONLINE)
                         .type(CourseType.LONG)
                         .description("Dummy description")
-                        .fee(100)
+                        .fee(4500)
+                        .numberOfLessons(10)
+                        .numberOfNotes(10)
+                        .numberOfWorksheet(5)
+                        .numberOfQuizzes(5)
+                        .numberOfExams(2)
+                        .numberOfSession(1)
+                        .academicSession("2025-2026")
+                        .sessionDuration("15 Jun - 28 Jun, 2025")
                         .build();
                 courses.add(course);
             }
         }
 
         courseRepository.saveAll(courses);
+    }
+
+    private void bundleCourses() {
+        List<CourseBundle> bundles = new ArrayList<>();
+        for(Grade grade : Grade.values()) {
+            if(grade.equals(Grade.VIII) || grade.equals(Grade.IX_X)) continue;
+
+            List<Course> courses = courseRepository.findAllByGrade(grade);
+            CourseBundle courseBundle = CourseBundle.builder()
+                    .grade(grade)
+                    .courses(courses)
+                    .build();
+            bundles.add(courseBundle);
+        }
+        courseBundleRepository.saveAll(bundles);
     }
 
     private Map<String, List<String>> loadCourseList() throws IOException {

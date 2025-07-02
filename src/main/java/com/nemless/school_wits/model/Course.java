@@ -52,6 +52,15 @@ public class Course implements Serializable {
     @Column(nullable = false)
     private float fee;
 
+    private int numberOfLessons;
+    private int numberOfNotes;
+    private int numberOfWorksheet;
+    private int numberOfQuizzes;
+    private int numberOfExams;
+    private int numberOfSession;
+    private String academicSession;
+    private String sessionDuration;
+
     @Builder.Default
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
@@ -61,6 +70,10 @@ public class Course implements Serializable {
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<EnrolledCourse> enrollments = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "courses")
+    @JsonIgnore
+    private List<CourseBundle> bundles = new ArrayList<>();
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
