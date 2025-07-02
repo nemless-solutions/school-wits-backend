@@ -27,4 +27,5 @@ public class ResponseMessage {
     public static final String INVALID_QUESTION_ANSWER = "One or more question or answer id is invalid";
     public static final String NOTICE_POSTED = "Notice posted";
     public static final String INVALID_NOTICE_RECIPIENT = "There is no recipient for this notice";
+    public static final String INVALID_COURSE_BUNDLE = "No course bundle available for this grade";
 }

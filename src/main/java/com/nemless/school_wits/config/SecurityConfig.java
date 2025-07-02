@@ -46,6 +46,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/course").authenticated()
                 .requestMatchers("/course/**").permitAll()
                 .requestMatchers("/course_information/**").permitAll()
+                .requestMatchers("/course_bundle/**").permitAll()
                 .anyRequest().authenticated()
         );
         http.addFilterBefore(authTokenFilter,
