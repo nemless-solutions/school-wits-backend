@@ -60,6 +60,9 @@ public class Course implements Serializable {
     private int numberOfSession;
     private String academicSession;
     private String sessionDuration;
+    private String courseImage;
+    private Float discountedFee;
+    private Date discountLastDate;
 
     @Builder.Default
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)

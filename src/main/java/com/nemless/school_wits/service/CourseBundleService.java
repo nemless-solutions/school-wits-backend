@@ -24,4 +24,9 @@ public class CourseBundleService {
             throw new BadRequestException("Invalid grade: " + gradeName);
         }
     }
+
+    public CourseBundle findCourseBundleById(Long bundleId) {
+        return courseBundleRepository.findById(bundleId)
+                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_COURSE_BUNDLE));
+    }
 }

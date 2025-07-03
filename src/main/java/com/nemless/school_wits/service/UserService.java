@@ -52,6 +52,7 @@ public class UserService {
         user.setGuardianContact(userUpdateDto.getGuardianContact());
         user.setGrade(userUpdateDto.getGrade());
         user.setDateOfBirth(userUpdateDto.getDateOfBirth());
+        user.setLastSeenNotice(userUpdateDto.getLastSeenNotice());
 
         return userRepository.save(user);
     }

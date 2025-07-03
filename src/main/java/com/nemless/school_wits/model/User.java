@@ -74,6 +74,9 @@ public class User implements Serializable {
     @Column(nullable = false)
     private Date dateOfBirth;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastSeenNotice;
+
     @Builder.Default
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinTable(

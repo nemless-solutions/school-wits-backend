@@ -48,4 +48,6 @@ public class UserUpdateDto {
 
     @Past
     private Date dateOfBirth;
+
+    private Date lastSeenNotice;
 }

@@ -17,7 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class CourseBundleController {
     private final CourseBundleService courseBundleService;
 
-    @GetMapping("/{gradeName}")
+    @GetMapping("/{bundleId}")
+    ResponseEntity<CourseBundle> getCourseBundle(@PathVariable Long bundleId) {
+        return ResponseEntity.ok(courseBundleService.findCourseBundleById(bundleId));
+    }
+
+    @GetMapping("/grade/{gradeName}")
     ResponseEntity<CourseBundle> getCourseBundleByGrade(@PathVariable String gradeName) {
         return ResponseEntity.ok(courseBundleService.findCourseBundleByGrade(gradeName));
     }
