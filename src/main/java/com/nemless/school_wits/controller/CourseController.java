@@ -39,7 +39,7 @@ public class CourseController {
     }
 
     @GetMapping("/grade/{name}")
-    ResponseEntity<List<Course>> getCoursesByGrade(@PathVariable String name, @RequestParam String mode) {
+    ResponseEntity<List<Course>> getCoursesByGrade(@PathVariable String name, @RequestParam(required = false) String mode) {
         return ResponseEntity.ok(courseService.getCoursesByGrade(name, mode));
     }
 }
