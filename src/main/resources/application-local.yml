@@ -3,8 +3,8 @@ server:
 spring:
   servlet:
     multipart:
-      max-file-size: 50MB
-      max-request-size: 60MB
+      max-file-size: 2GB
+      max-request-size: 2GB
   application:
     name: SchoolWits
   datasource:
