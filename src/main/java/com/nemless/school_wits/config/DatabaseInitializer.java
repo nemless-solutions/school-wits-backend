@@ -12,7 +12,6 @@ import com.nemless.school_wits.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -76,7 +75,7 @@ public class DatabaseInitializer implements CommandLineRunner {
         admin.setGuardianEmail("guardian@mail.com");
         admin.setGuardianContact("01867369765");
         admin.setCurriculum(Curriculum.CAMBRIDGE);
-        admin.setGrade(Grade.IX_X);
+        admin.setGrade(Grade.X);
         LocalDate date = LocalDate.of(1998, 1, 12);
         Date dob = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
         admin.setDateOfBirth(dob);
@@ -96,7 +95,7 @@ public class DatabaseInitializer implements CommandLineRunner {
         user.setGuardianEmail("guardian@mail.com");
         user.setGuardianContact("01867369765");
         user.setCurriculum(Curriculum.CAMBRIDGE);
-        user.setGrade(Grade.IX_X);
+        user.setGrade(Grade.IX);
         LocalDate date1 = LocalDate.of(1998, 1, 12);
         Date dob1 = Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant());
         user.setDateOfBirth(dob1);
@@ -145,7 +144,7 @@ public class DatabaseInitializer implements CommandLineRunner {
     private void bundleCourses() {
         List<CourseBundle> bundles = new ArrayList<>();
         for(Grade grade : Grade.values()) {
-            if(grade.equals(Grade.VIII) || grade.equals(Grade.IX_X)) continue;
+            if(grade.equals(Grade.VIII) || grade.equals(Grade.IX) || grade.equals(Grade.X)) continue;
 
             List<Course> courses = courseRepository.findAllByGrade(grade);
             CourseBundle courseBundle = CourseBundle.builder()

@@ -217,7 +217,7 @@
       "academicPlan": "This comprehensive plan covers essential physics principles, from motion and forces to thermal physics and waves, with consistent comprehensive exams and dedicated review periods."
     },
     {
-      "course": "Mathematics-IX_X",
+      "course": "Mathematics-IX",
       "title": "A full-scale O-Level preparation course that transforms confidence into competence.",
       "description": "This course guides learners through the complete O Level Mathematics Syllabus D, ensuring mastery across number operations, algebra, geometry, trigonometry, statistics, and more. With a firm focus on conceptual clarity and practical problem-solving, students tackle progressively challenging topics while strengthening core skills for their final exams.",
       "learningContentTitle": "The Grade IX/X Mathematics Syllabus D is a comprehensive O-Level preparation course. The chart below illustrates the emphasis on each key learning domain, designed to build mastery across all necessary topics:",
@@ -233,7 +233,23 @@
       "academicPlan": "This detailed academic plan guides students through the complete O-Level Mathematics Syllabus D, with a strong focus on conceptual clarity, practical problem-solving, and extensive exam practice."
     },
     {
-      "course": "Additional Mathematics-IX_X",
+      "course": "Mathematics-X",
+      "title": "A full-scale O-Level preparation course that transforms confidence into competence.",
+      "description": "This course guides learners through the complete O Level Mathematics Syllabus D, ensuring mastery across number operations, algebra, geometry, trigonometry, statistics, and more. With a firm focus on conceptual clarity and practical problem-solving, students tackle progressively challenging topics while strengthening core skills for their final exams.",
+      "learningContentTitle": "The Grade IX/X Mathematics Syllabus D is a comprehensive O-Level preparation course. The chart below illustrates the emphasis on each key learning domain, designed to build mastery across all necessary topics:",
+      "learningContentList": [
+        "Work fluently with number systems, ratio, percentages, surds, and standard form",
+        "Master algebraic manipulation, equations, functions, graphs, and sequences",
+        "Apply geometric reasoning, constructions, coordinate geometry, and mensuration techniques",
+        "Solve real-world problems using trigonometry and vectors",
+        "Analyze data through charts, averages, and probability tools",
+        "Build speed and accuracy through structured revision and timed practice papers"
+      ],
+      "assessment": "The course is structured around targeted weekly instruction, topic-wise tests, and a midterm exam. The second half of the year focuses on deep revision with past paper integration, followed by final full-syllabus mock exams to simulate exam conditions and ensure readiness.",
+      "academicPlan": "This detailed academic plan guides students through the complete O-Level Mathematics Syllabus D, with a strong focus on conceptual clarity, practical problem-solving, and extensive exam practice."
+    },
+    {
+      "course": "Additional Mathematics-IX",
       "title": "Advanced skills, analytical depth, and mathematical fluency for O-Level distinction.",
       "description": "This one-year course takes students deep into algebra, trigonometry, coordinate geometry, vectors, and introductory calculus — building strong conceptual understanding and structured thinking. Learners refine their ability to model, prove, and solve complex mathematical problems with confidence and precision, setting the stage for success in O-Level Additional Mathematics and beyond.",
       "learningContentTitle": "The Grade IX/X Additional Mathematics syllabus is an intensive course designed to build advanced mathematical proficiency for O-Level distinction. The chart below highlights the key learning outcomes and their emphasis:",
@@ -249,7 +265,39 @@
       "academicPlan": "This intensive plan guides students through advanced algebra, trigonometry, coordinate geometry, vectors, and introductory calculus, with continuous assessment and strategic exam preparation."
     },
     {
-      "course": "Physics-IX_X",
+      "course": "Additional Mathematics-X",
+      "title": "Advanced skills, analytical depth, and mathematical fluency for O-Level distinction.",
+      "description": "This one-year course takes students deep into algebra, trigonometry, coordinate geometry, vectors, and introductory calculus — building strong conceptual understanding and structured thinking. Learners refine their ability to model, prove, and solve complex mathematical problems with confidence and precision, setting the stage for success in O-Level Additional Mathematics and beyond.",
+      "learningContentTitle": "The Grade IX/X Additional Mathematics syllabus is an intensive course designed to build advanced mathematical proficiency for O-Level distinction. The chart below highlights the key learning outcomes and their emphasis:",
+      "learningContentList": [
+        "Apply advanced algebraic tools including functions, inequalities, and polynomials",
+        "Solve exponential and logarithmic equations and model them graphically",
+        "Master geometry of circles, coordinate systems, and transformations",
+        "Explore all six trigonometric functions, equations, and real-world applications",
+        "Develop fluency with vectors, permutations, series, and their problem-solving uses",
+        "Build a strong foundation in calculus including derivatives, integrals, and kinematics"
+      ],
+      "assessment": "Students are supported through topic-end tests, structured review blocks, and four comprehensive exams throughout the course. Timed mock papers simulate exam pressure and help learners gain speed, accuracy, and confidence with full-syllabus exam-style questions.",
+      "academicPlan": "This intensive plan guides students through advanced algebra, trigonometry, coordinate geometry, vectors, and introductory calculus, with continuous assessment and strategic exam preparation."
+    },
+    {
+      "course": "Physics-IX",
+      "title": "A complete foundation in physical science, built for exam success and real-world application.",
+      "description": "This one-year course guides students through the full Cambridge O Level Physics syllabus, helping them understand and apply key concepts in motion, energy, heat, waves, electricity, and nuclear science. With weekly topic coverage, ongoing assessments, and regular exam practice, learners build both deep understanding and confidence for their final O-Level exams.",
+      "learningContentTitle": "The Grade IX/X Physics syllabus provides a comprehensive foundation in physical science, crucial for O-Level exam success. The chart below illustrates the distribution of concepts across major topics:",
+      "learningContentList": [
+        "Analyse motion using graphs, equations, and vector breakdowns",
+        "Understand forces, momentum, pressure, and energy conservation",
+        "Explore thermal physics including particle theory, heat transfer, and latent heat",
+        "Investigate wave behaviour, light, sound, lenses, and the electromagnetic spectrum",
+        "Master electricity and magnetism, from basic circuits to power calculations",
+        "Discover the basics of nuclear physics and explore space science"
+      ],
+      "assessment": "The course includes frequent topic-end assessments and 13 comprehensive exams spread throughout the academic year. Students also complete midterm and final mock exams based on the full O Level format to ensure readiness and retention.",
+      "academicPlan": "This comprehensive plan covers the entire O Level Physics syllabus, from motion and forces to nuclear and space physics, with consistent assessments and extensive exam practice to ensure readiness."
+    },
+    {
+      "course": "Physics-X",
       "title": "A complete foundation in physical science, built for exam success and real-world application.",
       "description": "This one-year course guides students through the full Cambridge O Level Physics syllabus, helping them understand and apply key concepts in motion, energy, heat, waves, electricity, and nuclear science. With weekly topic coverage, ongoing assessments, and regular exam practice, learners build both deep understanding and confidence for their final O-Level exams.",
       "learningContentTitle": "The Grade IX/X Physics syllabus provides a comprehensive foundation in physical science, crucial for O-Level exam success. The chart below illustrates the distribution of concepts across major topics:",

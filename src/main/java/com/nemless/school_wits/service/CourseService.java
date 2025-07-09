@@ -30,7 +30,7 @@ public class CourseService {
         CourseMode courseMode = null;
         List<Course> courses;
 
-        if(!Objects.equals(mode, "")) {
+        if(mode != null && !mode.isEmpty()) {
             try {
                 courseMode = CourseMode.valueOf(mode);
             } catch (IllegalArgumentException e) {
