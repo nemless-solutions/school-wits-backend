@@ -1,5 +1,5 @@
 # Start with JDK 23 base image
-FROM eclipse-temurin:23-jdk as build
+FROM eclipse-temurin:23-jdk AS build
 
 # Install Maven
 RUN apt-get update && \
