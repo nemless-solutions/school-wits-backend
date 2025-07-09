@@ -43,7 +43,7 @@ public class CourseFile {
     @Column(nullable = false)
     private String fileUid;
 
-    @OneToOne(mappedBy = "video")
+    @OneToMany(mappedBy = "video")
     @JsonIgnore
     private Quiz quiz;
 

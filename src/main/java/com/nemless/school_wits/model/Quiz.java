@@ -23,7 +23,7 @@ public class Quiz implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "video_id", nullable = false)
     @JsonIgnore
     private CourseFile video;
