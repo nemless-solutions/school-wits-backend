@@ -10,7 +10,9 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Builder
 @Data
@@ -45,7 +47,8 @@ public class CourseFile {
 
     @OneToMany(mappedBy = "video")
     @JsonIgnore
-    private Quiz quiz;
+    @Builder.Default
+    private List<Quiz> quizzes = new ArrayList<>();
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)

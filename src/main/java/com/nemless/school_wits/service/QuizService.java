@@ -36,7 +36,7 @@ public class QuizService {
         quiz.setQuestionMark(createQuizDto.getQuestionMark());
         quiz.setDuration(createQuizDto.getDuration());
         quiz = quizRepository.save(quiz);
-        courseFile.setQuiz(quiz);
+        courseFile.getQuizzes().add(quiz);
         courseFileRepository.save(courseFile);
 
         return quiz;
