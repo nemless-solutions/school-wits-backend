@@ -28,6 +28,9 @@ public class CourseTopic implements Serializable {
     @Column(nullable = false)
     private String description;
 
+    @Column(nullable = false)
+    private boolean isLocked;
+
     @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)
     @JsonIgnore

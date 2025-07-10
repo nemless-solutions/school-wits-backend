@@ -35,6 +35,7 @@ public class CourseTopicService {
         courseTopic.setTitle(createCourseTopicDto.getTitle());
         courseTopic.setDescription(createCourseTopicDto.getDescription());
         courseTopic.setCourse(course);
+        courseTopic.setLocked(createCourseTopicDto.isLocked());
         courseTopic = courseTopicRepository.save(courseTopic);
 
         course.getTopics().add(courseTopic);

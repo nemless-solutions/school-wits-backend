@@ -18,4 +18,6 @@ public class CreateCourseTopicDto {
 
     @NotBlank(message = "Description is required")
     private String description;
+
+    private boolean isLocked;
 }
