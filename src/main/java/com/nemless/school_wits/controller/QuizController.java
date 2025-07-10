@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Slf4j
 @RequiredArgsConstructor
 @RestController
@@ -26,7 +28,7 @@ public class QuizController {
     }
 
     @GetMapping("/{videoId}")
-    ResponseEntity<Quiz> getQuizByVideoId(@PathVariable Long videoId) {
-        return ResponseEntity.ok(quizService.getQuizByVideoId(videoId));
+    ResponseEntity<List<Quiz>> getQuizzesByVideoId(@PathVariable Long videoId) {
+        return ResponseEntity.ok(quizService.getQuizzesByVideoId(videoId));
     }
 }

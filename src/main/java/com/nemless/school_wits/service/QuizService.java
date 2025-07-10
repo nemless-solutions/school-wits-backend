@@ -14,6 +14,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Slf4j
 @RequiredArgsConstructor
 @Service
@@ -31,10 +33,12 @@ public class QuizService {
             throw new BadRequestException(ResponseMessage.INVALID_VIDEO_ID);
         }
 
-        Quiz quiz = new Quiz();
-        quiz.setVideo(courseFile);
-        quiz.setQuestionMark(createQuizDto.getQuestionMark());
-        quiz.setDuration(createQuizDto.getDuration());
+        Quiz quiz = Quiz.builder()
+                .video(courseFile)
+                .title(createQuizDto.getTitle())
+                .questionMark(createQuizDto.getQuestionMark())
+                .duration(createQuizDto.getDuration())
+                .build();
         quiz = quizRepository.save(quiz);
         courseFile.getQuizzes().add(quiz);
         courseFileRepository.save(courseFile);
@@ -42,13 +46,12 @@ public class QuizService {
         return quiz;
     }
 
-    public Quiz getQuizByVideoId(Long videoId) {
+    public List<Quiz> getQuizzesByVideoId(Long videoId) {
         CourseFile courseFile = courseFileRepository.findById(videoId)
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_VIDEO_ID));
 
         enrolledCourseService.validateCourseMaterialAccess(courseFile.getCourseTopic().getCourse());
 
-        return quizRepository.findByVideo(courseFile)
-                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.QUIZ_NOT_FOUND));
+        return quizRepository.findByVideo(courseFile);
     }
 }

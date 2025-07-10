@@ -3,6 +3,7 @@ package com.nemless.school_wits.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -17,6 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 @Table(name = "quiz")
 public class Quiz implements Serializable {
     @Id
@@ -29,11 +31,15 @@ public class Quiz implements Serializable {
     private CourseFile video;
 
     @Column(nullable = false)
+    private String title;
+
+    @Column(nullable = false)
     private int questionMark;
 
     private int duration;
 
     @OneToMany(mappedBy = "quiz")
+    @Builder.Default
     private List<QuizQuestion> questions = new ArrayList<>();
 
     @CreationTimestamp
