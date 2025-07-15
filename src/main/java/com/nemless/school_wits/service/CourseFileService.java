@@ -53,10 +53,7 @@ public class CourseFileService {
                 .fileUid(uid)
                 .build();
 
-        courseFile = courseFileRepository.save(courseFile);
-        courseTopic.getCourseFiles().add(courseFile);
-        courseTopicRepository.save(courseTopic);
-        return courseFile;
+        return courseFileRepository.save(courseFile);
     }
 
     private String generateUid() {

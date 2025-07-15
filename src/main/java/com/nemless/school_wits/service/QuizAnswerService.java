@@ -33,11 +33,8 @@ public class QuizAnswerService {
         answer.setQuestion(question);
         answer.setTitle(createQuizAnswerDto.getTitle());
         answer.setCorrect(createQuizAnswerDto.isCorrect());
-        answer = quizAnswerRepository.save(answer);
 
-        question.getAnswers().add(answer);
-        quizQuestionRepository.save(question);
-        return answer;
+        return quizAnswerRepository.save(answer);
     }
 
     public List<QuizAnswer> getAnswersByQuestionId(Long questionId) {

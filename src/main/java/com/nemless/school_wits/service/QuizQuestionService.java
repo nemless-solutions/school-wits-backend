@@ -32,11 +32,8 @@ public class QuizQuestionService {
         QuizQuestion question = new QuizQuestion();
         question.setQuiz(quiz);
         question.setTitle(createQuizQuestionDto.getTitle());
-        question = quizQuestionRepository.save(question);
 
-        quiz.getQuestions().add(question);
-        quizRepository.save(quiz);
-        return question;
+        return quizQuestionRepository.save(question);
     }
 
     public List<QuizQuestion> getQuestionsByQuizId(Long quizId) {

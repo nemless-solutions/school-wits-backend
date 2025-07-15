@@ -41,11 +41,8 @@ public class QuizService {
                 .questionMark(createQuizDto.getQuestionMark())
                 .duration(createQuizDto.getDuration())
                 .build();
-        quiz = quizRepository.save(quiz);
-        courseFile.getQuizzes().add(quiz);
-        courseFileRepository.save(courseFile);
 
-        return quiz;
+        return quizRepository.save(quiz);
     }
 
     public List<Quiz> getQuizzesByVideoId(Long videoId) {
