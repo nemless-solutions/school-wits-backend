@@ -2,14 +2,17 @@ package com.nemless.school_wits.service;
 
 import com.nemless.school_wits.config.ResponseMessage;
 import com.nemless.school_wits.dto.request.CreateCourseTopicDto;
+import com.nemless.school_wits.dto.request.UpdateCourseTopicDto;
 import com.nemless.school_wits.exception.ResourceNotFoundException;
 import com.nemless.school_wits.model.Course;
 import com.nemless.school_wits.model.CourseTopic;
 import com.nemless.school_wits.repository.CourseRepository;
 import com.nemless.school_wits.repository.CourseTopicRepository;
+import com.nemless.school_wits.util.StringUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -46,5 +49,29 @@ public class CourseTopicService {
     public CourseTopic getCourseTopicById(Long courseTopicId) {
         return courseTopicRepository.findById(courseTopicId)
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_COURSE_TOPIC_ID));
+    }
+
+    public CourseTopic updateCourseTopic(Long courseTopicId, UpdateCourseTopicDto updateCourseTopicDto) {
+        CourseTopic courseTopic = courseTopicRepository.findById(courseTopicId)
+                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_COURSE_TOPIC_ID));
+
+        if(!StringUtils.isEmpty(updateCourseTopicDto.getTitle()) && !updateCourseTopicDto.getTitle().equals(courseTopic.getTitle())) {
+            courseTopic.setTitle(updateCourseTopicDto.getTitle());
+        }
+        if(!StringUtils.isEmpty(updateCourseTopicDto.getDescription()) && !updateCourseTopicDto.getDescription().equals(courseTopic.getDescription())) {
+            courseTopic.setDescription(updateCourseTopicDto.getDescription());
+        }
+
+        return courseTopicRepository.save(courseTopic);
+    }
+
+    @Transactional
+    public void deleteCourseTopic(Long courseTopicId) {
+        CourseTopic courseTopic = courseTopicRepository.findById(courseTopicId)
+                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_COURSE_TOPIC_ID));
+
+        courseTopicRepository.delete(courseTopic);
+
+        // delete files
     }
 }

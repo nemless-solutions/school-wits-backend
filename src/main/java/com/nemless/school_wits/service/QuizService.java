@@ -2,6 +2,7 @@ package com.nemless.school_wits.service;
 
 import com.nemless.school_wits.config.ResponseMessage;
 import com.nemless.school_wits.dto.request.CreateQuizDto;
+import com.nemless.school_wits.dto.request.UpdateQuizDto;
 import com.nemless.school_wits.enums.CourseFileType;
 import com.nemless.school_wits.exception.BadRequestException;
 import com.nemless.school_wits.exception.ResourceNotFoundException;
@@ -9,6 +10,7 @@ import com.nemless.school_wits.model.CourseFile;
 import com.nemless.school_wits.model.Quiz;
 import com.nemless.school_wits.repository.CourseFileRepository;
 import com.nemless.school_wits.repository.QuizRepository;
+import com.nemless.school_wits.util.StringUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -53,5 +55,30 @@ public class QuizService {
         enrolledCourseService.validateCourseMaterialAccess(courseFile.getCourseTopic().getCourse());
 
         return quizRepository.findByVideo(courseFile);
+    }
+
+    public Quiz updateQuiz(Long quizId, UpdateQuizDto updateQuizDto) {
+        Quiz quiz = quizRepository.findById(quizId)
+                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_QUIZ_ID));
+
+        if(!StringUtils.isEmpty(updateQuizDto.getTitle()) && !updateQuizDto.getTitle().equals(quiz.getTitle())) {
+            quiz.setTitle(updateQuizDto.getTitle());
+        }
+        if(updateQuizDto.getQuestionMark() != 0 && updateQuizDto.getQuestionMark() != quiz.getQuestionMark()) {
+            quiz.setQuestionMark(updateQuizDto.getQuestionMark());
+        }
+        if(updateQuizDto.getDuration() != 0 && updateQuizDto.getDuration() != quiz.getDuration()) {
+            quiz.setDuration(updateQuizDto.getDuration());
+        }
+
+        return quizRepository.save(quiz);
+    }
+
+    @Transactional
+    public void deleteQuiz(Long quizId) {
+        Quiz quiz = quizRepository.findById(quizId)
+                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_QUIZ_ID));
+
+        quizRepository.delete(quiz);
     }
 }

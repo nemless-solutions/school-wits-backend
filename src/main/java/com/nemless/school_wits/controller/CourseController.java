@@ -1,7 +1,8 @@
 package com.nemless.school_wits.controller;
 
+import com.nemless.school_wits.config.ResponseMessage;
 import com.nemless.school_wits.dto.request.CreateCourseDto;
-import com.nemless.school_wits.enums.Grade;
+import com.nemless.school_wits.dto.request.UpdateCourseDto;
 import com.nemless.school_wits.model.Course;
 import com.nemless.school_wits.service.CourseService;
 import jakarta.validation.Valid;
@@ -38,8 +39,26 @@ public class CourseController {
         return ResponseEntity.ok(courseService.getCourseById(courseId));
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
+    @PutMapping("/{courseId}")
+    ResponseEntity<Course> updateCourse(@PathVariable Long courseId, @RequestBody UpdateCourseDto updateCourseDto) {
+        log.info("Updating course {}: {}", courseId, updateCourseDto);
+
+        return ResponseEntity.ok(courseService.updateCourse(courseId, updateCourseDto));
+    }
+
     @GetMapping("/grade/{name}")
     ResponseEntity<List<Course>> getCoursesByGrade(@PathVariable String name, @RequestParam(required = false) String mode) {
         return ResponseEntity.ok(courseService.getCoursesByGrade(name, mode));
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping("/{courseId}")
+    ResponseEntity<String> deleteCourse(@PathVariable Long courseId) {
+        log.info("Deleting course: {}", courseId);
+
+        courseService.deleteCourse(courseId);
+
+        return ResponseEntity.ok(ResponseMessage.COURSE_DELETE_SUCCESSFUL);
     }
 }

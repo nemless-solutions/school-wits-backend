@@ -65,7 +65,7 @@ public class Course implements Serializable {
     private Date discountLastDate;
 
     @Builder.Default
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JsonIgnore
     private List<CourseTopic> topics = new ArrayList<>();
 

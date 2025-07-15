@@ -1,12 +1,14 @@
 package com.nemless.school_wits.service;
 
 import com.nemless.school_wits.config.ResponseMessage;
+import com.nemless.school_wits.dto.request.UpdateCourseFileDto;
 import com.nemless.school_wits.exception.ResourceNotFoundException;
 import com.nemless.school_wits.model.CourseFile;
 import com.nemless.school_wits.model.CourseTopic;
 import com.nemless.school_wits.repository.CourseFileRepository;
 import com.nemless.school_wits.repository.CourseTopicRepository;
 import com.nemless.school_wits.util.FileUtils;
+import com.nemless.school_wits.util.StringUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.Resource;
@@ -70,5 +72,19 @@ public class CourseFileService {
         String filePath = courseFile.getCourseTopic().getId().toString();
         String fileName = courseFile.getFileUid();
         return FileUtils.downloadFile(filePath, fileName);
+    }
+
+    public CourseFile updateCourseFile(Long fileId, UpdateCourseFileDto updateCourseFileDto) {
+        CourseFile courseFile = courseFileRepository.findById(fileId)
+                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_FILE_ID));
+
+        if(!StringUtils.isEmpty(updateCourseFileDto.getTitle()) && !updateCourseFileDto.getTitle().equals(courseFile.getTitle())) {
+            courseFile.setTitle(updateCourseFileDto.getTitle());
+        }
+        if(!StringUtils.isEmpty(updateCourseFileDto.getDescription()) && !updateCourseFileDto.getDescription().equals(courseFile.getDescription())) {
+            courseFile.setDescription(updateCourseFileDto.getDescription());
+        }
+
+        return courseFileRepository.save(courseFile);
     }
 }

@@ -1,6 +1,8 @@
 package com.nemless.school_wits.controller;
 
+import com.nemless.school_wits.config.ResponseMessage;
 import com.nemless.school_wits.dto.request.CreateQuizQuestionDto;
+import com.nemless.school_wits.dto.request.UpdateQuizQuestionDto;
 import com.nemless.school_wits.model.QuizQuestion;
 import com.nemless.school_wits.service.QuizQuestionService;
 import jakarta.validation.Valid;
@@ -30,5 +32,23 @@ public class QuizQuestionController {
     @GetMapping("/{quizId}")
     ResponseEntity<List<QuizQuestion>> getQuizQuestions(@PathVariable Long quizId) {
         return ResponseEntity.ok(quizQuestionService.getQuestionsByQuizId(quizId));
+    }
+
+    @PutMapping("/{quizQuestionId}")
+    @PreAuthorize("hasRole('ADMIN')")
+    ResponseEntity<QuizQuestion> updateQuizQuestion(@PathVariable Long quizQuestionId, @RequestBody UpdateQuizQuestionDto updateQuizQuestionDto) {
+        log.info("Updating quiz question {}: {}", quizQuestionId, updateQuizQuestionDto);
+
+        return ResponseEntity.ok(quizQuestionService.updateQuizQuestion(quizQuestionId, updateQuizQuestionDto));
+    }
+
+    @DeleteMapping("/{quizQuestionId}")
+    @PreAuthorize("hasRole('ADMIN')")
+    ResponseEntity<String> deleteQuiz(@PathVariable Long quizQuestionId) {
+        log.info("Deleting quiz question: {}", quizQuestionId);
+
+        quizQuestionService.deleteQuizQuestion(quizQuestionId);
+
+        return ResponseEntity.ok(ResponseMessage.QUIZ_QUESTION_DELETE_SUCCESSFUL);
     }
 }

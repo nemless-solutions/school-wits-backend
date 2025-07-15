@@ -17,7 +17,6 @@ public class ResponseMessage {
     public static final String INVALID_QUIZ_ID = "Quiz id is invalid";
     public static final String INVALID_QUESTION_ID = "Question id is invalid";
     public static final String INVALID_FILE_ID = "File id is invalid";
-    public static final String QUIZ_NOT_FOUND = "Quiz not found";
     public static final String ENROLLMENT_EXISTS = "Student is already enrolled in this course";
     public static final String UNABLE_TO_UPLOAD = "Can not upload file at this moment";
     public static final String UNABLE_TO_PERFORM_DATABASE_OPERATION = "Error while performing database operation";
@@ -28,4 +27,10 @@ public class ResponseMessage {
     public static final String NOTICE_POSTED = "Notice posted";
     public static final String INVALID_NOTICE_RECIPIENT = "There is no recipient for this notice";
     public static final String INVALID_COURSE_BUNDLE = "No course bundle available for this grade";
+    public static final String COURSE_DELETE_SUCCESSFUL = "Course deletion successful";
+    public static final String COURSE_TOPIC_DELETE_SUCCESSFUL = "Course topic deletion successful";
+    public static final String QUIZ_DELETE_SUCCESSFUL = "Quiz deletion successful";
+    public static final String QUIZ_QUESTION_DELETE_SUCCESSFUL = "Quiz question deletion successful";
+    public static final String QUIZ_ANSWER_DELETE_SUCCESSFUL = "Quiz answer deletion successful";
+    public static final String CORRECT_ANSWER_REQUIRED = "You have to provide the correct answer first";
 }

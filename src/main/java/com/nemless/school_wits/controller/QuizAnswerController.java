@@ -1,6 +1,8 @@
 package com.nemless.school_wits.controller;
 
+import com.nemless.school_wits.config.ResponseMessage;
 import com.nemless.school_wits.dto.request.CreateQuizAnswerDto;
+import com.nemless.school_wits.dto.request.UpdateQuizAnswerDto;
 import com.nemless.school_wits.model.QuizAnswer;
 import com.nemless.school_wits.service.QuizAnswerService;
 import jakarta.validation.Valid;
@@ -30,5 +32,23 @@ public class QuizAnswerController {
     @GetMapping("/{questionId}")
     ResponseEntity<List<QuizAnswer>> getQuizAnswers(@PathVariable Long questionId) {
         return ResponseEntity.ok(quizAnswerService.getAnswersByQuestionId(questionId));
+    }
+
+    @PutMapping("/{quizAnswerId}")
+    @PreAuthorize("hasRole('ADMIN')")
+    ResponseEntity<QuizAnswer> updateQuizAnswer(@PathVariable Long quizAnswerId, @RequestBody UpdateQuizAnswerDto updateQuizAnswerDto) {
+        log.info("Updating quiz answer {}: {}", quizAnswerId, updateQuizAnswerDto);
+
+        return ResponseEntity.ok(quizAnswerService.updateQuizAnswer(quizAnswerId, updateQuizAnswerDto));
+    }
+
+    @DeleteMapping("/{quizAnswerId}")
+    @PreAuthorize("hasRole('ADMIN')")
+    ResponseEntity<String> deleteQuizAnswer(@PathVariable Long quizAnswerId) {
+        log.info("Deleting quiz answer: {}", quizAnswerId);
+
+        quizAnswerService.deleteQuizAnswer(quizAnswerId);
+
+        return ResponseEntity.ok(ResponseMessage.QUIZ_ANSWER_DELETE_SUCCESSFUL);
     }
 }

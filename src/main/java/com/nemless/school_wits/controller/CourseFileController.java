@@ -1,5 +1,6 @@
 package com.nemless.school_wits.controller;
 
+import com.nemless.school_wits.dto.request.UpdateCourseFileDto;
 import com.nemless.school_wits.model.CourseFile;
 import com.nemless.school_wits.service.CourseFileService;
 import lombok.RequiredArgsConstructor;
@@ -41,5 +42,13 @@ public class CourseFileController {
         log.info("Uploading new file in course topic: {}", courseTopicId);
 
         return ResponseEntity.ok(courseFileService.saveFile(courseTopicId, title, description, file));
+    }
+
+    @PutMapping("/{fileId}")
+    @PreAuthorize("hasRole('ADMIN')")
+    ResponseEntity<CourseFile> updateCourseFile(@PathVariable Long fileId, @RequestBody UpdateCourseFileDto updateCourseFileDto) {
+        log.info("Updating course file {}: {}", fileId, updateCourseFileDto);
+
+        return ResponseEntity.ok(courseFileService.updateCourseFile(fileId, updateCourseFileDto));
     }
 }

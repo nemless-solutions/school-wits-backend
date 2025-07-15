@@ -1,6 +1,8 @@
 package com.nemless.school_wits.controller;
 
+import com.nemless.school_wits.config.ResponseMessage;
 import com.nemless.school_wits.dto.request.CreateCourseTopicDto;
+import com.nemless.school_wits.dto.request.UpdateCourseTopicDto;
 import com.nemless.school_wits.model.CourseTopic;
 import com.nemless.school_wits.service.CourseTopicService;
 import jakarta.validation.Valid;
@@ -35,5 +37,23 @@ public class CourseTopicController {
     @GetMapping("/{courseTopicId}")
     ResponseEntity<CourseTopic> getCourseTopicById(@PathVariable Long courseTopicId) {
         return ResponseEntity.ok(courseTopicService.getCourseTopicById(courseTopicId));
+    }
+
+    @PutMapping("/{courseTopicId}")
+    @PreAuthorize("hasRole('ADMIN')")
+    ResponseEntity<CourseTopic> updateCourseTopic(@PathVariable Long courseTopicId, @RequestBody UpdateCourseTopicDto updateCourseTopicDto) {
+        log.info("Updating course topic {}: {}", courseTopicId, updateCourseTopicDto);
+
+        return ResponseEntity.ok(courseTopicService.updateCourseTopic(courseTopicId, updateCourseTopicDto));
+    }
+
+    @DeleteMapping("/{courseTopicId}")
+    @PreAuthorize("hasRole('ADMIN')")
+    ResponseEntity<String> deleteCourseTopic(@PathVariable Long courseTopicId) {
+        log.info("Deleting course topic: {}", courseTopicId);
+
+        courseTopicService.deleteCourseTopic(courseTopicId);
+
+        return ResponseEntity.ok(ResponseMessage.COURSE_TOPIC_DELETE_SUCCESSFUL);
     }
 }
