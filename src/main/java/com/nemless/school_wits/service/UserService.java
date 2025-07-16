@@ -13,7 +13,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -62,5 +64,22 @@ public class UserService {
         long numberOfTeachers = userRepository.countByRoles_Name(Role.ROLE_TEACHER);
         long numberOfUploadedContent = courseFileRepository.count();
         return new DataSummary(numberOfStudents, numberOfTeachers, numberOfUploadedContent);
+    }
+
+    public List<User> searchUsers(Long userId, String name) {
+        if(userId == null && name == null) {
+            throw new BadRequestException(ResponseMessage.SEARCH_PARAMS_REQUIRED);
+        }
+
+        if(userId != null) {
+            Optional<User> optionalUser = userRepository.findById(userId);
+            if(optionalUser.isPresent()) {
+                return List.of(optionalUser.get());
+            }
+        }
+
+        return name != null ?
+                userRepository.findByFullNameContainingIgnoreCase(name)
+                : Collections.emptyList();
     }
 }

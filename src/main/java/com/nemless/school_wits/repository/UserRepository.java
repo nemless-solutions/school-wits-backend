@@ -20,4 +20,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByGrade(Grade grade);
 
     long countByRoles_Name(Role role);
+
+    List<User> findByFullNameContainingIgnoreCase(String name);
 }

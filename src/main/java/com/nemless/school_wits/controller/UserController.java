@@ -25,6 +25,12 @@ public class UserController {
         return ResponseEntity.ok(userService.getAllUserByRole(roleName));
     }
 
+    @GetMapping("/search")
+    @PreAuthorize("hasRole('ADMIN')")
+    ResponseEntity<List<User>> searchUser(@RequestParam(required = false) Long userId, @RequestParam(required = false) String name) {
+        return ResponseEntity.ok(userService.searchUsers(userId, name));
+    }
+
     @GetMapping("{userId}")
     @PreAuthorize("hasRole('ADMIN')")
     ResponseEntity<User> getUser(@PathVariable Long userId) {
