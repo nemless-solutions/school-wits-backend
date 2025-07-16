@@ -14,10 +14,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-import java.util.UUID;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -41,8 +41,7 @@ public class CourseFileService {
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_COURSE_TOPIC_ID));
 
         FileUtils.validateCourseFile(file);
-        String uid = generateUid();
-        FileUtils.saveFile(file, courseTopic.getId().toString(), uid);
+        String savedFileName = FileUtils.saveFile(file, courseTopic.getId().toString());
 
         CourseFile courseFile = CourseFile.builder()
                 .courseTopic(courseTopic)
@@ -50,14 +49,10 @@ public class CourseFileService {
                 .title(title)
                 .description(description)
                 .fileName(file.getOriginalFilename())
-                .fileUid(uid)
+                .fileUid(savedFileName)
                 .build();
 
         return courseFileRepository.save(courseFile);
-    }
-
-    private String generateUid() {
-        return UUID.randomUUID().toString().replace("-", "").substring(0, 8);
     }
 
     public ResponseEntity<Resource> downloadFile(Long fileId) {
@@ -83,5 +78,15 @@ public class CourseFileService {
         }
 
         return courseFileRepository.save(courseFile);
+    }
+
+    @Transactional
+    public void deleteCourseFile(Long fileId) {
+        CourseFile courseFile = courseFileRepository.findById(fileId)
+                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_FILE_ID));
+
+        FileUtils.deleteFile(courseFile.getCourseTopic().getId().toString(), courseFile.getFileUid());
+
+        courseFileRepository.delete(courseFile);
     }
 }

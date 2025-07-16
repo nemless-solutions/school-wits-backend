@@ -80,7 +80,7 @@ public class DatabaseInitializer implements CommandLineRunner {
         Date dob = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
         admin.setDateOfBirth(dob);
         List<Role> roles = roleRepository.findByNameIn(
-                List.of(com.nemless.school_wits.enums.Role.ROLE_ADMIN, com.nemless.school_wits.enums.Role.ROLE_STUDENT)
+                List.of(com.nemless.school_wits.enums.Role.ROLE_ADMIN)
         );
         admin.setRoles(roles);
 

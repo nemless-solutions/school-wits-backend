@@ -1,5 +1,6 @@
 package com.nemless.school_wits.controller;
 
+import com.nemless.school_wits.config.ResponseMessage;
 import com.nemless.school_wits.dto.request.UpdateCourseFileDto;
 import com.nemless.school_wits.model.CourseFile;
 import com.nemless.school_wits.service.CourseFileService;
@@ -50,5 +51,15 @@ public class CourseFileController {
         log.info("Updating course file {}: {}", fileId, updateCourseFileDto);
 
         return ResponseEntity.ok(courseFileService.updateCourseFile(fileId, updateCourseFileDto));
+    }
+
+    @DeleteMapping("/{fileId}")
+    @PreAuthorize("hasRole('ADMIN')")
+    ResponseEntity<String> deleteCourseFile(@PathVariable Long fileId) {
+        log.info("Deleting course file: {}", fileId);
+
+        courseFileService.deleteCourseFile(fileId);
+
+        return ResponseEntity.ok(ResponseMessage.COURSE_FILE_DELETE_SUCCESSFUL);
     }
 }

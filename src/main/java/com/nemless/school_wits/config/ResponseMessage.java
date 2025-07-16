@@ -21,6 +21,7 @@ public class ResponseMessage {
     public static final String UNABLE_TO_UPLOAD = "Can not upload file at this moment";
     public static final String UNABLE_TO_PERFORM_DATABASE_OPERATION = "Error while performing database operation";
     public static final String UNABLE_TO_DOWNLOAD = "Can not download file at this moment";
+    public static final String UNABLE_TO_DELETE = "Can not delete file at this moment";
     public static final String INVALID_AMOUNT = "Amount is invalid";
     public static final String UNAUTHORIZED_RESOURCE_REQUEST = "Resource request is unauthorized";
     public static final String INVALID_QUESTION_ANSWER = "One or more question or answer id is invalid";
@@ -29,8 +30,10 @@ public class ResponseMessage {
     public static final String INVALID_COURSE_BUNDLE = "No course bundle available for this grade";
     public static final String COURSE_DELETE_SUCCESSFUL = "Course deletion successful";
     public static final String COURSE_TOPIC_DELETE_SUCCESSFUL = "Course topic deletion successful";
+    public static final String COURSE_FILE_DELETE_SUCCESSFUL = "Course file deletion successful";
     public static final String QUIZ_DELETE_SUCCESSFUL = "Quiz deletion successful";
     public static final String QUIZ_QUESTION_DELETE_SUCCESSFUL = "Quiz question deletion successful";
     public static final String QUIZ_ANSWER_DELETE_SUCCESSFUL = "Quiz answer deletion successful";
     public static final String CORRECT_ANSWER_REQUIRED = "You have to provide the correct answer first";
+    public static final String SEARCH_PARAMS_REQUIRED = "Provide id or name to search for users";
 }

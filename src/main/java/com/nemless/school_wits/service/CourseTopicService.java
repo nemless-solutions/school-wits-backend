@@ -5,9 +5,11 @@ import com.nemless.school_wits.dto.request.CreateCourseTopicDto;
 import com.nemless.school_wits.dto.request.UpdateCourseTopicDto;
 import com.nemless.school_wits.exception.ResourceNotFoundException;
 import com.nemless.school_wits.model.Course;
+import com.nemless.school_wits.model.CourseFile;
 import com.nemless.school_wits.model.CourseTopic;
 import com.nemless.school_wits.repository.CourseRepository;
 import com.nemless.school_wits.repository.CourseTopicRepository;
+import com.nemless.school_wits.util.FileUtils;
 import com.nemless.school_wits.util.StringUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -67,8 +69,11 @@ public class CourseTopicService {
         CourseTopic courseTopic = courseTopicRepository.findById(courseTopicId)
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_COURSE_TOPIC_ID));
 
-        courseTopicRepository.delete(courseTopic);
+        List<CourseFile> files = courseTopic.getCourseFiles();
+        for(CourseFile courseFile : files) {
+            FileUtils.deleteFile(courseTopic.getId().toString(), courseFile.getFileUid());
+        }
 
-        // delete files
+        courseTopicRepository.delete(courseTopic);
     }
 }

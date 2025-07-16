@@ -23,9 +23,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Stream;
+import java.util.UUID;
 
 @Slf4j
 @Component
@@ -80,7 +79,7 @@ public class FileUtils {
         }
     }
 
-    public static void saveFile(MultipartFile file, String path, String fileUid) {
+    public static String saveFile(MultipartFile file, String path) {
         File uploadDir = new File(directory + path);
         if (!uploadDir.exists()) {
             try {
@@ -91,13 +90,20 @@ public class FileUtils {
             }
         }
 
-        Path filePath = Paths.get(directory, path, fileUid + "." + getFileExtension(file));
+        String fileName = generateUid() + "." + getFileExtension(file);
+        Path filePath = Paths.get(directory, path, fileName);
         try {
             Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
             log.error(e.getMessage());
             throw new InternalServerException(ResponseMessage.UNABLE_TO_UPLOAD);
         }
+
+        return fileName;
+    }
+
+    private static String generateUid() {
+        return UUID.randomUUID().toString().replace("-", "").substring(0, 8);
     }
 
     private static String getFileExtension(MultipartFile file) {
@@ -111,44 +117,52 @@ public class FileUtils {
     }
 
     public static ResponseEntity<Resource> downloadFile(String filePath, String fileName) {
-        Path pathToFile = Paths.get(directory, filePath).toAbsolutePath().normalize();
-        Optional<Path> matchingFile;
-        try (Stream<Path> fileStream = Files.list(pathToFile)) {
-            matchingFile = fileStream
-                    .filter(path -> path.getFileName().toString().startsWith(fileName + "."))
-                    .findFirst();
-        } catch (IOException e) {
-            log.error(e.getMessage());
-            throw new ResourceNotFoundException(ResponseMessage.UNABLE_TO_DOWNLOAD);
-        }
-
-        if (matchingFile.isEmpty()) {
-            log.error("File is found but empty: {}", pathToFile);
+        Path file = Paths.get(directory, filePath, fileName).toAbsolutePath().normalize();
+        if (!Files.exists(file) || !Files.isRegularFile(file)) {
+            log.error("File not found or not a regular file: {}", file);
             throw new ResourceNotFoundException(ResponseMessage.UNABLE_TO_DOWNLOAD);
         }
 
         Resource resource;
         try {
-            resource = new UrlResource(matchingFile.get().toUri());
+            resource = new UrlResource(file.toUri());
         } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
+            log.error("Malformed URL: {}", e.getMessage());
+            throw new ResourceNotFoundException(ResponseMessage.UNABLE_TO_DOWNLOAD);
         }
-        if (!resource.exists()) {
-            log.error("Resource does not exist: {}", resource);
+        if (!resource.exists() || !resource.isReadable()) {
+            log.error("Resource is not readable: {}", resource);
             throw new ResourceNotFoundException(ResponseMessage.UNABLE_TO_DOWNLOAD);
         }
 
         String contentType;
         try {
-            contentType = Files.probeContentType(matchingFile.get());
+            contentType = Files.probeContentType(file);
         } catch (IOException e) {
-            log.error("Error while getting file content type: {}", matchingFile.get());
+            log.warn("Could not determine file content type: {}", file);
             contentType = "application/octet-stream";
         }
+
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(contentType))
-                .header(HttpHeaders.CONTENT_DISPOSITION,
-                        "attachment; filename=\"" + resource.getFilename() + "\"")
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
                 .body(resource);
+    }
+
+    public static void deleteFile(String filePath, String fileName) {
+        Path file = Paths.get(directory, filePath, fileName).toAbsolutePath().normalize();
+
+        if (Files.exists(file) && Files.isRegularFile(file)) {
+            try {
+                Files.delete(file);
+            } catch (IOException e) {
+                log.error("Error deleting file: {}", file, e);
+                throw new ResourceNotFoundException(ResponseMessage.UNABLE_TO_DELETE);
+            }
+            log.info("File deleted successfully: {}", file);
+        } else {
+            log.warn("File does not exist or is not a regular file: {}", file);
+            throw new ResourceNotFoundException(ResponseMessage.UNABLE_TO_DELETE);
+        }
     }
 }
