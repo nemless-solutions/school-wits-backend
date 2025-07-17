@@ -10,4 +10,5 @@ import lombok.ToString;
 public class UpdateCourseTopicDto {
     private String title;
     private String description;
+    private boolean isLocked;
 }

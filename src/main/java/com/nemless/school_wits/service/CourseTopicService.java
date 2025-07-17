@@ -60,6 +60,7 @@ public class CourseTopicService {
         if(!StringUtils.isEmpty(updateCourseTopicDto.getDescription()) && !updateCourseTopicDto.getDescription().equals(courseTopic.getDescription())) {
             courseTopic.setDescription(updateCourseTopicDto.getDescription());
         }
+        courseTopic.setLocked(updateCourseTopicDto.isLocked());
 
         return courseTopicRepository.save(courseTopic);
     }
