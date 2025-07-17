@@ -118,8 +118,8 @@ public class FileUtils {
 
     public static ResponseEntity<Resource> downloadFile(String filePath, String fileName) {
         Path file = Paths.get(directory, filePath, fileName).toAbsolutePath().normalize();
-        if (!Files.exists(file) || !Files.isRegularFile(file)) {
-            log.error("File not found or not a regular file: {}", file);
+        if (!Files.exists(file)) {
+            log.error("File not found: {}", file);
             throw new ResourceNotFoundException(ResponseMessage.UNABLE_TO_DOWNLOAD);
         }
 
@@ -152,7 +152,7 @@ public class FileUtils {
     public static void deleteFile(String filePath, String fileName) {
         Path file = Paths.get(directory, filePath, fileName).toAbsolutePath().normalize();
 
-        if (Files.exists(file) && Files.isRegularFile(file)) {
+        if (Files.exists(file)) {
             try {
                 Files.delete(file);
             } catch (IOException e) {
@@ -161,7 +161,7 @@ public class FileUtils {
             }
             log.info("File deleted successfully: {}", file);
         } else {
-            log.warn("File does not exist or is not a regular file: {}", file);
+            log.warn("File does not exist: {}", file);
             throw new ResourceNotFoundException(ResponseMessage.UNABLE_TO_DELETE);
         }
     }

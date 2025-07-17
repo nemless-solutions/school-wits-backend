@@ -28,6 +28,6 @@ public class QuizQuestion implements Serializable {
     @Column(nullable = false)
     private String title;
 
-    @OneToMany(mappedBy = "question")
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<QuizAnswer> answers = new ArrayList<>();
 }

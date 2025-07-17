@@ -117,8 +117,8 @@ public class DatabaseInitializer implements CommandLineRunner {
             List<String> grades = entry.getValue();
 
             for(String grade : grades) {
-                Course course = Course.builder()
-                        .uid(title + "-" + grade)
+                Course courseOnline = Course.builder()
+                        .uid(title + "-" + grade + "-" + CourseMode.ONLINE)
                         .title(title)
                         .grade(Grade.valueOf(grade))
                         .mode(CourseMode.ONLINE)
@@ -134,7 +134,27 @@ public class DatabaseInitializer implements CommandLineRunner {
                         .academicSession("2025-2026")
                         .sessionDuration("15 Jun - 28 Jun, 2025")
                         .build();
-                courses.add(course);
+
+                Course courseInPerson = Course.builder()
+                        .uid(title + "-" + grade + "-" + CourseMode.IN_PERSON)
+                        .title(title)
+                        .grade(Grade.valueOf(grade))
+                        .mode(CourseMode.IN_PERSON)
+                        .type(CourseType.LONG)
+                        .description("Dummy description")
+                        .fee(4500)
+                        .numberOfLessons(10)
+                        .numberOfNotes(10)
+                        .numberOfWorksheet(5)
+                        .numberOfQuizzes(5)
+                        .numberOfExams(2)
+                        .numberOfSession(1)
+                        .academicSession("2025-2026")
+                        .sessionDuration("15 Jun - 28 Jun, 2025")
+                        .build();
+
+                courses.add(courseOnline);
+                courses.add(courseInPerson);
             }
         }
 
@@ -185,39 +205,44 @@ public class DatabaseInitializer implements CommandLineRunner {
                     = readFileContent(fileName);
 
             for(Map.Entry<String, List<Map<String, List<String>>>> entry : coursePlans.entrySet()) {
-                String courseUid = entry.getKey() + "-" + grade;
-                Course course = courseRepository.findByUid(courseUid).orElseThrow();
-                CourseInformationDto courseInformationDto = courseInformationList.stream()
-                        .filter(c -> c.getCourse().equalsIgnoreCase(courseUid))
-                        .findFirst().orElseThrow();
-                CourseInformation courseInformation = buildCourseInformation(courseInformationDto, course);
-                courseInformation = courseInformationRepository.save(courseInformation);
+                String courseUid = entry.getKey() + "-" + grade + "-" + CourseMode.ONLINE;
+                saveCoursePlans(courseUid, courseInformationList, entry);
+                courseUid = entry.getKey() + "-" + grade + "-" + CourseMode.IN_PERSON;
+                saveCoursePlans(courseUid, courseInformationList, entry);
+            }
+        }
+    }
 
-                CoursePlanInformation coursePlanInformation = CoursePlanInformation.builder()
-                        .courseInformation(courseInformation)
+    private void saveCoursePlans(String courseUid, List<CourseInformationDto> courseInformationList, Map.Entry<String, List<Map<String, List<String>>>> entry) {
+        Course course = courseRepository.findByUid(courseUid).orElseThrow();
+        CourseInformationDto courseInformationDto = courseInformationList.stream()
+                .filter(c -> courseUid.contains(c.getCourse()))
+                .findFirst().orElseThrow();
+        CourseInformation courseInformation = buildCourseInformation(courseInformationDto, course);
+        courseInformation = courseInformationRepository.save(courseInformation);
+
+        CoursePlanInformation coursePlanInformation = CoursePlanInformation.builder()
+                .courseInformation(courseInformation)
+                .build();
+        coursePlanInformation = coursePlanInformationRepository.save(coursePlanInformation);
+
+        List<Map<String, List<String>>> weekDetailsList = entry.getValue();
+        for(Map<String, List<String>> weekDetails : weekDetailsList) {
+            for(Map.Entry<String, List<String>> weekEntry : weekDetails.entrySet()) {
+                String coursePlanWeekInformationText = weekEntry.getKey();
+                CoursePlanWeekInformation coursePlanWeekInformation = CoursePlanWeekInformation.builder()
+                        .coursePlanInformation(coursePlanInformation)
+                        .text(coursePlanWeekInformationText)
                         .build();
-                coursePlanInformation = coursePlanInformationRepository.save(coursePlanInformation);
+                coursePlanWeekInformation = coursePlanWeekInformationRepository.save(coursePlanWeekInformation);
 
-                List<Map<String, List<String>>> weekDetailsList = entry.getValue();
-                for(Map<String, List<String>> weekDetails : weekDetailsList) {
-                    for(Map.Entry<String, List<String>> weekEntry : weekDetails.entrySet()) {
-                        String coursePlanWeekInformationText = weekEntry.getKey();
-                        CoursePlanWeekInformation coursePlanWeekInformation = CoursePlanWeekInformation.builder()
-                                .coursePlanInformation(coursePlanInformation)
-                                .text(coursePlanWeekInformationText)
-                                .build();
-                        coursePlanWeekInformation = coursePlanWeekInformationRepository.save(coursePlanWeekInformation);
-
-                        for(String coursePlanWeekInformationDetailsText : weekEntry.getValue()) {
-                            CoursePlanWeekDetailsInformation coursePlanWeekDetailsInformation = CoursePlanWeekDetailsInformation.builder()
-                                    .coursePlanWeekInformation(coursePlanWeekInformation)
-                                    .text(coursePlanWeekInformationDetailsText)
-                                    .build();
-                            coursePlanWeekDetailsInformationRepository.save(coursePlanWeekDetailsInformation);
-                        }
-                    }
+                for(String coursePlanWeekInformationDetailsText : weekEntry.getValue()) {
+                    CoursePlanWeekDetailsInformation coursePlanWeekDetailsInformation = CoursePlanWeekDetailsInformation.builder()
+                            .coursePlanWeekInformation(coursePlanWeekInformation)
+                            .text(coursePlanWeekInformationDetailsText)
+                            .build();
+                    coursePlanWeekDetailsInformationRepository.save(coursePlanWeekDetailsInformation);
                 }
-
             }
         }
     }

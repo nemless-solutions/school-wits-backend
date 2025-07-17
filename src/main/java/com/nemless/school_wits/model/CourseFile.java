@@ -45,7 +45,7 @@ public class CourseFile {
     @Column(nullable = false)
     private String fileUid;
 
-    @OneToMany(mappedBy = "video")
+    @OneToMany(mappedBy = "video", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     @Builder.Default
     private List<Quiz> quizzes = new ArrayList<>();

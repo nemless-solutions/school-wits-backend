@@ -38,7 +38,7 @@ public class Quiz implements Serializable {
 
     private int duration;
 
-    @OneToMany(mappedBy = "quiz")
+    @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     private List<QuizQuestion> questions = new ArrayList<>();
 
