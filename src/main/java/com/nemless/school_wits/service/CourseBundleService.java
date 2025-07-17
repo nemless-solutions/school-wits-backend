@@ -10,16 +10,17 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Slf4j
 @RequiredArgsConstructor
 @Service
 public class CourseBundleService {
     private final CourseBundleRepository courseBundleRepository;
 
-    public CourseBundle findCourseBundleByGrade(String gradeName) {
+    public List<CourseBundle> findCourseBundlesByGrade(String gradeName) {
         try {
-            return courseBundleRepository.findByGrade(Grade.valueOf(gradeName.toUpperCase()))
-                    .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_COURSE_BUNDLE));
+            return courseBundleRepository.findByGrade(Grade.valueOf(gradeName.toUpperCase()));
         } catch (IllegalArgumentException e) {
             throw new BadRequestException("Invalid grade: " + gradeName);
         }

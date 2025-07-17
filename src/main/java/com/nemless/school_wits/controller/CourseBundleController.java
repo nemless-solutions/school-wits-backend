@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @Slf4j
 @RequiredArgsConstructor
 @RestController
@@ -23,7 +25,7 @@ public class CourseBundleController {
     }
 
     @GetMapping("/grade/{gradeName}")
-    ResponseEntity<CourseBundle> getCourseBundleByGrade(@PathVariable String gradeName) {
-        return ResponseEntity.ok(courseBundleService.findCourseBundleByGrade(gradeName));
+    ResponseEntity<List<CourseBundle>> getCourseBundlesByGrade(@PathVariable String gradeName) {
+        return ResponseEntity.ok(courseBundleService.findCourseBundlesByGrade(gradeName));
     }
 }

@@ -24,14 +24,6 @@ public class UserService {
     private final UserRepository userRepository;
     private final CourseFileRepository courseFileRepository;
 
-    public List<User> getAllUserByRole(String roleName) {
-        try {
-            return userRepository.findByRoles_Name(Role.valueOf(roleName.toUpperCase()));
-        } catch (IllegalArgumentException e) {
-            throw new BadRequestException("Invalid role: " + roleName);
-        }
-    }
-
     public User getUserById(Long userId) {
         return userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_USER_ID));
@@ -66,8 +58,8 @@ public class UserService {
         return new DataSummary(numberOfStudents, numberOfTeachers, numberOfUploadedContent);
     }
 
-    public List<User> searchUsers(Long userId, String name) {
-        if(userId == null && name == null) {
+    public List<User> searchUsers(Long userId, String name, String roleName) {
+        if(userId == null && name == null && roleName == null) {
             throw new BadRequestException(ResponseMessage.SEARCH_PARAMS_REQUIRED);
         }
 
@@ -75,6 +67,14 @@ public class UserService {
             Optional<User> optionalUser = userRepository.findById(userId);
             if(optionalUser.isPresent()) {
                 return List.of(optionalUser.get());
+            }
+        }
+
+        if(roleName != null) {
+            try {
+                return userRepository.findByRoles_Name(Role.valueOf(roleName.toUpperCase()));
+            } catch (IllegalArgumentException e) {
+                throw new BadRequestException("Invalid role: " + roleName);
             }
         }
 

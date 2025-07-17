@@ -5,9 +5,9 @@ import com.nemless.school_wits.model.CourseBundle;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
+import java.util.List;
 
 @Repository
 public interface CourseBundleRepository extends JpaRepository<CourseBundle, Long> {
-    Optional<CourseBundle> findByGrade(Grade grade);
+    List<CourseBundle> findByGrade(Grade grade);
 }

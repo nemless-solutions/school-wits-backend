@@ -19,16 +19,14 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
 
-    @GetMapping
-    @PreAuthorize("hasRole('ADMIN')")
-    ResponseEntity<List<User>> getAllUserByRole(@RequestParam String roleName) {
-        return ResponseEntity.ok(userService.getAllUserByRole(roleName));
-    }
-
     @GetMapping("/search")
     @PreAuthorize("hasRole('ADMIN')")
-    ResponseEntity<List<User>> searchUser(@RequestParam(required = false) Long userId, @RequestParam(required = false) String name) {
-        return ResponseEntity.ok(userService.searchUsers(userId, name));
+    ResponseEntity<List<User>> searchUser(
+            @RequestParam(required = false) Long userId,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String roleName
+    ) {
+        return ResponseEntity.ok(userService.searchUsers(userId, name, roleName));
     }
 
     @GetMapping("{userId}")

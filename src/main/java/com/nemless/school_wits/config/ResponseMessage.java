@@ -35,5 +35,5 @@ public class ResponseMessage {
     public static final String QUIZ_QUESTION_DELETE_SUCCESSFUL = "Quiz question deletion successful";
     public static final String QUIZ_ANSWER_DELETE_SUCCESSFUL = "Quiz answer deletion successful";
     public static final String CORRECT_ANSWER_REQUIRED = "You have to provide the correct answer first";
-    public static final String SEARCH_PARAMS_REQUIRED = "Provide id or name to search for users";
+    public static final String SEARCH_PARAMS_REQUIRED = "Provide parameters to search for users";
 }

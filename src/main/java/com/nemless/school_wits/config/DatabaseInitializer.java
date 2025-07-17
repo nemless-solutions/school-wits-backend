@@ -164,14 +164,16 @@ public class DatabaseInitializer implements CommandLineRunner {
     private void bundleCourses() {
         List<CourseBundle> bundles = new ArrayList<>();
         for(Grade grade : Grade.values()) {
-            if(grade.equals(Grade.VIII) || grade.equals(Grade.IX) || grade.equals(Grade.X)) continue;
+            for(CourseMode mode : CourseMode.values()) {
+                if(grade.equals(Grade.VIII) || grade.equals(Grade.IX) || grade.equals(Grade.X)) continue;
 
-            List<Course> courses = courseRepository.findAllByGrade(grade);
-            CourseBundle courseBundle = CourseBundle.builder()
-                    .grade(grade)
-                    .courses(courses)
-                    .build();
-            bundles.add(courseBundle);
+                List<Course> courses = courseRepository.findAllByGradeAndMode(grade, mode);
+                CourseBundle courseBundle = CourseBundle.builder()
+                        .grade(grade)
+                        .courses(courses)
+                        .build();
+                bundles.add(courseBundle);
+            }
         }
         courseBundleRepository.saveAll(bundles);
     }
