@@ -20,4 +20,4 @@ WORKDIR /app
 
 COPY --from=build /app/target/*.jar app.jar
 
-CMD ["java", "-jar", "app.jar"]
+CMD ["java", "-Xms512m", "-Xmx1024m", "-XX:+UseG1GC", "-jar", "app.jar"]
