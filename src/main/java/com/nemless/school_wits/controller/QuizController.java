@@ -29,9 +29,14 @@ public class QuizController {
         return ResponseEntity.ok(quizService.createQuiz(createQuizDto));
     }
 
-    @GetMapping("/{videoId}")
+    @GetMapping("/video/{videoId}")
     ResponseEntity<List<Quiz>> getQuizzesByVideoId(@PathVariable Long videoId) {
         return ResponseEntity.ok(quizService.getQuizzesByVideoId(videoId));
+    }
+
+    @GetMapping("/{quizId}")
+    ResponseEntity<Quiz> getQuiz(@PathVariable Long quizId) {
+        return ResponseEntity.ok(quizService.getQuiz(quizId));
     }
 
     @PutMapping("/{quizId}")

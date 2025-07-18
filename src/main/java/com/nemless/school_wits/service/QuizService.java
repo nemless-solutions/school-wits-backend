@@ -54,6 +54,11 @@ public class QuizService {
         return quizRepository.findByVideo(courseFile);
     }
 
+    public Quiz getQuiz(Long quizId) {
+        return quizRepository.findById(quizId)
+                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_QUIZ_ID));
+    }
+
     public Quiz updateQuiz(Long quizId, UpdateQuizDto updateQuizDto) {
         Quiz quiz = quizRepository.findById(quizId)
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_QUIZ_ID));
