@@ -15,4 +15,15 @@ scrape_configs:
           - localhost
         labels:
           job: school-wits
-          __path__: /app/logs/*.log
+          __path__:
+            - /app/logs/*.log
+            - /app/logs/archived/*.log
+
+    pipeline_stages:
+      - regex:
+          expression: '^(?P<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) (?P<level>[A-Z]+) .*'
+      - timestamp:
+          source: timestamp
+          format: "2006-01-02 15:04:05"
+      - labels:
+          level:
