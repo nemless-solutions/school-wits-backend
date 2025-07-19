@@ -18,10 +18,20 @@ scrape_configs:
           __path__: /app/logs/**/*.log
 
     pipeline_stages:
+      - multiline:
+          firstline: '^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}'
+
       - regex:
-          expression: '^(?P<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) (?P<level>[A-Z]+) .*'
+          expression: '^(?P<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})(?: (?P<level>[A-Z]+))?.*'
+
       - timestamp:
           source: timestamp
           format: "2006-01-02 15:04:05"
+
       - labels:
           level:
+
+      - replace:
+          expression: '^$'
+          replace: 'UNKNOWN'
+          source: level
