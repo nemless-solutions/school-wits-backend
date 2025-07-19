@@ -23,6 +23,15 @@ spring:
   jwt:
     secret: 743d253555a5aaf68e3adf8faade4f5db388dc2958da14bcdd01ebaba8728ecc
     expiration: 30000000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
 
 upload-directory: E:\DEV\nemless\school-wits-storage\
 api:
