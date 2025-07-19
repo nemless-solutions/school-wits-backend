@@ -1,8 +1,0 @@
-global:
-  scrape_interval: 1m
-
-scrape_configs:
-  - job_name: 'school-wits'
-    metrics_path: '/actuator/prometheus'
-    static_configs:
-      - targets: ['app:8080']
