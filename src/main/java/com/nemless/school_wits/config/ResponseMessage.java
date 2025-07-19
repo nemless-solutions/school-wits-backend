@@ -15,6 +15,7 @@ public class ResponseMessage {
     public static final String INVALID_COURSE_TOPIC_ID = "Topic id is invalid";
     public static final String INVALID_VIDEO_ID = "Video id is invalid";
     public static final String INVALID_QUIZ_ID = "Quiz id is invalid";
+    public static final String INVALID_QUIZ_RESULT_ID = "Quiz result id is invalid";
     public static final String INVALID_QUESTION_ID = "Question id is invalid";
     public static final String INVALID_FILE_ID = "File id is invalid";
     public static final String ENROLLMENT_EXISTS = "Student is already enrolled in this course";

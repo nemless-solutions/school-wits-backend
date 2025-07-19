@@ -29,4 +29,9 @@ public class QuizResultController {
     ResponseEntity<List<QuizResult>> getQuizResults() {
         return ResponseEntity.ok(quizResultService.getQuizResults());
     }
+
+    @GetMapping("/{quizResultId}")
+    ResponseEntity<QuizResult> getQuizResult(@PathVariable Long quizResultId) {
+        return ResponseEntity.ok(quizResultService.getQuizResult(quizResultId));
+    }
 }

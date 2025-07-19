@@ -28,6 +28,12 @@ public class QuizResultService {
         return quizResultRepository.findByUser(authUtils.getAuthenticatedUser());
     }
 
+    public QuizResult getQuizResult(Long quizResultId) {
+        return quizResultRepository.findByUser(authUtils.getAuthenticatedUser()).stream()
+                .filter(qr -> qr.getId().equals(quizResultId))
+                .findFirst().orElseThrow(() -> new BadRequestException(ResponseMessage.INVALID_QUIZ_RESULT_ID));
+    }
+
     public QuizResult generateQuizResult(GenerateQuizResultDto generateQuizResultDto) {
         Quiz quiz = quizRepository.findById(generateQuizResultDto.getQuizId())
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_QUIZ_ID));
