@@ -49,8 +49,9 @@ public class Course implements Serializable {
     @Column(nullable = false)
     private CourseType type;
 
-    @Column(nullable = false)
     private float fee;
+
+    private float discountedFee;
 
     private int numberOfLessons;
     private int numberOfNotes;
@@ -61,7 +62,6 @@ public class Course implements Serializable {
     private String academicSession;
     private String sessionDuration;
     private String courseImage;
-    private Float discountedFee;
     private Date discountLastDate;
 
     @Builder.Default

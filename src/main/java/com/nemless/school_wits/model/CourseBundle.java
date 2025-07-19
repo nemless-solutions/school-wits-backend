@@ -1,5 +1,6 @@
 package com.nemless.school_wits.model;
 
+import com.nemless.school_wits.enums.CourseMode;
 import com.nemless.school_wits.enums.Grade;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -25,6 +26,14 @@ public class CourseBundle implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Grade grade;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private CourseMode mode;
+
+    private float fee;
+
+    private float discountedFee;
 
     @ManyToMany
     @JoinTable(

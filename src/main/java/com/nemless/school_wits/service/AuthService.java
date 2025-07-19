@@ -2,6 +2,7 @@ package com.nemless.school_wits.service;
 
 import com.nemless.school_wits.config.ResponseMessage;
 import com.nemless.school_wits.config.UserDetailsImpl;
+import com.nemless.school_wits.dto.request.ChangePasswordDto;
 import com.nemless.school_wits.dto.request.UserLoginDto;
 import com.nemless.school_wits.dto.request.UserRegistrationDto;
 import com.nemless.school_wits.dto.response.AuthResponse;
@@ -102,5 +103,22 @@ public class AuthService {
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
 
         return jwtUtils.generateTokenFromUserDetails(userDetails);
+    }
+
+    public void changePassword(ChangePasswordDto changePasswordDto) {
+        User user = authUtils.getAuthenticatedUser();
+        try {
+            authenticationManager
+                    .authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(), changePasswordDto.getCurrentPassword()));
+        } catch (AuthenticationException ex) {
+            log.error(ex.getMessage());
+            throw new BadRequestException(ResponseMessage.CURRENT_PASSWORD_DOES_NOT_MATCH);
+        }
+        if(!changePasswordDto.getConfirmNewPassword().equals(changePasswordDto.getNewPassword())) {
+            throw new BadRequestException(ResponseMessage.PASSWORDS_DO_NOT_MATCH);
+        }
+
+        user.setPassword(passwordEncoder.encode(changePasswordDto.getNewPassword()));
+        userRepository.save(user);
     }
 }

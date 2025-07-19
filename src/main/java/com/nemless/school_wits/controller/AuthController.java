@@ -1,5 +1,7 @@
 package com.nemless.school_wits.controller;
 
+import com.nemless.school_wits.config.ResponseMessage;
+import com.nemless.school_wits.dto.request.ChangePasswordDto;
 import com.nemless.school_wits.dto.request.UserLoginDto;
 import com.nemless.school_wits.dto.request.UserRegistrationDto;
 import com.nemless.school_wits.dto.response.AuthResponse;
@@ -35,5 +37,14 @@ public class AuthController {
         log.info("Login request: {}", userLoginDto);
 
         return ResponseEntity.ok(authService.login(userLoginDto));
+    }
+
+    @PostMapping("/change-password")
+    ResponseEntity<String> changePassword(@RequestBody @Valid ChangePasswordDto changePasswordDto) {
+        log.info("Change password request: {}", changePasswordDto);
+
+        authService.changePassword(changePasswordDto);
+
+        return ResponseEntity.ok(ResponseMessage.PASSWORD_CHANGE_SUCCESSFUL);
     }
 }

@@ -124,7 +124,8 @@ public class DatabaseInitializer implements CommandLineRunner {
                         .mode(CourseMode.ONLINE)
                         .type(CourseType.LONG)
                         .description("Dummy description")
-                        .fee(4500)
+                        .fee(getCourseFee(Grade.valueOf(grade), CourseMode.ONLINE, false))
+                        .discountedFee(getCourseFee(Grade.valueOf(grade), CourseMode.ONLINE, true))
                         .numberOfLessons(10)
                         .numberOfNotes(10)
                         .numberOfWorksheet(5)
@@ -142,7 +143,8 @@ public class DatabaseInitializer implements CommandLineRunner {
                         .mode(CourseMode.IN_PERSON)
                         .type(CourseType.LONG)
                         .description("Dummy description")
-                        .fee(4500)
+                        .fee(getCourseFee(Grade.valueOf(grade), CourseMode.IN_PERSON, false))
+                        .discountedFee(getCourseFee(Grade.valueOf(grade), CourseMode.IN_PERSON, true))
                         .numberOfLessons(10)
                         .numberOfNotes(10)
                         .numberOfWorksheet(5)
@@ -161,6 +163,23 @@ public class DatabaseInitializer implements CommandLineRunner {
         courseRepository.saveAll(courses);
     }
 
+    private long getCourseFee(Grade grade, CourseMode mode, boolean isDiscountedPrice) {
+        if(grade == Grade.VIII) {
+            if(mode == CourseMode.IN_PERSON) {
+                return isDiscountedPrice ? 3500L : 4000L;
+            } else {
+                return 2500L;
+            }
+        } else if(grade == Grade.IX || grade == Grade.X) {
+            if(mode == CourseMode.IN_PERSON) {
+                return isDiscountedPrice ? 4000L : 4500L;
+            } else {
+                return 2500L;
+            }
+        } else
+            return 0L;
+    }
+
     private void bundleCourses() {
         List<CourseBundle> bundles = new ArrayList<>();
         for(Grade grade : Grade.values()) {
@@ -170,12 +189,23 @@ public class DatabaseInitializer implements CommandLineRunner {
                 List<Course> courses = courseRepository.findAllByGradeAndMode(grade, mode);
                 CourseBundle courseBundle = CourseBundle.builder()
                         .grade(grade)
+                        .mode(mode)
+                        .fee(getBundleFee(mode, false))
+                        .discountedFee(getBundleFee(mode, true))
                         .courses(courses)
                         .build();
                 bundles.add(courseBundle);
             }
         }
         courseBundleRepository.saveAll(bundles);
+    }
+
+    private long getBundleFee(CourseMode mode, boolean isDiscountedPrice) {
+        if(mode == CourseMode.IN_PERSON) {
+            return isDiscountedPrice ? 10000L : 12000L;
+        } else {
+            return 5000L;
+        }
     }
 
     private Map<String, List<String>> loadCourseList() throws IOException {

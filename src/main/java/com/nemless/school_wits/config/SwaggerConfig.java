@@ -27,7 +27,7 @@ public class SwaggerConfig {
 
         return new OpenAPI()
                 .info(new Info()
-                        .title("Your API")
+                        .title("SchoolWits backend API list")
                         .version("1.0")
                         .description("API documentation with JWT support"))
                 .addSecurityItem(new SecurityRequirement().addList(SECURITY_SCHEME_NAME))
