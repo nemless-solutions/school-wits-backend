@@ -15,9 +15,7 @@ scrape_configs:
           - localhost
         labels:
           job: school-wits
-          __path__:
-            - /app/logs/*.log
-            - /app/logs/archived/*.log
+          __path__: /app/logs/**/*.log
 
     pipeline_stages:
       - regex:
