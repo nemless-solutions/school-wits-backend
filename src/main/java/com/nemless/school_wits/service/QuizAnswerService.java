@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -80,10 +81,12 @@ public class QuizAnswerService {
         }
         if(answer.isCorrect() != updateQuizAnswerDto.isCorrect()) {
             if(updateQuizAnswerDto.isCorrect()) {
-                QuizAnswer correctAnswer = quizAnswerRepository.findByQuestionAndIsCorrect(answer.getQuestion(), true)
-                        .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_QUESTION_ANSWER));
-                correctAnswer.setCorrect(false);
-                quizAnswerRepository.save(correctAnswer);
+                Optional<QuizAnswer> optionalAnswer = quizAnswerRepository.findByQuestionAndIsCorrect(answer.getQuestion(), true);
+                if(optionalAnswer.isPresent()) {
+                    QuizAnswer correctAnswer = optionalAnswer.get();
+                    correctAnswer.setCorrect(false);
+                    quizAnswerRepository.save(correctAnswer);
+                }
                 answer.setCorrect(true);
             } else {
                 throw new BadRequestException(ResponseMessage.CORRECT_ANSWER_REQUIRED);
