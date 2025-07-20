@@ -42,12 +42,12 @@ public class AuthService {
     }
 
     public AuthResponse registerUser(UserRegistrationDto userRegistrationDto) {
-        if(userRepository.existsByEmail(userRegistrationDto.getEmail())) {
+        if(userRepository.existsByEmail(userRegistrationDto.getEmail().toLowerCase())) {
             throw new BadRequestException(ResponseMessage.EMAIL_EXISTS);
         }
 
         User user = User.builder()
-                .email(userRegistrationDto.getEmail())
+                .email(userRegistrationDto.getEmail().toLowerCase())
                 .password(passwordEncoder.encode(userRegistrationDto.getPassword()))
                 .fullName(userRegistrationDto.getFullName())
                 .currentSchool(userRegistrationDto.getCurrentSchool())
@@ -74,14 +74,14 @@ public class AuthService {
     }
 
     public AuthResponse login(UserLoginDto userLoginDto) {
-        if(!userRepository.existsByEmail(userLoginDto.getEmail())) {
+        if(!userRepository.existsByEmail(userLoginDto.getEmail().toLowerCase())) {
             throw new BadRequestException(ResponseMessage.INCORRECT_CREDENTIALS);
         }
 
-        User user = userRepository.findByEmail(userLoginDto.getEmail())
+        User user = userRepository.findByEmail(userLoginDto.getEmail().toLowerCase())
                 .orElseThrow(() -> new BadRequestException(ResponseMessage.INCORRECT_CREDENTIALS));
 
-        String token = getToken(user.getEmail(), userLoginDto.getPassword());
+        String token = getToken(user.getEmail().toLowerCase(), userLoginDto.getPassword());
         return new AuthResponse(user, token);
     }
 
@@ -93,7 +93,7 @@ public class AuthService {
         Authentication authentication;
         try {
             authentication = authenticationManager
-                    .authenticate(new UsernamePasswordAuthenticationToken(email, password));
+                    .authenticate(new UsernamePasswordAuthenticationToken(email.toLowerCase(), password));
         } catch (AuthenticationException ex) {
             log.error(ex.getMessage());
             throw new BadRequestException(ResponseMessage.INCORRECT_CREDENTIALS);

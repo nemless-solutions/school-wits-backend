@@ -36,11 +36,11 @@ public class UserService {
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_USER_ID));
 
         if (!StringUtils.isEmpty(userUpdateDto.getEmail())) {
-            if (!userUpdateDto.getEmail().equals(user.getEmail())
-                    && userRepository.existsByEmail(userUpdateDto.getEmail())) {
+            if (!userUpdateDto.getEmail().equalsIgnoreCase(user.getEmail())
+                    && userRepository.existsByEmail(userUpdateDto.getEmail().toLowerCase())) {
                 throw new BadRequestException(ResponseMessage.EMAIL_EXISTS);
             }
-            user.setEmail(userUpdateDto.getEmail());
+            user.setEmail(userUpdateDto.getEmail().toLowerCase());
         }
 
         if(!StringUtils.isEmpty(userUpdateDto.getFullName()) && !userUpdateDto.getFullName().equals(user.getFullName())) {
@@ -50,7 +50,7 @@ public class UserService {
             user.setCurrentSchool(userUpdateDto.getCurrentSchool());
         }
         if(!StringUtils.isEmpty(userUpdateDto.getFatherName()) && !userUpdateDto.getFatherName().equals(user.getFatherName())) {
-            user.setFatherName(userUpdateDto.getMotherName());
+            user.setFatherName(userUpdateDto.getFatherName());
         }
         if(!StringUtils.isEmpty(userUpdateDto.getMotherName()) && !userUpdateDto.getMotherName().equals(user.getMotherName())) {
             user.setMotherName(userUpdateDto.getMotherName());
