@@ -1,15 +1,18 @@
 package com.nemless.school_wits.exception;
 
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import com.nemless.school_wits.config.ResponseMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.postgresql.util.PSQLException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -49,6 +52,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> validationException(MethodArgumentNotValidException ex) {
+        log.error(ex.getMessage());
         Map<String, String> errors = new HashMap<>();
 
         ex.getBindingResult().getAllErrors().forEach(error -> {
@@ -58,5 +62,32 @@ public class GlobalExceptionHandler {
         });
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
+    }
+
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<Map<String, String>> handleHttpMessageNotReadable(HttpMessageNotReadableException ex) {
+        log.error(ex.getMessage());
+        String message = "Malformed or invalid request body";
+
+        Throwable cause = ex.getCause();
+        if (cause instanceof InvalidFormatException ife) {
+            Class<?> targetType = ife.getTargetType();
+            Object invalidValue = ife.getValue();
+
+            if (targetType.isEnum()) {
+                message = String.format("Invalid value '%s' for enum type %s. Allowed values: %s",
+                        invalidValue,
+                        targetType.getSimpleName(),
+                        Arrays.toString(targetType.getEnumConstants()));
+            } else {
+                message = String.format("Invalid value '%s' for field of type %s",
+                        invalidValue,
+                        targetType.getSimpleName());
+            }
+        }
+
+        return ResponseEntity
+                .badRequest()
+                .body(Map.of("error", message));
     }
 }

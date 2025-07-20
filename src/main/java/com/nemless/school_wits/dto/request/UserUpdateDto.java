@@ -13,37 +13,29 @@ import java.util.Date;
 @ToString
 @AllArgsConstructor
 public class UserUpdateDto {
-    @NotBlank(message = "Email is required")
     @Email(message = "Invalid email format")
     private String email;
 
-    @NotBlank(message = "Full name is required")
     @Size(min = 6)
     private String fullName;
 
     @Size(min = 6)
     private String currentSchool;
 
-    @NotBlank(message = "Father's name is required")
     @Size(min = 6)
     private String fatherName;
 
-    @NotBlank(message = "Mother's name is required")
     @Size(min = 6)
     private String motherName;
 
-    @NotBlank(message = "Guardian's email is required")
     @Email(message = "Invalid email format")
     private String guardianEmail;
 
-    @NotBlank(message = "Guardian's contact number is required")
     @Size(min = 7, max = 15, message = "Invalid contact number")
     private String guardianContact;
 
-    @NotNull(message = "Curriculum is required")
     private Curriculum curriculum;
 
-    @NotNull(message = "Grade is required")
     private Grade grade;
 
     @Past

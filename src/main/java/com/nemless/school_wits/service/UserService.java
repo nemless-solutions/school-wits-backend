@@ -9,6 +9,7 @@ import com.nemless.school_wits.exception.ResourceNotFoundException;
 import com.nemless.school_wits.model.User;
 import com.nemless.school_wits.repository.CourseFileRepository;
 import com.nemless.school_wits.repository.UserRepository;
+import com.nemless.school_wits.util.StringUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -33,20 +35,44 @@ public class UserService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_USER_ID));
 
-        if(!user.getEmail().equals(userUpdateDto.getEmail()) && userRepository.existsByEmail(userUpdateDto.getEmail())) {
+        if(!StringUtils.isEmpty(userUpdateDto.getEmail())
+                && !userUpdateDto.getEmail().equals(user.getEmail())
+                && userRepository.existsByEmail(userUpdateDto.getEmail())) {
             throw new BadRequestException(ResponseMessage.EMAIL_EXISTS);
         } else {
             user.setEmail(userUpdateDto.getEmail());
         }
-        user.setFullName(userUpdateDto.getFullName());
-        user.setCurrentSchool(userUpdateDto.getCurrentSchool());
-        user.setFatherName(userUpdateDto.getMotherName());
-        user.setMotherName(userUpdateDto.getMotherName());
-        user.setGuardianEmail(userUpdateDto.getGuardianEmail());
-        user.setGuardianContact(userUpdateDto.getGuardianContact());
-        user.setGrade(userUpdateDto.getGrade());
-        user.setDateOfBirth(userUpdateDto.getDateOfBirth());
-        user.setLastSeenNotice(userUpdateDto.getLastSeenNotice());
+
+        if(!StringUtils.isEmpty(userUpdateDto.getFullName()) && !userUpdateDto.getFullName().equals(user.getFullName())) {
+            user.setFullName(userUpdateDto.getFullName());
+        }
+        if(!StringUtils.isEmpty(userUpdateDto.getCurrentSchool()) && !userUpdateDto.getCurrentSchool().equals(user.getCurrentSchool())) {
+            user.setCurrentSchool(userUpdateDto.getCurrentSchool());
+        }
+        if(!StringUtils.isEmpty(userUpdateDto.getFatherName()) && !userUpdateDto.getFatherName().equals(user.getFatherName())) {
+            user.setFatherName(userUpdateDto.getMotherName());
+        }
+        if(!StringUtils.isEmpty(userUpdateDto.getMotherName()) && !userUpdateDto.getMotherName().equals(user.getMotherName())) {
+            user.setMotherName(userUpdateDto.getMotherName());
+        }
+        if(!StringUtils.isEmpty(userUpdateDto.getGuardianEmail()) && !userUpdateDto.getGuardianEmail().equals(user.getGuardianEmail())) {
+            user.setGuardianEmail(userUpdateDto.getGuardianEmail());
+        }
+        if(!StringUtils.isEmpty(userUpdateDto.getGuardianContact()) && !userUpdateDto.getGuardianContact().equals(user.getGuardianContact())) {
+            user.setGuardianContact(userUpdateDto.getGuardianContact());
+        }
+        if(userUpdateDto.getGrade() != null && !userUpdateDto.getGrade().equals(user.getGrade())) {
+            user.setGrade(userUpdateDto.getGrade());
+        }
+        if(userUpdateDto.getCurriculum() != null && !userUpdateDto.getCurriculum().equals(user.getCurriculum())) {
+            user.setCurriculum(userUpdateDto.getCurriculum());
+        }
+        if(userUpdateDto.getDateOfBirth() != null && !userUpdateDto.getDateOfBirth().equals(user.getDateOfBirth())) {
+            user.setDateOfBirth(userUpdateDto.getDateOfBirth());
+        }
+        if(userUpdateDto.getLastSeenNotice() != null && !userUpdateDto.getLastSeenNotice().equals(user.getLastSeenNotice())) {
+            user.setLastSeenNotice(userUpdateDto.getLastSeenNotice());
+        }
 
         return userRepository.save(user);
     }
@@ -71,15 +97,22 @@ public class UserService {
         }
 
         if(roleName != null) {
+            List<User> users;
             try {
-                return userRepository.findByRoles_Name(Role.valueOf(roleName.toUpperCase()));
+                users = userRepository.findByRoles_Name(Role.valueOf(roleName.toUpperCase()));
             } catch (IllegalArgumentException e) {
                 throw new BadRequestException("Invalid role: " + roleName);
             }
+            return name != null ?
+                    users.stream()
+                            .filter(user -> user.getFullName() != null &&
+                                    user.getFullName().toLowerCase().contains(name.toLowerCase()))
+                            .collect(Collectors.toList())
+                    : users;
+        } else {
+            return name != null ?
+                    userRepository.findByFullNameContainingIgnoreCase(name)
+                    : Collections.emptyList();
         }
-
-        return name != null ?
-                userRepository.findByFullNameContainingIgnoreCase(name)
-                : Collections.emptyList();
     }
 }

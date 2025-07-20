@@ -4,6 +4,7 @@ import com.nemless.school_wits.dto.request.UserUpdateDto;
 import com.nemless.school_wits.dto.response.DataSummary;
 import com.nemless.school_wits.model.User;
 import com.nemless.school_wits.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -37,7 +38,7 @@ public class UserController {
 
     @PutMapping("{userId}")
     @PreAuthorize("hasRole('ADMIN')")
-    ResponseEntity<User> updateUser(@PathVariable Long userId, @RequestBody UserUpdateDto userUpdateDto) {
+    ResponseEntity<User> updateUser(@PathVariable Long userId, @RequestBody @Valid UserUpdateDto userUpdateDto) {
         log.info("Updating user {}: {}", userId, userUpdateDto);
         return ResponseEntity.ok(userService.updateUser(userId, userUpdateDto));
     }
