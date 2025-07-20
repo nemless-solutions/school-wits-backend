@@ -19,6 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -54,6 +55,7 @@ public class QuizAnswerService {
                 .anyMatch(role -> role.getName() == Role.ROLE_ADMIN || role.getName() == Role.ROLE_TEACHER);
 
         List<QuizAnswer> answers = question.getAnswers();
+        answers.sort(Comparator.comparing(QuizAnswer::getId));
         if(hasPermissionToViewCorrectAnswer) {
             return answers.stream()
                     .map(answer -> QuizAnswerAdminResponse.builder()
