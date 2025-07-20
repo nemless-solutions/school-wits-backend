@@ -35,11 +35,11 @@ public class UserService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_USER_ID));
 
-        if(!StringUtils.isEmpty(userUpdateDto.getEmail())
-                && !userUpdateDto.getEmail().equals(user.getEmail())
-                && userRepository.existsByEmail(userUpdateDto.getEmail())) {
-            throw new BadRequestException(ResponseMessage.EMAIL_EXISTS);
-        } else {
+        if (!StringUtils.isEmpty(userUpdateDto.getEmail())) {
+            if (!userUpdateDto.getEmail().equals(user.getEmail())
+                    && userRepository.existsByEmail(userUpdateDto.getEmail())) {
+                throw new BadRequestException(ResponseMessage.EMAIL_EXISTS);
+            }
             user.setEmail(userUpdateDto.getEmail());
         }
 
