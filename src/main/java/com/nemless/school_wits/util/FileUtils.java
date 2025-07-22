@@ -8,9 +8,11 @@ import com.nemless.school_wits.exception.ResourceNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tika.Tika;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -18,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -148,6 +151,77 @@ public class FileUtils {
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
                 .body(resource);
     }
+
+    public static ResponseEntity<Resource> streamFile(String filePath, String fileName, String rangeHeader) {
+        Path videoPath = Paths.get(directory, filePath, fileName).toAbsolutePath().normalize();
+        long fileSize;
+        try {
+            fileSize = Files.size(videoPath);
+        } catch (IOException e) {
+            log.error("Can not get file size: {}", e.getMessage());
+            throw new ResourceNotFoundException(ResponseMessage.UNABLE_TO_STREAM);
+        }
+
+        UrlResource videoResource;
+        try {
+            videoResource = new UrlResource(videoPath.toUri());
+        } catch (MalformedURLException e) {
+            log.error("MalformedURLException: {}", e.getMessage());
+            throw new ResourceNotFoundException(ResponseMessage.UNABLE_TO_STREAM);
+        }
+        if (!videoResource.exists() || !videoResource.isReadable()) {
+            throw new ResourceNotFoundException(ResponseMessage.UNABLE_TO_STREAM);
+        }
+
+        long start = 0;
+        long end = fileSize - 1;
+
+        if (rangeHeader != null && rangeHeader.startsWith("bytes=")) {
+            String[] ranges = rangeHeader.replace("bytes=", "").split("-");
+            start = Long.parseLong(ranges[0]);
+            if (ranges.length > 1 && !ranges[1].isEmpty()) {
+                end = Long.parseLong(ranges[1]);
+            }
+        }
+
+        if (start > end) {
+            return ResponseEntity.status(HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE)
+                    .header(HttpHeaders.CONTENT_RANGE, "bytes */" + fileSize)
+                    .build();
+        }
+
+        long contentLength = end - start + 1;
+        InputStream inputStream;
+        try {
+            inputStream = Files.newInputStream(videoPath);
+        } catch (IOException e) {
+            log.error("Can not build input stream: {}", e.getMessage());
+            throw new ResourceNotFoundException(ResponseMessage.UNABLE_TO_STREAM);
+        }
+
+        try {
+            inputStream.skip(start);
+        } catch (IOException e) {
+            log.error("Can not skip stream: {}", e.getMessage());
+            throw new ResourceNotFoundException(ResponseMessage.UNABLE_TO_STREAM);
+        }
+
+        InputStreamResource resource = new InputStreamResource(new LimitedInputStream(inputStream, contentLength));
+
+        try {
+            return ResponseEntity.status(rangeHeader != null ? HttpStatus.PARTIAL_CONTENT : HttpStatus.OK)
+                    .header(HttpHeaders.CONTENT_TYPE, Files.probeContentType(videoPath))
+                    .header(HttpHeaders.ACCEPT_RANGES, "bytes")
+                    .header(HttpHeaders.CONTENT_LENGTH, String.valueOf(contentLength))
+                    .header(HttpHeaders.CONTENT_RANGE, "bytes " + start + "-" + end + "/" + fileSize)
+                    .body(resource);
+        } catch (IOException e) {
+            log.error("Can not return stream response: {}", e.getMessage());
+            throw new ResourceNotFoundException(ResponseMessage.UNABLE_TO_STREAM);
+        }
+
+    }
+
 
     public static void deleteFile(String filePath, String fileName) {
         Path file = Paths.get(directory, filePath, fileName).toAbsolutePath().normalize();

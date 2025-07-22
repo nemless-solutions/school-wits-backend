@@ -66,6 +66,17 @@ public class CourseFileService {
         return FileUtils.downloadFile(filePath, fileName);
     }
 
+    public ResponseEntity<Resource> streamFile(Long fileId, String rangeHeader) {
+        CourseFile courseFile = courseFileRepository.findById(fileId)
+                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_FILE_ID));
+
+        enrolledCourseService.validateCourseMaterialAccess(courseFile.getCourseTopic().getCourse());
+
+        String filePath = courseFile.getCourseTopic().getId().toString();
+        String fileName = courseFile.getFileUid();
+        return FileUtils.streamFile(filePath, fileName, rangeHeader);
+    }
+
     public CourseFile updateCourseFile(Long fileId, UpdateCourseFileDto updateCourseFileDto) {
         CourseFile courseFile = courseFileRepository.findById(fileId)
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_FILE_ID));

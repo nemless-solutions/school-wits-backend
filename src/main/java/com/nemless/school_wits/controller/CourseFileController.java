@@ -27,10 +27,16 @@ public class CourseFileController {
         return ResponseEntity.ok(courseFileService.getCourseFileList(courseTopicId));
     }
 
+//    @GetMapping("/download/{fileId}")
+//    ResponseEntity<Resource> downloadFile(@PathVariable Long fileId) {
+//        return courseFileService.downloadFile(fileId);
+//    }
+
     @GetMapping("/download/{fileId}")
-    ResponseEntity<Resource> downloadFile(@PathVariable Long fileId) {
-        return courseFileService.downloadFile(fileId);
+    public ResponseEntity<Resource> streamVideo(@PathVariable Long fileId, @RequestHeader(value = "Range", required = false) String rangeHeader) {
+        return courseFileService.streamFile(fileId, rangeHeader);
     }
+
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
