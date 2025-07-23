@@ -16,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Slf4j
@@ -29,7 +30,7 @@ public class CourseTopicService {
         Course course = courseRepository.findById(courseId)
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_COURSE_ID));
 
-        return courseTopicRepository.findAllByCourse(course);
+        return courseTopicRepository.findAllByCourseOrderByIdAsc(course);
     }
 
     public CourseTopic createCourseTopic(CreateCourseTopicDto createCourseTopicDto) {

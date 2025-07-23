@@ -37,7 +37,6 @@ public class CourseFileController {
         return courseFileService.streamFile(fileId, rangeHeader);
     }
 
-
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     ResponseEntity<CourseFile> saveCourseFile(

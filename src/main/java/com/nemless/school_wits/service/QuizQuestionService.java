@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Slf4j
@@ -42,7 +43,10 @@ public class QuizQuestionService {
 
         enrolledCourseService.validateCourseMaterialAccess(quiz.getVideo().getCourseTopic().getCourse());
 
-        return quiz.getQuestions();
+        return quiz.getQuestions()
+                .stream()
+                .sorted(Comparator.comparing(QuizQuestion::getId))
+                .toList();
     }
 
     public QuizQuestion updateQuizQuestion(Long quizQuestionId, UpdateQuizQuestionDto updateQuizQuestionDto) {

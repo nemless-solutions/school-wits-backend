@@ -33,7 +33,7 @@ public class CourseFileService {
 
         enrolledCourseService.validateCourseMaterialAccess(courseTopic.getCourse());
 
-        return courseFileRepository.findAllByCourseTopic(courseTopic);
+        return courseFileRepository.findAllByCourseTopicOrderByIdAsc(courseTopic);
     }
 
     public CourseFile saveFile(Long courseTopicId, String title, String description, MultipartFile file) {

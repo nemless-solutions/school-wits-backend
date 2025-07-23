@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface CourseFileRepository extends JpaRepository<CourseFile, Long> {
-    List<CourseFile> findAllByCourseTopic(CourseTopic courseTopic);
+    List<CourseFile> findAllByCourseTopicOrderByIdAsc(CourseTopic courseTopic);
 }

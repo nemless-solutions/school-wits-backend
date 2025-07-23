@@ -51,7 +51,7 @@ public class QuizService {
 
         enrolledCourseService.validateCourseMaterialAccess(courseFile.getCourseTopic().getCourse());
 
-        return quizRepository.findByVideo(courseFile);
+        return quizRepository.findByVideoOrderByIdAsc(courseFile);
     }
 
     public Quiz getQuiz(Long quizId) {
