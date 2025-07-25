@@ -18,6 +18,7 @@ public class ResponseMessage {
     public static final String INVALID_QUIZ_RESULT_ID = "Quiz result id is invalid";
     public static final String INVALID_QUESTION_ID = "Question id is invalid";
     public static final String INVALID_FILE_ID = "File id is invalid";
+    public static final String INVALID_NOTICE_ID = "Notice id is invalid";
     public static final String ENROLLMENT_EXISTS = "Student is already enrolled in this course";
     public static final String UNABLE_TO_UPLOAD = "Can not upload file at this moment";
     public static final String UNABLE_TO_PERFORM_DATABASE_OPERATION = "Error while performing database operation";
@@ -28,6 +29,8 @@ public class ResponseMessage {
     public static final String UNAUTHORIZED_RESOURCE_REQUEST = "Resource request is unauthorized";
     public static final String INVALID_QUESTION_ANSWER = "One or more question or answer id is invalid";
     public static final String NOTICE_POSTED = "Notice posted";
+    public static final String NOTICE_UPDATED = "Notice updated";
+    public static final String NOTICE_DELETED = "Notice deleted";
     public static final String INVALID_NOTICE_RECIPIENT = "There is no recipient for this notice";
     public static final String INVALID_COURSE_BUNDLE = "No course bundle available for this grade";
     public static final String COURSE_DELETE_SUCCESSFUL = "Course deletion successful";

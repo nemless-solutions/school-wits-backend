@@ -2,6 +2,7 @@ package com.nemless.school_wits.controller;
 
 import com.nemless.school_wits.config.ResponseMessage;
 import com.nemless.school_wits.dto.request.CreateNoticeDto;
+import com.nemless.school_wits.dto.request.UpdateNoticeDto;
 import com.nemless.school_wits.model.Notice;
 import com.nemless.school_wits.service.NoticeService;
 import jakarta.validation.Valid;
@@ -37,5 +38,27 @@ public class NoticeController {
     @GetMapping("/admin")
     ResponseEntity<List<Notice>> getAllNotices() {
         return ResponseEntity.ok(noticeService.getAllNotices());
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/{noticeId}")
+    ResponseEntity<Notice> getNotice(@PathVariable Long noticeId) {
+        return ResponseEntity.ok(noticeService.getNotice(noticeId));
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @PutMapping("/{noticeId}")
+    ResponseEntity<String> updateNotice(@PathVariable Long noticeId, @Valid @RequestBody UpdateNoticeDto updateNoticeDto) {
+        log.info("Updating notice {}: {}", noticeId, updateNoticeDto);
+        noticeService.updateNotice(noticeId, updateNoticeDto);
+        return ResponseEntity.ok(ResponseMessage.NOTICE_UPDATED);
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping("/{noticeId}")
+    ResponseEntity<String> deleteNotice(@PathVariable Long noticeId) {
+        log.info("Deleting notice: {}", noticeId);
+        noticeService.deleteNotice(noticeId);
+        return ResponseEntity.ok(ResponseMessage.NOTICE_DELETED);
     }
 }

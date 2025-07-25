@@ -2,6 +2,7 @@ package com.nemless.school_wits.service;
 
 import com.nemless.school_wits.config.ResponseMessage;
 import com.nemless.school_wits.dto.request.CreateNoticeDto;
+import com.nemless.school_wits.dto.request.UpdateNoticeDto;
 import com.nemless.school_wits.enums.Role;
 import com.nemless.school_wits.exception.BadRequestException;
 import com.nemless.school_wits.exception.ResourceNotFoundException;
@@ -10,9 +11,11 @@ import com.nemless.school_wits.model.User;
 import com.nemless.school_wits.repository.NoticeRepository;
 import com.nemless.school_wits.repository.UserRepository;
 import com.nemless.school_wits.util.AuthUtils;
+import com.nemless.school_wits.util.StringUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -46,6 +49,37 @@ public class NoticeService {
         }
 
         noticeRepository.save(notice);
+    }
+
+    public Notice getNotice(Long noticeId) {
+        return noticeRepository.findById(noticeId)
+                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_NOTICE_ID));
+    }
+
+    public void updateNotice(Long noticeId, UpdateNoticeDto updateNoticeDto) {
+        Notice notice = noticeRepository.findById(noticeId)
+                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_NOTICE_ID));
+
+        if(!StringUtils.isEmpty(updateNoticeDto.getTitle()) && !updateNoticeDto.getTitle().equals(notice.getTitle())) {
+            notice.setTitle(updateNoticeDto.getTitle());
+        }
+        if(!StringUtils.isEmpty(updateNoticeDto.getDetails()) && !updateNoticeDto.getDetails().equals(notice.getDetails())) {
+            notice.setDetails(updateNoticeDto.getDetails());
+        }
+
+        noticeRepository.save(notice);
+    }
+
+    @Transactional
+    public void deleteNotice(Long noticeId) {
+        Notice notice = noticeRepository.findById(noticeId)
+                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_NOTICE_ID));
+
+        notice.getRecipients().clear();
+        noticeRepository.save(notice);
+        noticeRepository.flush();
+
+        noticeRepository.delete(notice);
     }
 
     public List<Notice> getUserNotices() {
