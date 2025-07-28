@@ -10,8 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Slf4j
 @RequiredArgsConstructor
 @RestController
@@ -26,10 +24,10 @@ public class CourseInformationController {
 
     @PutMapping("/infographics")
     @PreAuthorize("hasRole('ADMIN')")
-    ResponseEntity<String> updateInfographics(@RequestBody List<UpdateCourseInfographicsRequest> infographicsRequestList) {
-        log.info("Updating infographics: {}", infographicsRequestList);
+    ResponseEntity<String> updateInfographics(@RequestBody UpdateCourseInfographicsRequest infographicsRequest) {
+        log.info("Updating infographics: {}", infographicsRequest);
 
-        courseInformationService.updateInfographics(infographicsRequestList);
+        courseInformationService.updateInfographics(infographicsRequest);
 
         return ResponseEntity.ok(ResponseMessage.INFOGRAPHICS_UPDATE_SUCCESSFUL);
     }
