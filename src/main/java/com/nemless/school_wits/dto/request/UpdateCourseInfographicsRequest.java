@@ -1,6 +1,5 @@
 package com.nemless.school_wits.dto.request;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,5 +12,5 @@ import java.util.Map;
 @AllArgsConstructor
 public class UpdateCourseInfographicsRequest {
     @NotEmpty(message = "Infographics map must not be empty")
-    private Map<Long, @Valid UpdateCourseInfographicsDto> infographicsMap;
+    private Map<Long, @NotEmpty(message = "Chart values must not be empty") Map<String, Integer>> infographicsMap;
 }

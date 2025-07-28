@@ -7,7 +7,10 @@ import com.nemless.school_wits.service.CourseInformationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -22,10 +25,11 @@ public class CourseInformationController {
     }
 
     @PutMapping("/infographics")
-    ResponseEntity<String> updateInfographics(@RequestBody UpdateCourseInfographicsRequest infographicsRequest) {
-        log.info("Updating infographics: {}", infographicsRequest);
+    @PreAuthorize("hasRole('ADMIN')")
+    ResponseEntity<String> updateInfographics(@RequestBody List<UpdateCourseInfographicsRequest> infographicsRequestList) {
+        log.info("Updating infographics: {}", infographicsRequestList);
 
-        courseInformationService.updateInfographics(infographicsRequest);
+        courseInformationService.updateInfographics(infographicsRequestList);
 
         return ResponseEntity.ok(ResponseMessage.INFOGRAPHICS_UPDATE_SUCCESSFUL);
     }

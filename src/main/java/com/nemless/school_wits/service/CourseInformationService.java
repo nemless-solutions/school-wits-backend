@@ -1,7 +1,6 @@
 package com.nemless.school_wits.service;
 
 import com.nemless.school_wits.config.ResponseMessage;
-import com.nemless.school_wits.dto.request.UpdateCourseInfographicsDto;
 import com.nemless.school_wits.dto.request.UpdateCourseInfographicsRequest;
 import com.nemless.school_wits.exception.BadRequestException;
 import com.nemless.school_wits.exception.ResourceNotFoundException;
@@ -27,15 +26,17 @@ public class CourseInformationService {
     }
 
     @Transactional
-    public void updateInfographics(UpdateCourseInfographicsRequest updateCourseInfographicsRequest) {
-        List<CourseInformation> courseInformationList = new ArrayList<>();
-        for(Map.Entry<Long, UpdateCourseInfographicsDto> infographicsEntry : updateCourseInfographicsRequest.getInfographicsMap().entrySet()) {
-            CourseInformation courseInformation = courseInformationRepository.findByCourse_Id(infographicsEntry.getKey())
-                    .orElseThrow(() -> new BadRequestException(ResponseMessage.INVALID_INFOGRAPHICS_COURSE_ID));
+    public void updateInfographics(List<UpdateCourseInfographicsRequest> infographicsRequestList) {
+        for(UpdateCourseInfographicsRequest infographicsRequest : infographicsRequestList) {
+            List<CourseInformation> courseInformationList = new ArrayList<>();
+            for(Map.Entry<Long, Map<String, Integer>> infographicsEntry : infographicsRequest.getInfographicsMap().entrySet()) {
+                CourseInformation courseInformation = courseInformationRepository.findByCourse_Id(infographicsEntry.getKey())
+                        .orElseThrow(() -> new BadRequestException(ResponseMessage.INVALID_INFOGRAPHICS_COURSE_ID));
 
-            courseInformation.setChartValues(infographicsEntry.getValue().getChartValues());
-            courseInformationList.add(courseInformation);
+                courseInformation.setChartValues(infographicsEntry.getValue());
+                courseInformationList.add(courseInformation);
+            }
+            courseInformationRepository.saveAll(courseInformationList);
         }
-        courseInformationRepository.saveAll(courseInformationList);
     }
 }
