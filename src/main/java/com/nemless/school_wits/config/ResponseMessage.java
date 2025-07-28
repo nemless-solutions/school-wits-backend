@@ -44,4 +44,6 @@ public class ResponseMessage {
     public static final String PASSWORD_CHANGE_SUCCESSFUL = "Password changed successfully";
     public static final String CURRENT_PASSWORD_DOES_NOT_MATCH = "Current password does not match";
     public static final String PASSWORDS_DO_NOT_MATCH = "New passwords do not match";
+    public static final String INVALID_INFOGRAPHICS_COURSE_ID = "One or more course id is invalid";
+    public static final String INFOGRAPHICS_UPDATE_SUCCESSFUL = "Infographics updated successfully";
 }
