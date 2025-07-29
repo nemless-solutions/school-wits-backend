@@ -55,6 +55,9 @@ public class CourseInformation implements Serializable {
     @Lob
     private String academicPlan;
 
+    @Lob
+    private String coreLearningAreas;
+
     @OneToOne(mappedBy = "courseInformation", cascade = CascadeType.ALL)
     private CoursePlanInformation coursePlanInformation;
 }
