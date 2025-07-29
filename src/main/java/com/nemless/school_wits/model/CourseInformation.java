@@ -55,7 +55,7 @@ public class CourseInformation implements Serializable {
     @Lob
     private String academicPlan;
 
-    @Lob
+    @Column(columnDefinition = "TEXT")
     private String coreLearningAreas;
 
     @OneToOne(mappedBy = "courseInformation", cascade = CascadeType.ALL)
