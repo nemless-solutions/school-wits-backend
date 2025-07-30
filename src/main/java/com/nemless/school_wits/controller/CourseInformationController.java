@@ -3,7 +3,7 @@ package com.nemless.school_wits.controller;
 import com.nemless.school_wits.config.ResponseMessage;
 import com.nemless.school_wits.dto.request.UpdateCoreLearningAreasDto;
 import com.nemless.school_wits.dto.request.UpdateCourseInfographicsRequest;
-import com.nemless.school_wits.model.CourseInformation;
+import com.nemless.school_wits.dto.response.CourseInformationResponse;
 import com.nemless.school_wits.service.CourseInformationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +21,7 @@ public class CourseInformationController {
     private final CourseInformationService courseInformationService;
 
     @GetMapping("/{courseId}")
-    ResponseEntity<CourseInformation> getCourseInformation(@PathVariable Long courseId) {
+    ResponseEntity<CourseInformationResponse> getCourseInformation(@PathVariable Long courseId) {
         return ResponseEntity.ok(courseInformationService.getCourseInformationByCourseId(courseId));
     }
 
@@ -40,7 +40,7 @@ public class CourseInformationController {
     ResponseEntity<String> updateCoreLearningAreas(@RequestBody List<UpdateCoreLearningAreasDto> list) {
         log.info("Updating core learning areas: {}", list);
 
-        courseInformationService.updateInfographics(list);
+        courseInformationService.updateCoreLearningAreas(list);
 
         return ResponseEntity.ok("Success");
     }
