@@ -44,6 +44,7 @@ public class Quiz implements Serializable {
 
     @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
+    @JsonIgnore
     private List<QuizResult> results = new ArrayList<>();
 
     @CreationTimestamp
