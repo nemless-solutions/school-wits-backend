@@ -22,6 +22,7 @@ import java.util.*;
 public class CourseInformationService {
     private final CourseInformationRepository courseInformationRepository;
 
+    @Transactional
     public CourseInformationResponse getCourseInformationByCourseId(Long courseId) {
         CourseInformation courseInformation = courseInformationRepository.findByCourse_Id(courseId)
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_COURSE_ID));
