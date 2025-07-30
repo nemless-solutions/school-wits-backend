@@ -48,4 +48,10 @@ public class UserController {
     ResponseEntity<DataSummary> getDataSummary() {
         return ResponseEntity.ok(userService.getDataSummary());
     }
+
+    @GetMapping("/no-enrollments")
+    @PreAuthorize("hasRole('ADMIN')")
+    ResponseEntity<List<User>> getUsersWithoutEnrollments() {
+        return ResponseEntity.ok(userService.getUsersWithoutEnrollments());
+    }
 }

@@ -1,6 +1,7 @@
 package com.nemless.school_wits.service;
 
 import com.nemless.school_wits.config.ResponseMessage;
+import com.nemless.school_wits.dto.request.UpdateBundleFeesDto;
 import com.nemless.school_wits.enums.Grade;
 import com.nemless.school_wits.exception.BadRequestException;
 import com.nemless.school_wits.exception.ResourceNotFoundException;
@@ -29,5 +30,19 @@ public class CourseBundleService {
     public CourseBundle findCourseBundleById(Long bundleId) {
         return courseBundleRepository.findById(bundleId)
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_COURSE_BUNDLE));
+    }
+
+    public void updateBundleFees(Long bundleId, UpdateBundleFeesDto updateBundleFeesDto) {
+        CourseBundle courseBundle = courseBundleRepository.findById(bundleId)
+                .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_COURSE_BUNDLE));
+
+        if(updateBundleFeesDto.getFee() != 0 && updateBundleFeesDto.getFee() != courseBundle.getFee()) {
+            courseBundle.setFee(updateBundleFeesDto.getFee());
+        }
+        if(updateBundleFeesDto.getDiscountedFee() != 0 && updateBundleFeesDto.getDiscountedFee() != courseBundle.getDiscountedFee()) {
+            courseBundle.setDiscountedFee(updateBundleFeesDto.getDiscountedFee());
+        }
+
+        courseBundleRepository.save(courseBundle);
     }
 }

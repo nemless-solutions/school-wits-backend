@@ -25,6 +25,7 @@ public class QuizService {
     private final QuizRepository quizRepository;
     private final CourseFileRepository courseFileRepository;
     private final EnrolledCourseService enrolledCourseService;
+    private static final int DEFAULT_QUIZ_NUMBERS = 5;
 
     @Transactional
     public Quiz createQuiz(CreateQuizDto createQuizDto) {
@@ -38,8 +39,8 @@ public class QuizService {
         Quiz quiz = Quiz.builder()
                 .video(courseFile)
                 .title(createQuizDto.getTitle())
-                .questionMark(createQuizDto.getQuestionMark())
-                .duration(createQuizDto.getDuration())
+                .questionMark(DEFAULT_QUIZ_NUMBERS)
+                .duration(DEFAULT_QUIZ_NUMBERS)
                 .build();
 
         return quizRepository.save(quiz);

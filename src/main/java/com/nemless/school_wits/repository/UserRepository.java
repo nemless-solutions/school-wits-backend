@@ -22,4 +22,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     long countByRoles_Name(Role role);
 
     List<User> findByFullNameContainingIgnoreCase(String name);
+
+    List<User> findByEnrollmentsIsEmpty();
 }

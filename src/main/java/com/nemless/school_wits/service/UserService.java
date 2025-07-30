@@ -115,4 +115,8 @@ public class UserService {
                     : Collections.emptyList();
         }
     }
+
+    public List<User> getUsersWithoutEnrollments() {
+        return userRepository.findByEnrollmentsIsEmpty();
+    }
 }
