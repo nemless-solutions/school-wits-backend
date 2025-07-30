@@ -37,6 +37,7 @@ public class CourseInformationService {
                 .assessment(courseInformation.getAssessment())
                 .academicPlan(courseInformation.getAcademicPlan())
                 .coreLearningAreas(StringUtils.parseCoreLearningAreaContentString(courseInformation.getCoreLearningAreas()))
+                .coursePlanInformation(courseInformation.getCoursePlanInformation())
                 .build();
     }
 
