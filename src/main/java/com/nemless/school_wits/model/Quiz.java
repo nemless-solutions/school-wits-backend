@@ -42,6 +42,10 @@ public class Quiz implements Serializable {
     @Builder.Default
     private List<QuizQuestion> questions = new ArrayList<>();
 
+    @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
+    private List<QuizResult> results = new ArrayList<>();
+
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false, updatable = false)
