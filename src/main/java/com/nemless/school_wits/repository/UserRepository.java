@@ -24,4 +24,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByFullNameContainingIgnoreCase(String name);
 
     List<User> findByEnrollmentsIsEmpty();
+
+    List<User> findByEnrollments_Course_Id(Long courseId);
 }

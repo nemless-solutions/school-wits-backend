@@ -16,4 +16,5 @@ public class CreateNoticeDto {
     private boolean notifyAll;
     private Grade grade;
     private Long userId;
+    private Long courseId;
 }

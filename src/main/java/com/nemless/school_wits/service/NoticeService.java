@@ -33,17 +33,18 @@ public class NoticeService {
         notice.setDetails(createNoticeDto.getDetails());
 
         if(createNoticeDto.isNotifyAll()) {
-            for(User user : userRepository.findByRoles_Name(Role.ROLE_STUDENT)) {
-                notice.getRecipients().add(user);
-            }
+            List<User> students = userRepository.findByRoles_Name(Role.ROLE_STUDENT);
+            notice.getRecipients().addAll(students);
         } else if(createNoticeDto.getGrade() != null) {
-            for(User user : userRepository.findByGrade(createNoticeDto.getGrade())) {
-                notice.getRecipients().add(user);
-            }
+            List<User> students = userRepository.findByGrade(createNoticeDto.getGrade());
+            notice.getRecipients().addAll(students);
         } else if(createNoticeDto.getUserId() != null) {
             User user = userRepository.findById(createNoticeDto.getUserId())
                     .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_USER_ID));
             notice.getRecipients().add(user);
+        } else if(createNoticeDto.getCourseId() != null) {
+            List<User> students = userRepository.findByEnrollments_Course_Id(createNoticeDto.getCourseId());
+            notice.getRecipients().addAll(students);
         } else {
             throw new BadRequestException(ResponseMessage.INVALID_NOTICE_RECIPIENT);
         }
