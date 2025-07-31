@@ -1,5 +1,6 @@
 package com.nemless.school_wits.dto.response;
 
+import com.nemless.school_wits.model.Course;
 import com.nemless.school_wits.model.CoursePlanInformation;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,6 +14,7 @@ import java.util.Map;
 @Getter
 public class CourseInformationResponse {
     private Long id;
+    private Course course;
     private String title;
     private String description;
     private String learningContentTitle;

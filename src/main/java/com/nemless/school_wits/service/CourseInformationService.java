@@ -29,6 +29,7 @@ public class CourseInformationService {
 
         return CourseInformationResponse.builder()
                 .id(courseInformation.getId())
+                .course(courseInformation.getCourse())
                 .title(courseInformation.getTitle())
                 .description(courseInformation.getDescription())
                 .learningContentTitle(courseInformation.getLearningContentTitle())
