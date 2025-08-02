@@ -12,17 +12,20 @@ spring:
     url: jdbc:postgresql://localhost:5432/school-wits
     username: postgres
     password: tiger
-    initialization-mode: always
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     show-sql: true
   sql:
     init:
-      mode: always
+      mode: never
   jwt:
     secret: 743d253555a5aaf68e3adf8faade4f5db388dc2958da14bcdd01ebaba8728ecc
     expiration: 30000000
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    baseline-version: 1
 
 upload-directory: E:\DEV\nemless\school-wits-storage\
 api:
