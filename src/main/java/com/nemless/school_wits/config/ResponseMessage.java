@@ -17,6 +17,7 @@ public class ResponseMessage {
     public static final String INVALID_QUIZ_ID = "Quiz id is invalid";
     public static final String INVALID_QUIZ_RESULT_ID = "Quiz result id is invalid";
     public static final String INVALID_QUESTION_ID = "Question id is invalid";
+    public static final String INVALID_ANSWER_ID = "Answer id is invalid";
     public static final String INVALID_FILE_ID = "File id is invalid";
     public static final String INVALID_NOTICE_ID = "Notice id is invalid";
     public static final String ENROLLMENT_EXISTS = "Student is already enrolled in this course";
@@ -47,4 +48,5 @@ public class ResponseMessage {
     public static final String PASSWORDS_DO_NOT_MATCH = "New passwords do not match";
     public static final String INVALID_INFOGRAPHICS_COURSE_ID = "One or more course id is invalid";
     public static final String INFOGRAPHICS_UPDATE_SUCCESSFUL = "Infographics updated successfully";
+    public static final String MULTIPLE_CORRECT_ANSWERS = "Request contains more than 1 correct answer for question: ";
 }

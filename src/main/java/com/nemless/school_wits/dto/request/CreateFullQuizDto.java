@@ -1,15 +1,18 @@
 package com.nemless.school_wits.dto.request;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Getter
 @ToString
 @AllArgsConstructor
-public class CreateQuizDto {
+public class CreateFullQuizDto {
     @NotBlank(message = "Title is required")
     private String title;
 
@@ -19,4 +22,7 @@ public class CreateQuizDto {
     private int questionMark;
 
     private int duration;
+
+    @Valid
+    private List<CreateFullQuizQuestionDto> questions;
 }

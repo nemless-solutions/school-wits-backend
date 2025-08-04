@@ -1,6 +1,7 @@
 package com.nemless.school_wits.controller;
 
 import com.nemless.school_wits.config.ResponseMessage;
+import com.nemless.school_wits.dto.request.CreateFullQuizDto;
 import com.nemless.school_wits.dto.request.CreateQuizDto;
 import com.nemless.school_wits.dto.request.UpdateQuizDto;
 import com.nemless.school_wits.model.Quiz;
@@ -29,6 +30,22 @@ public class QuizController {
         return ResponseEntity.ok(quizService.createQuiz(createQuizDto));
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/full")
+    ResponseEntity<Quiz> createFullQuiz(@Valid @RequestBody CreateFullQuizDto createFullQuizDto) {
+        log.info("Creating quiz with question and answers: {}", createFullQuizDto);
+
+        return ResponseEntity.ok(quizService.createFullQuiz(createFullQuizDto));
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @PutMapping("/full")
+    ResponseEntity<Quiz> updateFullQuiz(@Valid @RequestBody Quiz quiz) {
+        log.info("Updating quiz with question and answers: {}", quiz);
+
+        return ResponseEntity.ok(quizService.updateFullQuiz(quiz));
+    }
+
     @GetMapping("/video/{videoId}")
     ResponseEntity<List<Quiz>> getQuizzesByVideoId(@PathVariable Long videoId) {
         return ResponseEntity.ok(quizService.getQuizzesByVideoId(videoId));
@@ -46,6 +63,7 @@ public class QuizController {
 
         return ResponseEntity.ok(quizService.updateQuiz(quizId, updateQuizDto));
     }
+
 
     @DeleteMapping("/{quizId}")
     @PreAuthorize("hasRole('ADMIN')")
