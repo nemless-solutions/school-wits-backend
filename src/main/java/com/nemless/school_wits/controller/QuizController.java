@@ -4,6 +4,7 @@ import com.nemless.school_wits.config.ResponseMessage;
 import com.nemless.school_wits.dto.request.CreateFullQuizDto;
 import com.nemless.school_wits.dto.request.CreateQuizDto;
 import com.nemless.school_wits.dto.request.UpdateQuizDto;
+import com.nemless.school_wits.dto.response.QuizResponseDto;
 import com.nemless.school_wits.model.Quiz;
 import com.nemless.school_wits.service.QuizService;
 import jakarta.validation.Valid;
@@ -52,7 +53,7 @@ public class QuizController {
     }
 
     @GetMapping("/{quizId}")
-    ResponseEntity<Quiz> getQuiz(@PathVariable Long quizId) {
+    ResponseEntity<QuizResponseDto> getQuiz(@PathVariable Long quizId) {
         return ResponseEntity.ok(quizService.getQuiz(quizId));
     }
 

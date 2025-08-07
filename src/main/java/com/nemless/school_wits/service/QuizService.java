@@ -2,7 +2,10 @@ package com.nemless.school_wits.service;
 
 import com.nemless.school_wits.config.ResponseMessage;
 import com.nemless.school_wits.dto.request.*;
+import com.nemless.school_wits.dto.response.QuizQuestionResponse;
+import com.nemless.school_wits.dto.response.QuizResponseDto;
 import com.nemless.school_wits.enums.CourseFileType;
+import com.nemless.school_wits.enums.Role;
 import com.nemless.school_wits.exception.BadRequestException;
 import com.nemless.school_wits.exception.ResourceNotFoundException;
 import com.nemless.school_wits.model.CourseFile;
@@ -13,6 +16,7 @@ import com.nemless.school_wits.repository.CourseFileRepository;
 import com.nemless.school_wits.repository.QuizAnswerRepository;
 import com.nemless.school_wits.repository.QuizQuestionRepository;
 import com.nemless.school_wits.repository.QuizRepository;
+import com.nemless.school_wits.util.AuthUtils;
 import com.nemless.school_wits.util.StringUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,8 +36,10 @@ public class QuizService {
     private final QuizRepository quizRepository;
     private final QuizQuestionRepository quizQuestionRepository;
     private final QuizAnswerRepository quizAnswerRepository;
+    private final QuizAnswerService quizAnswerService;
     private final CourseFileRepository courseFileRepository;
     private final EnrolledCourseService enrolledCourseService;
+    private final AuthUtils authUtils;
 
     private static final int DEFAULT_QUESTION_MARK = 5;
     private static final int DEFAULT_QUIZ_DURATION = 5;
@@ -136,9 +142,29 @@ public class QuizService {
         return quizRepository.findByVideoOrderByIdAsc(courseFile);
     }
 
-    public Quiz getQuiz(Long quizId) {
-        return quizRepository.findById(quizId)
+    public QuizResponseDto getQuiz(Long quizId) {
+        Quiz quiz = quizRepository.findById(quizId)
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_QUIZ_ID));
+
+        QuizResponseDto quizResponseDto = QuizResponseDto.builder()
+                .id(quiz.getId())
+                .title(quiz.getTitle())
+                .createdAt(quiz.getCreatedAt())
+                .build();
+
+        List<QuizQuestionResponse> questions = new ArrayList<>();
+        for(QuizQuestion question : quiz.getQuestions()) {
+            questions.add(
+                    QuizQuestionResponse.builder()
+                            .id(question.getId())
+                            .title(question.getTitle())
+                            .answers(quizAnswerService.filterAnswersBasedOnUserPermission(question.getAnswers()))
+                            .build()
+            );
+        }
+        quizResponseDto.setQuestions(questions);
+
+        return quizResponseDto;
     }
 
     public Quiz updateQuiz(Long quizId, UpdateQuizDto updateQuizDto) {

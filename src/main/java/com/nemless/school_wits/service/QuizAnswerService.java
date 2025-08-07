@@ -49,12 +49,15 @@ public class QuizAnswerService {
         QuizQuestion question = quizQuestionRepository.findById(questionId)
                 .orElseThrow(() -> new ResourceNotFoundException(ResponseMessage.INVALID_QUESTION_ID));
 
+        return filterAnswersBasedOnUserPermission(question.getAnswers());
+    }
+
+    public List<QuizAnswerResponse> filterAnswersBasedOnUserPermission(List<QuizAnswer> answers) {
         boolean hasPermissionToViewCorrectAnswer = authUtils.getAuthenticatedUser()
                 .getRoles()
                 .stream()
                 .anyMatch(role -> role.getName() == Role.ROLE_ADMIN || role.getName() == Role.ROLE_TEACHER);
 
-        List<QuizAnswer> answers = question.getAnswers();
         answers.sort(Comparator.comparing(QuizAnswer::getId));
         if(hasPermissionToViewCorrectAnswer) {
             return answers.stream()
